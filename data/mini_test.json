@@ -1,0 +1,121 @@
+[
+  {
+    "scan_id": "scene0606_00",
+    "target_id": 27,
+    "caption": "the chair is west of the left - most table . the chair is dark brown and has four legs .",
+    "program": "BOX0=LOC(object='chair')\nBOX1=LOC(object='left-most table')\nTARGET=LEFT(targets=BOX0, anchors=BOX1)",
+    "obj_name": "chair"
+  },
+  {
+    "scan_id": "scene0606_00",
+    "target_id": 25,
+    "caption": "this fridge is in the corner on the back right . it faces left and is behind the cabinet . there is a table to the left and in front .",
+    "program": "BOX0=LOC(object='fridge in corner on back right')\nBOX1=LOC(object='cabinet')\nBOX2=LOC(object='table')\nTARGET=LEFT(targets=BOX0, anchors=BOX2)",
+    "obj_name": "refrigerator"
+  },
+  {
+    "scan_id": "scene0606_00",
+    "target_id": 4,
+    "caption": "this chair is in the middle . it is facing right .",
+    "program": "BOX0=LOC(object='chair')\nTARGET=MID(targets=BOX0)",
+    "obj_name": "chair"
+  },
+  {
+    "scan_id": "scene0221_00",
+    "target_id": 10,
+    "caption": "a counter / desk where a tv often sits . it is beside the black chair .",
+    "program": "BOX0=LOC(object='counter / desk where a tv often sits')\nBOX1=LOC(object='black chair')\nTARGET=RIGHT(targets=BOX0, anchors=BOX1)",
+    "obj_name": "desk"
+  },
+  {
+    "scan_id": "scene0221_00",
+    "target_id": 50,
+    "caption": "there is a white plastic soap dispenser placed on the side of the wall .",
+    "program": "BOX0=LOC(object='white plastic soap dispenser')\nBOX1=LOC(object='side of the wall')",
+    "obj_name": "towel"
+  },
+  {
+    "scan_id": "scene0221_00",
+    "target_id": 21,
+    "caption": "this picture is located on the back wall of the room . it is above the left bed .",
+    "program": "BOX0=LOC(object='picture on the back wall of the room')\nBOX1=LOC(object='left bed')\nTARGET=ABOVE(targets=BOX0, anchors=BOX1)",
+    "obj_name": "picture"
+  },
+  {
+    "scan_id": "scene0221_00",
+    "target_id": 15,
+    "caption": "the sink is white and has a wide counter around it . the sink is in between two walls .",
+    "program": "BOX0=LOC(object='white sink with wide counter around it')\nBOX1=LOC(object='wall')\nTARGET=BETWEEN(targets=BOX0, anchors=[BOX1, BOX1])",
+    "obj_name": "sink"
+  },
+  {
+    "scan_id": "scene0221_00",
+    "target_id": 47,
+    "caption": "there is a square beige table . it is next to a large rectangular table at the side of the room .",
+    "program": "BOX0=LOC(object='square beige table')\nBOX1=LOC(object='large rectangular table')\nTARGET=CLOSEST(targets=BOX0, anchors=BOX1)",
+    "obj_name": "table"
+  },
+  {
+    "scan_id": "scene0221_00",
+    "target_id": 7,
+    "caption": "the bed is on the left side of the room . it has a green cover .",
+    "program": "BOX0=LOC(object='bed on left side of room')\nBOX1=LOC(object='green cover')\nTARGET=LOC(object='bed on left side of room')",
+    "obj_name": "bed"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 27,
+    "caption": "the trash can is right of the right - most door on the northern wall . the trash can is a trapezoidal prism and gray .",
+    "program": "BOX0=LOC(object='trash can')\nBOX1=LOC(object='right-most door on northern wall')\nTARGET=RIGHT(targets=BOX0, anchors=BOX1)",
+    "obj_name": "trash can"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 12,
+    "caption": "the monitor is opposite the desk with two monitors , and is next to the white shelf / cabinet . there is a black , non - rolling chair at the same desk .",
+    "program": "BOX0=LOC(object='monitor opposite desk with two monitors')\nBOX1=LOC(object='white shelf / cabinet')\nBOX2=LOC(object='black non-rolling chair at same desk')\nTARGET=BETWEEN(targets=BOX0, anchors=[BOX1, BOX2])",
+    "obj_name": "monitor"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 34,
+    "caption": "the chair is black and pushed into a desk . it is the chair furthest to the left . that is on the left .",
+    "program": "BOX0=LOC(object='black chair pushed into a desk')\nBOX1=LOC(object='left')\nTARGET=LOWEST(targets=BOX0)",
+    "obj_name": "chair"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 43,
+    "caption": "the whiteboard is on the white wall . it is to the right of the doors .",
+    "program": "BOX0=LOC(object='whiteboard')\nBOX1=LOC(object='doors')\nTARGET=RIGHT(targets=BOX0, anchors=BOX1)",
+    "obj_name": "whiteboard"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 1,
+    "caption": "the couch has a pillow on the left side of it . there is a fire extinguisher on the wall behind the couch .",
+    "program": "BOX0=LOC(object='couch')\nBOX1=LOC(object='pillow on the left side of the couch')\nBOX2=LOC(object='fire extinguisher on the wall behind the couch')\nTARGET=LEFT(targets=BOX1, anchors=BOX0)",
+    "obj_name": "couch"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 1,
+    "caption": "it is a brown leather couch with a bag on the left cushion . there is a fire extinguisher behind it and it is across from another identical couch .",
+    "program": "BOX0=LOC(object='brown leather couch')\nBOX1=LOC(object='bag on left cushion')\nBOX2=LOC(object='fire extinguisher')\nBOX3=LOC(object='identical couch')\nTARGET=LEFT(targets=BOX0, anchors=BOX1)",
+    "obj_name": "couch"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 11,
+    "caption": "this is a white shelf . it is between tables .",
+    "program": "BOX0=LOC(object='white shelf')\nBOX1=LOC(object='tables')\nTARGET=BETWEEN(targets=BOX0, anchors=BOX1)",
+    "obj_name": "shelf"
+  },
+  {
+    "scan_id": "scene0329_00",
+    "target_id": 43,
+    "caption": "the whiteboard is next to two doors . the whiteboard is a long , white rectangle .",
+    "program": "BOX0=LOC(object='whiteboard')\nBOX1=LOC(object='doors')\nTARGET=BETWEEN(targets=BOX0, anchors=BOX1)",
+    "obj_name": "whiteboard"
+  }
+]

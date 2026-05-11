@@ -5,13 +5,18 @@ import logging
 import numpy as np
 import os
 import torch
+from pathlib import Path
 
 from PIL import Image
 from io import BytesIO
 
 
+_SCANNET_ORIGIN_DIR = '/data/knuvi/bosung/scannet_origin'
+_MASK3D_DIR         = '/data/knuvi/bosung/Mask3d/scannet200'
+
+
 def load_seg_inst(scene_id):
-    root_dir = '../data/mask3d/scannet200'
+    root_dir = _MASK3D_DIR
     data = np.load(os.path.join(root_dir, scene_id + '.npz'), allow_pickle=True)
     ins_labels = list(data['ins_labels'])
     ins_scores = [float(x) for x in data['ins_scores']]
@@ -34,28 +39,68 @@ def load_seg_inst(scene_id):
 
 
 def load_pc(scene_id):
-    root_dir = '../data/referit3d/scan_data'
-    pcds, _, _, instance_labels = torch.load(
-        os.path.join(root_dir, 'pcd_with_global_alignment', '%s.pth' % scene_id))
-    inst_to_name = json.load(open(os.path.join(root_dir, 'instance_id_to_name', '%s.json' % scene_id)))
+    """
+    Load GT instance bounding boxes from ScanNet aggregation + .ply files.
+    Replaces the original referit3d .pth dependency.
+    Returns: (obj_ids, obj_labels, inst_locs)
+      obj_ids   : list[int]      — objectId from aggregation.json
+      obj_labels: list[str]      — class label per object
+      inst_locs : list[np.array] — [cx, cy, cz, wx, wy, wz] axis-aligned bbox
+    """
+    from plyfile import PlyData
+    scene_dir = os.path.join(_SCANNET_ORIGIN_DIR, scene_id)
 
-    obj_labels = []
-    inst_locs = []
-    obj_ids = []
-    
-    for i, obj_label in enumerate(inst_to_name):
-        if obj_label in ['wall', 'floor', 'ceiling']:
+    # Load axis alignment
+    txt_path = os.path.join(scene_dir, f'{scene_id}.txt')
+    axis_align = np.eye(4)
+    if os.path.exists(txt_path):
+        with open(txt_path) as f:
+            for line in f:
+                if line.startswith('axisAlignment'):
+                    vals = [float(x) for x in line.split('=')[1].split()]
+                    axis_align = np.array(vals).reshape(4, 4)
+                    break
+
+    # Load point cloud
+    ply_path = os.path.join(scene_dir, f'{scene_id}_vh_clean_2.ply')
+    plydata = PlyData.read(ply_path)
+    verts = np.stack([plydata['vertex']['x'],
+                      plydata['vertex']['y'],
+                      plydata['vertex']['z']], axis=1).astype(np.float32)
+    # Apply axis alignment
+    ones = np.ones((verts.shape[0], 1), dtype=np.float32)
+    verts_h = np.concatenate([verts, ones], axis=1)
+    verts = (axis_align @ verts_h.T).T[:, :3]
+
+    # Load segmentation (vertex → segment index)
+    segs_path = os.path.join(scene_dir, f'{scene_id}_vh_clean_2.0.010000.segs.json')
+    with open(segs_path) as f:
+        segs_data = json.load(f)
+    seg_indices = np.array(segs_data['segIndices'])  # (N_verts,)
+
+    # Load aggregation (segment → object)
+    agg_path = os.path.join(scene_dir, f'{scene_id}.aggregation.json')
+    with open(agg_path) as f:
+        agg = json.load(f)
+
+    skip_labels = {'wall', 'floor', 'ceiling'}
+    obj_ids, obj_labels, inst_locs = [], [], []
+
+    for group in agg['segGroups']:
+        obj_id  = int(group['objectId'])
+        label   = group['label']
+        if label in skip_labels:
             continue
-        mask = instance_labels == i
-        assert np.sum(mask) > 0, 'scene: %s, obj %d' % (scene_id, i)
-        
-        obj_pcd = pcds[mask]
-        obj_center = (obj_pcd[:, :3].max(0) + obj_pcd[:, :3].min(0)) / 2
-        obj_size = obj_pcd[:, :3].max(0) - obj_pcd[:, :3].min(0)
-        inst_locs.append(np.concatenate([obj_center, obj_size], 0))
-
-        obj_labels.append(obj_label)
-        obj_ids.append(i)
+        seg_ids = set(group['segments'])
+        mask = np.isin(seg_indices, list(seg_ids))
+        if mask.sum() == 0:
+            continue
+        pts = verts[mask]
+        obj_center = (pts.max(0) + pts.min(0)) / 2
+        obj_size   = pts.max(0) - pts.min(0)
+        inst_locs.append(np.concatenate([obj_center, obj_size]).astype(np.float32))
+        obj_ids.append(obj_id)
+        obj_labels.append(label)
 
     return obj_ids, obj_labels, inst_locs
 
@@ -87,7 +132,10 @@ def create_logger(exp_name):
     logger.setLevel(logging.DEBUG)
 
     # Create handlers for writing to a file and logging to console
-    file_handler = logging.FileHandler(f'../logs/{exp_name}.log', mode='w')
+    repo_root = Path(__file__).resolve().parents[1]
+    log_dir = repo_root / 'logs'
+    log_dir.mkdir(exist_ok=True)
+    file_handler = logging.FileHandler(log_dir / f'{exp_name}.log', mode='w')
     console_handler = logging.StreamHandler()
 
     # Create formatters and add them to the handlers

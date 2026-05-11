@@ -1,36 +1,92 @@
 import numpy as np
+import os
 import torch
-
-from pytorch3d.renderer import look_at_view_transform, FoVOrthographicCameras
 
 from visprog.utils import parse_step
 from visprog.registry import register_interpreter
 
 
+def _look_at_matrix(eye, at, up=np.array([0., 0., 1.])):
+    """Return (3,3) rotation matrix for a camera at `eye` looking at `at`."""
+    eye = np.asarray(eye, dtype=np.float64)
+    at  = np.asarray(at,  dtype=np.float64)
+    fwd = at - eye
+    fwd_norm = np.linalg.norm(fwd)
+    if fwd_norm < 1e-8:
+        return np.eye(3)
+    fwd = fwd / fwd_norm
+    right = np.cross(fwd, up)
+    right_norm = np.linalg.norm(right)
+    if right_norm < 1e-8:
+        up = np.array([0., 1., 0.])
+        right = np.cross(fwd, up)
+        right_norm = np.linalg.norm(right)
+    right = right / right_norm
+    up_fixed = np.cross(right, fwd)
+    # rows: right, up, forward
+    R = np.stack([right, up_fixed, fwd], axis=0)  # (3,3)
+    return R
+
+
+def _project_point(R, eye, pt):
+    """Project world-space pt into camera space; return (3,) [x,y,z] tensor."""
+    pt_np  = np.asarray(pt, dtype=np.float64).flatten()[:3]
+    eye_np = np.asarray(eye, dtype=np.float64).flatten()[:3]
+    local  = R @ (pt_np - eye_np)   # (3,) in camera space
+    # Return as 1×3 tensor to match pytorch3d-style usage in callers
+    return torch.tensor(local, dtype=torch.float32).unsqueeze(0)  # (1,3)
+
+
 def egoview_project(targets, anchors, center):
+    if os.environ.get("SEQVLM_VIEWPOINT_MODE") == "geo_world":
+        return geo_world_project(targets, anchors)
 
     projections = []
+    center_np = np.asarray(center, dtype=np.float64).flatten()[:3]
+
     for i in range(len(anchors)):
+        anchor_loc = np.asarray(anchors[i]['obj_loc'], dtype=np.float64).flatten()[:3]
+        R = _look_at_matrix(center_np, anchor_loc)
 
-        anchor_obj_loc = torch.tensor(anchors[i]['obj_loc']).cuda().unsqueeze(0)
-        # cam_pos = torch.tensor([[0.0, 0.0, 1.0]]).cuda()
-        cam_pos = torch.tensor(center).cuda().unsqueeze(0).float()
-
-        R, T = look_at_view_transform(eye=cam_pos, at=anchor_obj_loc[:, :3], up=((0.0, 0.0, 1.0),))
-        camera = FoVOrthographicCameras(device='cuda', R=R, T=T)
-
-        # print(f'Observation {i}:')
         view_info = []
         for obj in targets:
-            pos = torch.tensor(obj['obj_loc'][:3]).cuda().unsqueeze(0)
-            pos = camera.transform_points_screen(pos, image_size=(512, 2048))
+            pos = _project_point(R, center_np, obj['obj_loc'])
+            view_info.append({
+                'obj_id':   obj['obj_id'],
+                'obj_name': obj['obj_name'],
+                '2d':       pos,   # (1,3): [right, up, depth]
+            })
 
-            view_info.append({'obj_id': obj['obj_id'], 'obj_name': obj['obj_name'], '2d': pos})
+        anchor_2d = _project_point(R, center_np, anchor_loc)
+        projections.append({'anchor_2d': anchor_2d, 'view_info': view_info})
 
-        pos = camera.transform_points_screen(anchor_obj_loc[:, :3], image_size=(512, 2048))
+    return projections
 
-        projections.append({'anchor_2d': pos, 'view_info': view_info})
 
+def geo_world_project(targets, anchors):
+    """geo_ground_v2-style world-frame relation projection.
+
+    The SeqVLM baseline interprets LEFT/RIGHT through an ego-view looking from
+    room center to the anchor. This ablation uses aligned world coordinates
+    directly, matching the B1 world-geometry resolver idea from geo_ground_v2.
+    """
+    projections = []
+    for anchor in anchors:
+        anchor_loc = np.asarray(anchor['obj_loc'], dtype=np.float64).flatten()[:3]
+        view_info = []
+        for obj in targets:
+            obj_loc = np.asarray(obj['obj_loc'], dtype=np.float64).flatten()[:3]
+            rel = obj_loc - anchor_loc
+            pos = torch.tensor(rel, dtype=torch.float32).unsqueeze(0)
+            view_info.append({
+                'obj_id': obj['obj_id'],
+                'obj_name': obj['obj_name'],
+                '2d': pos,
+            })
+        projections.append({
+            'anchor_2d': torch.zeros((1, 3), dtype=torch.float32),
+            'view_info': view_info,
+        })
     return projections
 
 
