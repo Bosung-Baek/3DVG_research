@@ -150,6 +150,16 @@ PYTHONPATH=. conda run -n sam3 python seqvlm/evaluate.py \
   --view_source geo_frame_selection
 ```
 
+**E_P - BEV spatial filter (parsing ablation):**
+```bash
+PYTHONPATH=. conda run -n sam3 python seqvlm/evaluate.py   --exp_name spatial_filter_E_P   --data_path data/mini_test.json   --image_path data/scanrefer_preprocessed   --vlm_model local-qwen   --ablation_axis baseline   --input_format seqvlm_canvas   --view_source seqvlm_canvas   --use_spatial_filter
+```
+
+**E_PVF - Full proposed system (BEV filter + geo frame + bbox overlay):**
+```bash
+PYTHONPATH=. conda run -n sam3 python seqvlm/evaluate.py   --exp_name full_system_E_PVF   --data_path data/mini_test.json   --image_path data/scanrefer_preprocessed   --vlm_model local-qwen   --ablation_axis baseline   --input_format geo_bbox_overlay   --view_source geo_frame_selection   --use_spatial_filter
+```
+
 ## Key Modified Files
 
 | File | Purpose |

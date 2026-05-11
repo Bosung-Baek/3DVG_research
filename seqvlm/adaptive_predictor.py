@@ -17,6 +17,7 @@ from seqvlm.ablation import (
     geo_structured_to_program,
 )
 from seqvlm.geo_evidence import build_geo_evidence_images
+from seqvlm.spatial_filter import bev_spatial_filter
 
 
 class AdpativePredictor:
@@ -32,6 +33,7 @@ class AdpativePredictor:
         self.view_source = kwargs.get('view_source', 'seqvlm_canvas')
         self.viewpoint_mode = kwargs.get('viewpoint_mode', 'seqvlm_ego')
         self.force_program_first = kwargs.get('force_program_first', False)
+        self.use_spatial_filter = kwargs.get('use_spatial_filter', False)
         self.geo_n_views = kwargs.get('geo_n_views', 3)
         self.geo_max_frames = kwargs.get('geo_max_frames', 80)
         self.geo_evidence_dir = kwargs.get('geo_evidence_dir', '../experiments/ablation_seqvlm_3scenes/outputs/geo_evidence')
@@ -82,6 +84,28 @@ class AdpativePredictor:
         self.last_trace['n_props'] = n_props
         self.last_trace['prop_indices'] = index
         print('Prop Images:', n_props, prop_images[:20])
+
+        if self.use_spatial_filter and index:
+            filtered_index = bev_spatial_filter(
+                candidate_indices=index,
+                ins_locs=ins_locs,
+                caption=caption,
+                obj_name=obj_name,
+                ins_labels=ins_labels,
+                ins_scores=ins_scores,
+                class_predictor=self.handler.predict_obj_class,
+            )
+            if filtered_index != index:
+                prop_images = [
+                    os.path.join(self.image_path, scene_id, str(i), 'canvas.jpg')
+                    for i in filtered_index
+                    if os.path.exists(os.path.join(self.image_path, scene_id, str(i), 'canvas.jpg'))
+                ]
+                index = [i for i in filtered_index
+                         if os.path.exists(os.path.join(self.image_path, scene_id, str(i), 'canvas.jpg'))]
+                n_props = len(prop_images)
+                self.last_trace['spatial_filter_indices'] = [int(i) for i in index]
+                self.last_trace['n_props_after_filter'] = n_props
 
         if self.view_source == 'geo_frame_selection' and index:
             geo_images, geo_trace = build_geo_evidence_images(

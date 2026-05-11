@@ -59,6 +59,8 @@ if __name__ == '__main__':
     parser.add_argument('--geo_max_frames', type=int, default=80)
     parser.add_argument('--geo_evidence_dir', type=str, default='')
     parser.add_argument('--force_program_first', action='store_true')
+    parser.add_argument('--use_spatial_filter', action='store_true',
+                        help='Apply BEV spatial filter before VLM selection (parsing ablation axis)')
     parser.add_argument('--output_path', type=str, default='')
     
     args = parser.parse_args()
@@ -93,6 +95,7 @@ if __name__ == '__main__':
         'input_format': args.input_format,
         'view_source': args.view_source,
         'force_program_first': args.force_program_first,
+        'use_spatial_filter': args.use_spatial_filter,
         'geo_n_views': args.geo_n_views,
         'geo_max_frames': args.geo_max_frames,
         'geo_evidence_dir': args.geo_evidence_dir or os.path.join(
