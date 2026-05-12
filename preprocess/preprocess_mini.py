@@ -179,10 +179,13 @@ def process_scene(scene_id: str) -> None:
         if not view_list:
             continue
 
-        # select top-K by projected bbox area (largest = most visible)
-        # matches SeqVLM paper steps 3-4: projected area ranking
-        view_list.sort(key=lambda x: -x[2])
-        selected = view_list[:TOP_K]
+        # random sample k=5 — matches original SeqVLM released code (crop_2d_image.py)
+        # note: area-based (np.argsort) was commented out in original code
+        if len(view_list) <= TOP_K:
+            selected = view_list
+        else:
+            import random as _rnd
+            selected = _rnd.sample(view_list, TOP_K)
 
         obj_out = OUTPUT_DIR / scene_id / str(obj_id)
         obj_out.mkdir(parents=True, exist_ok=True)
