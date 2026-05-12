@@ -179,9 +179,12 @@ def process_scene(scene_id: str) -> None:
         if not view_list:
             continue
 
-        # select by area (largest → most visible)
-        view_list.sort(key=lambda x: -x[2])
-        selected = view_list[:TOP_K]
+        import random as _random
+        # random sample to match original SeqVLM paper (random.sample, not area-based)
+        if len(view_list) <= TOP_K:
+            selected = view_list
+        else:
+            selected = _random.sample(view_list, TOP_K)
 
         obj_out = OUTPUT_DIR / scene_id / str(obj_id)
         obj_out.mkdir(parents=True, exist_ok=True)
