@@ -37,8 +37,11 @@ OUTPUT_DIR         = Path("/home/knuvi/bosung/SeqVLM/data/scanrefer_preprocessed
 
 VIS_THRESH = 0.25
 CUT_BOUND  = 0
-MAX_FRAMES = 20    # sample at most 20 frames per scene
-TOP_K      = 5     # keep 5 best views per instance
+# Our ScanNet data is already step=5 subsampled (~499 frames/scene).
+# SeqVLM used frame_skip=20 on original (~125 frames/scene).
+# Use all available frames to match or exceed SeqVLM's coverage.
+MAX_FRAMES = 10000  # effectively no cap; use all pre-extracted frames
+TOP_K      = 5      # keep 5 views per instance (same as original)
 
 
 # ── geometry ──────────────────────────────────────────────────────────────────
@@ -108,7 +111,7 @@ def process_scene(scene_id: str) -> None:
     K4 = np.loadtxt(scene_dir / "intrinsic" / "intrinsic_color.txt")
     K  = K4[:3, :3].astype(np.float32)
 
-    # list frames, sample evenly
+    # use all available pre-extracted frames (already step=5 from original ScanNet)
     color_dir  = scene_dir / "color"
     depth_dir  = scene_dir / "depth"
     pose_dir   = scene_dir / "pose"
@@ -116,9 +119,10 @@ def process_scene(scene_id: str) -> None:
         [p.stem for p in pose_dir.glob("*.txt")],
         key=lambda x: int(x)
     )
-    step = max(1, len(frame_ids) // MAX_FRAMES)
-    frame_ids = frame_ids[::step][:MAX_FRAMES]
-    print(f"  Using {len(frame_ids)} frames (from {len(frame_ids)*step} total)")
+    if len(frame_ids) > MAX_FRAMES:
+        step = len(frame_ids) // MAX_FRAMES
+        frame_ids = frame_ids[::step]
+    print(f"  Using {len(frame_ids)} frames total")
 
     # prepare instance coords in raw-world space
     inst_pts_world = []
