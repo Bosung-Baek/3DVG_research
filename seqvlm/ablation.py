@@ -102,16 +102,18 @@ def geo_structured_to_program(caption, obj_name, original_program):
 
 
 def build_user_prompt(caption, n_images, input_format="seqvlm_canvas"):
+    if input_format == "geo_bbox_overlay":
+        return (
+            f"Query: {caption}\n"
+            f"Here are the images of {n_images} possible objects. "
+            "The red bounding box in each image highlights the candidate object. "
+            "Select the image whose highlighted object best matches the query description. "
+            "Return JSON with keys process and image_id."
+        )
     if input_format in {"geo_candidate", "geo_raw_frame", "geo_bbox_overlay"}:
         letters = ", ".join(chr(ord("A") + i) for i in range(n_images))
         visual = ""
-        if input_format == "geo_bbox_overlay":
-            visual = (
-                " Colored rectangles labeled A bbox, B bbox, and so on mark "
-                "the selectable candidate objects. Yellow Anchor boxes, when "
-                "present, are context only and must not be selected."
-            )
-        elif input_format == "geo_raw_frame":
+        if input_format == "geo_raw_frame":
             visual = " Images are raw selected scene frames without candidate boxes."
         return (
             f"Query: {caption}\n"

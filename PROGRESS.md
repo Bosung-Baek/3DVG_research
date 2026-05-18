@@ -4,6 +4,66 @@
 
 ---
 
+## 2026-05-12~13 — Full Ablation 완료 (250 queries, 115 scenes)
+
+### 방법론 요약
+
+**파이프라인:**
+1. **Instance Proposal**: Mask3D 사전 예측 → CLIP 텍스트-클래스 매칭으로 후보 필터링 (score ≥ 0.2)
+2. **Frame Selection**: 후보 인스턴스별 프레임 선택 방식 (E₀: random 5, E_V/VF: anchor-conditioned 3)
+3. **VLM Selection**: 토너먼트 방식 (batch=4, max_props=40), fallback → VisProg
+
+**Anchor-conditioned Frame Scoring:**
+```
+score(f) = 0.65 × vis_target(f) + 0.35 × vis_anchor(f)
+```
+쿼리에서 anchor 객체 파싱 후, 타겟과 anchor가 함께 보이는 프레임 우선 선택.
+
+### Ablation 설계
+
+| 실험 | 프레임 선택 | 입력 이미지 | 프롬프트 |
+|---|---|---|---|
+| **E₀** | Random 5프레임 → canvas stitch | raw canvas | `"Here are N possible objects."` |
+| **E_V** | Anchor-conditioned 3프레임 | Raw frame (bbox 없음) | Candidate A/B/C + JSON |
+| **E_VF** | Anchor-conditioned 3프레임 | Red bbox overlay (candidate만, anchor 제거) | `"Red bbox highlights candidate."` + JSON |
+
+### Full Ablation 결과 (250 queries)
+
+| | Overall@25 | Overall@50 | Unique@25 | Unique@50 | Multiple@25 | Multiple@50 |
+|---|---|---|---|---|---|---|
+| **E₀** (baseline) | 0.344 | 0.288 | 0.621 | 0.576 | 0.245 | 0.185 |
+| **E_V** (+Viewpoint) | **0.448** | **0.408** | **0.773** | **0.727** | **0.332** | **0.293** |
+| E_VF v1 (+Format A/B/C) | 0.440 | 0.392 | 0.742 | 0.697 | 0.332 | 0.283 |
+| E_VF v2 (red bbox, 단순 프롬프트, Return JSON 누락) | 0.352 | 0.304 | 0.652 | — | 0.245 | — |
+| **E_VF v3** (red bbox + `Image N` header + JSON) | 0.440 | 0.396 | **0.788** | **0.742** | 0.315 | 0.272 |
+
+**주요 발견:**
+- E_V: E₀ 대비 Overall@25 +10.4pp, Multiple@25 +8.7pp
+- n_props ≥ 20 구간에서 E_V acc=0% (토너먼트 누적 오류)
+- chair 카테고리(전체 23%): E₀/E_V 모두 ~24% — 핵심 병목
+- E_VF v1 < E_V: Candidate A/B/C 방식이 Qwen2-VL에 역효과
+- E_VF v2 실패 원인: 프롬프트에 "Return JSON" 누락 → VLM이 자유 텍스트 반환 → 67케이스 program fallback
+- E_VF v3 vs E_V: Unique@25 +1.5pp (0.788 vs 0.773), Multiple@25 -1.7pp (0.315 vs 0.332) → bbox overlay가 단일 인스턴스 식별엔 효과적이나 multiple 케이스에서는 역효과
+- E_VF v3 vs v1: Overall@50 +0.4pp (0.396 vs 0.392) — `Image N` 헤더 수정으로 v2 버그 완전 해소, v1과 유사한 성능 회복
+
+### 수정 이력
+
+| 파일 | 변경 내용 |
+|---|---|
+| `preprocess/preprocess_mini.py` | MAX_FRAMES=10000, TOP_K=5, random.sample (원본 재현) |
+| `seqvlm/ablation.py` | build_user_prompt: geo_bbox_overlay → simple prompt + bbox 설명 + Return JSON |
+| `seqvlm/geo_evidence.py` | bbox color 단색화(red), anchor box 제거, Candidate 레이블 제거 |
+| `seqvlm/utils.py` | encode_image_to_base64: LOAD_TRUNCATED_IMAGES=True, broken image skip |
+| `run_all.py` | 전체 파이프라인 통합, tqdm, resume 지원 |
+
+### 출력 파일
+- `experiments/full_ablation/outputs/full_E0_baseline.jsonl` (250 records)
+- `experiments/full_ablation/outputs/full_E_V_viewpoint.jsonl` (250 records)
+- `experiments/full_ablation/outputs/full_E_VF_system.jsonl` (250 records, v3)
+- `experiments/full_ablation/analysis/` — 분석 시각화 (BEV point cloud, per-category, IoU histogram 등)
+
+---
+
 ## 2026-04-28
 
 ### [시작] SeqVLM 3-scene 테스트 환경 구성

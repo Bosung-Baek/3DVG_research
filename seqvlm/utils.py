@@ -153,9 +153,15 @@ def create_logger(exp_name):
 
 
 def encode_image_to_base64(image_path):
-    with Image.open(image_path) as image:
-        buf = BytesIO()
-        image.save(buf, format='JPEG')
-        byte_data = buf.getvalue()
-        base64_str = base64.b64encode(byte_data).decode('utf-8')
-        return base64_str
+    from PIL import ImageFile
+    ImageFile.LOAD_TRUNCATED_IMAGES = True
+    try:
+        with Image.open(image_path) as image:
+            image = image.convert('RGB')
+            buf = BytesIO()
+            image.save(buf, format='JPEG')
+            byte_data = buf.getvalue()
+            base64_str = base64.b64encode(byte_data).decode('utf-8')
+            return base64_str
+    except Exception:
+        return None

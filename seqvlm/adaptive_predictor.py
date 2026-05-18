@@ -156,8 +156,8 @@ class AdpativePredictor:
     def predict(self, prop_images, caption):
         max_batch_size = self.max_batch_size
         base64Images = [encode_image_to_base64(image) for image in prop_images]
-        
-        remain_props = [(i, image) for i, image in enumerate(base64Images)]
+
+        remain_props = [(i, image) for i, image in enumerate(base64Images) if image is not None]
         while len(remain_props) > 1:        
             prop_image_groups = []
             for i in range(0, len(remain_props), max_batch_size):

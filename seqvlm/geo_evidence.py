@@ -93,7 +93,7 @@ def build_geo_evidence_images(
             continue
 
         letter = chr(ord("A") + local_i)
-        color = COLORS_BGR[local_i % len(COLORS_BGR)]
+        color = (0, 0, 255)  # fixed red for all candidates
         tiles = []
         frame_trace = []
         for frame, target_proj, anchor_proj, score in selected:
@@ -105,10 +105,10 @@ def build_geo_evidence_images(
                     img,
                     target_proj["xyxy"],
                     color,
-                    f"{letter} bbox",
-                    anchor_proj["xyxy"] if anchor_proj else None,
+                    "object",
+                    None,
                 )
-            img = _add_header(img, f"Candidate {letter} | frame {frame['frame_id']}")
+            img = _add_header(img, f"Image {local_i}")
             tiles.append(_resize_keep(img, width=640))
             frame_trace.append({
                 "frame_id": int(frame["frame_id"]),
@@ -318,4 +318,3 @@ def _stack_vertical(images):
             img = np.concatenate([img, pad], axis=1)
         padded.append(img)
     return np.vstack(padded)
-
