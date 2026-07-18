@@ -1,0 +1,44 @@
+{
+  "router": "llm",
+  "prompt_policy": "priority_decision_tree_v1",
+  "scanrefer": {
+    "num_queries": 250,
+    "acc_iou25": 0.492,
+    "acc_iou50": 0.448,
+    "mean_iou": 0.4235,
+    "route_counts": {
+      "E0": 185,
+      "seeground_ablation_spatial_only": 49,
+      "bev_raw_labeled": 3,
+      "seeground_ablation_3dpos_only": 13
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 6,
+    "e0_regressions": 9,
+    "net_vs_e0": -3
+  },
+  "nr3d": {
+    "num_queries": 250,
+    "acc_iou25": 0.664,
+    "acc_iou50": 0.66,
+    "mean_iou": 0.6636,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 80,
+      "E0": 134,
+      "seeground_ablation_3dpos_only": 28,
+      "bev_raw_labeled": 8
+    },
+    "source_unavailable_fallbacks": 45,
+    "e0_recoveries": 22,
+    "e0_regressions": 9,
+    "net_vs_e0": 13
+  },
+  "route_diff_vs_dictionary": {
+    "num_items": 500,
+    "num_changed": 112,
+    "changed_by_dataset": {
+      "scanrefer": 40,
+      "nr3d": 72
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "proximity_derived": {
+    "num_queries": 95,
+    "acc_iou25": 0.7158,
+    "acc_iou50": 0.7158,
+    "mean_iou": 0.7175,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 95
+    },
+    "route_reason_counts": {
+      "pure_proximity_spatial": 95
+    },
+    "query_type_counts": {
+      "proximity_derived": 95
+    },
+    "e0_recoveries": 25,
+    "e0_regressions": 16,
+    "net_vs_e0": 9
+  },
+  "explicit_direction": {
+    "num_queries": 89,
+    "acc_iou25": 0.5281,
+    "acc_iou50": 0.5169,
+    "mean_iou": 0.5265,
+    "route_counts": {
+      "E0": 89
+    },
+    "route_reason_counts": {
+      "default_e0": 55,
+      "visual_attribute_default_e0": 34
+    },
+    "query_type_counts": {
+      "explicit_direction": 89
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "viewpoint_guided": {
+    "num_queries": 18,
+    "acc_iou25": 0.5556,
+    "acc_iou50": 0.5556,
+    "mean_iou": 0.5573,
+    "route_counts": {
+      "E0": 18
+    },
+    "route_reason_counts": {
+      "viewpoint_needs_local_frame_default_e0": 17,
+      "visual_attribute_default_e0": 1
+    },
+    "query_type_counts": {
+      "viewpoint_guided": 18
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "ordinal": {
+    "num_queries": 16,
+    "acc_iou25": 0.75,
+    "acc_iou50": 0.75,
+    "mean_iou": 0.7568,
+    "route_counts": {
+      "E0": 10,
+      "bev_raw_labeled": 6
+    },
+    "route_reason_counts": {
+      "default_e0": 2,
+      "pure_ordinal_bev": 6,
+      "visual_attribute_default_e0": 8
+    },
+    "query_type_counts": {
+      "ordinal": 16
+    },
+    "e0_recoveries": 2,
+    "e0_regressions": 1,
+    "net_vs_e0": 1
+  },
+  "none": {
+    "num_queries": 9,
+    "acc_iou25": 0.7778,
+    "acc_iou50": 0.7778,
+    "mean_iou": 0.7778,
+    "route_counts": {
+      "E0": 9
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 4,
+      "default_e0": 5
+    },
+    "query_type_counts": {
+      "none": 9
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "object_orientation": {
+    "num_queries": 9,
+    "acc_iou25": 0.8889,
+    "acc_iou50": 0.8889,
+    "mean_iou": 0.8553,
+    "route_counts": {
+      "E0": 9
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 2,
+      "default_e0": 7
+    },
+    "query_type_counts": {
+      "object_orientation": 9
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "room_side": {
+    "num_queries": 6,
+    "acc_iou25": 0.8333,
+    "acc_iou50": 0.8333,
+    "mean_iou": 0.8333,
+    "route_counts": {
+      "E0": 6
+    },
+    "route_reason_counts": {
+      "default_e0": 4,
+      "visual_attribute_default_e0": 2
+    },
+    "query_type_counts": {
+      "room_side": 6
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "geometric": {
+    "num_queries": 4,
+    "acc_iou25": 1.0,
+    "acc_iou50": 1.0,
+    "mean_iou": 1.0,
+    "route_counts": {
+      "E0": 4
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 4
+    },
+    "query_type_counts": {
+      "geometric": 4
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "opposite_derived": {
+    "num_queries": 4,
+    "acc_iou25": 0.5,
+    "acc_iou50": 0.5,
+    "mean_iou": 0.5,
+    "route_counts": {
+      "E0": 4
+    },
+    "route_reason_counts": {
+      "default_e0": 3,
+      "visual_attribute_default_e0": 1
+    },
+    "query_type_counts": {
+      "opposite_derived": 4
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  }
+}

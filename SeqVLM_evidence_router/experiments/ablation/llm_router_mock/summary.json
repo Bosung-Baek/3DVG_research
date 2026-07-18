@@ -1,0 +1,39 @@
+{
+  "router": "mock_dictionary",
+  "scanrefer": {
+    "num_queries": 250,
+    "acc_iou25": 0.52,
+    "acc_iou50": 0.468,
+    "mean_iou": 0.4455,
+    "route_counts": {
+      "E0": 208,
+      "seeground_ablation_spatial_only": 37,
+      "bev_raw_labeled": 1,
+      "seeground_ablation_3dpos_only": 4
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 5,
+    "e0_regressions": 1,
+    "net_vs_e0": 4
+  },
+  "nr3d": {
+    "num_queries": 250,
+    "acc_iou25": 0.652,
+    "acc_iou50": 0.648,
+    "mean_iou": 0.6514,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 95,
+      "E0": 149,
+      "bev_raw_labeled": 6
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 27,
+    "e0_regressions": 17,
+    "net_vs_e0": 10
+  },
+  "route_diff_vs_dictionary": {
+    "num_items": 500,
+    "num_changed": 0,
+    "changed_by_dataset": {}
+  }
+}

@@ -1,0 +1,528 @@
+{
+  "num_queries": 500,
+  "agreement": 388,
+  "changed": 112,
+  "agreement_rate": 0.776,
+  "matrix_rows_dictionary_cols_llm": {
+    "E0": {
+      "E0": 285,
+      "seeground_ablation_spatial_only": 33,
+      "bev_raw_labeled": 6,
+      "seeground_ablation_3dpos_only": 33
+    },
+    "seeground_ablation_spatial_only": {
+      "E0": 32,
+      "seeground_ablation_spatial_only": 95,
+      "bev_raw_labeled": 0,
+      "seeground_ablation_3dpos_only": 5
+    },
+    "bev_raw_labeled": {
+      "E0": 2,
+      "seeground_ablation_spatial_only": 0,
+      "bev_raw_labeled": 5,
+      "seeground_ablation_3dpos_only": 0
+    },
+    "seeground_ablation_3dpos_only": {
+      "E0": 0,
+      "seeground_ablation_spatial_only": 1,
+      "bev_raw_labeled": 0,
+      "seeground_ablation_3dpos_only": 3
+    }
+  },
+  "by_dataset": {
+    "scanrefer": {
+      "E0": {
+        "E0": 177,
+        "seeground_ablation_spatial_only": 19,
+        "bev_raw_labeled": 2,
+        "seeground_ablation_3dpos_only": 10
+      },
+      "seeground_ablation_spatial_only": {
+        "E0": 8,
+        "seeground_ablation_spatial_only": 29,
+        "bev_raw_labeled": 0,
+        "seeground_ablation_3dpos_only": 0
+      },
+      "bev_raw_labeled": {
+        "E0": 0,
+        "seeground_ablation_spatial_only": 0,
+        "bev_raw_labeled": 1,
+        "seeground_ablation_3dpos_only": 0
+      },
+      "seeground_ablation_3dpos_only": {
+        "E0": 0,
+        "seeground_ablation_spatial_only": 1,
+        "bev_raw_labeled": 0,
+        "seeground_ablation_3dpos_only": 3
+      }
+    },
+    "nr3d": {
+      "E0": {
+        "E0": 108,
+        "seeground_ablation_spatial_only": 14,
+        "bev_raw_labeled": 4,
+        "seeground_ablation_3dpos_only": 23
+      },
+      "seeground_ablation_spatial_only": {
+        "E0": 24,
+        "seeground_ablation_spatial_only": 66,
+        "bev_raw_labeled": 0,
+        "seeground_ablation_3dpos_only": 5
+      },
+      "bev_raw_labeled": {
+        "E0": 2,
+        "seeground_ablation_spatial_only": 0,
+        "bev_raw_labeled": 4,
+        "seeground_ablation_3dpos_only": 0
+      },
+      "seeground_ablation_3dpos_only": {
+        "E0": 0,
+        "seeground_ablation_spatial_only": 0,
+        "bev_raw_labeled": 0,
+        "seeground_ablation_3dpos_only": 0
+      }
+    }
+  },
+  "transition_metrics": {
+    "E0->E0": {
+      "num_queries": 285,
+      "acc_iou25": 0.5439,
+      "acc_iou50": 0.5123,
+      "mean_iou": 0.5018,
+      "e0_acc_iou25": 0.5439,
+      "count": 285
+    },
+    "E0->bev_raw_labeled": {
+      "num_queries": 6,
+      "acc_iou25": 0.5,
+      "acc_iou50": 0.5,
+      "mean_iou": 0.5,
+      "e0_acc_iou25": 0.6667,
+      "count": 6
+    },
+    "E0->seeground_ablation_3dpos_only": {
+      "num_queries": 33,
+      "acc_iou25": 0.5758,
+      "acc_iou50": 0.5455,
+      "mean_iou": 0.5474,
+      "e0_acc_iou25": 0.5758,
+      "count": 33
+    },
+    "E0->seeground_ablation_spatial_only": {
+      "num_queries": 33,
+      "acc_iou25": 0.4242,
+      "acc_iou50": 0.3939,
+      "mean_iou": 0.3815,
+      "e0_acc_iou25": 0.6061,
+      "count": 33
+    },
+    "bev_raw_labeled->E0": {
+      "num_queries": 2,
+      "acc_iou25": 1.0,
+      "acc_iou50": 1.0,
+      "mean_iou": 1.0,
+      "e0_acc_iou25": 1.0,
+      "count": 2
+    },
+    "bev_raw_labeled->bev_raw_labeled": {
+      "num_queries": 5,
+      "acc_iou25": 0.6,
+      "acc_iou50": 0.6,
+      "mean_iou": 0.6,
+      "e0_acc_iou25": 0.4,
+      "count": 5
+    },
+    "seeground_ablation_3dpos_only->seeground_ablation_3dpos_only": {
+      "num_queries": 3,
+      "acc_iou25": 0.6667,
+      "acc_iou50": 0.6667,
+      "mean_iou": 0.6641,
+      "e0_acc_iou25": 0.6667,
+      "count": 3
+    },
+    "seeground_ablation_3dpos_only->seeground_ablation_spatial_only": {
+      "num_queries": 1,
+      "acc_iou25": 1.0,
+      "acc_iou50": 1.0,
+      "mean_iou": 0.7507,
+      "e0_acc_iou25": 0.0,
+      "count": 1
+    },
+    "seeground_ablation_spatial_only->E0": {
+      "num_queries": 32,
+      "acc_iou25": 0.6875,
+      "acc_iou50": 0.6875,
+      "mean_iou": 0.6839,
+      "e0_acc_iou25": 0.6875,
+      "count": 32
+    },
+    "seeground_ablation_spatial_only->seeground_ablation_3dpos_only": {
+      "num_queries": 5,
+      "acc_iou25": 0.8,
+      "acc_iou50": 0.8,
+      "mean_iou": 0.8,
+      "e0_acc_iou25": 0.8,
+      "count": 5
+    },
+    "seeground_ablation_spatial_only->seeground_ablation_spatial_only": {
+      "num_queries": 95,
+      "acc_iou25": 0.6737,
+      "acc_iou50": 0.6632,
+      "mean_iou": 0.6469,
+      "e0_acc_iou25": 0.5158,
+      "count": 95
+    }
+  },
+  "changed_examples": {
+    "seeground_ablation_spatial_only->E0": [
+      {
+        "dataset": "scanrefer",
+        "case": 16,
+        "query_type": "proximity_derived",
+        "caption": "the chair is next to the northeast - most table . the chair is black with four legs .",
+        "llm_reason": "priority rule 2 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "E0",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 26,
+        "query_type": "proximity_derived",
+        "caption": "there is a white plastic soap dispenser placed on the side of the wall .",
+        "llm_reason": "priority rule 2 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "E0",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.7500331379171388
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 135,
+        "query_type": "proximity_derived",
+        "caption": "the trash can is grey and is on the floor . it is in the far corner of the room against the red wall and the glass wall .",
+        "llm_reason": "priority rule 2 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "E0",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.9898117301084537
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 148,
+        "query_type": "proximity_derived",
+        "caption": "a red cube shaped footrest . the footrest is near the end of a large blue couch and a wooden table .",
+        "llm_reason": "priority rule 2 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "E0",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.000000279529711
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 155,
+        "query_type": "proximity_derived",
+        "caption": "a brown wooden chair . it is in between multiple wooden chairs next to a wall .",
+        "llm_reason": "rule 2 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "E0",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      }
+    ],
+    "E0->seeground_ablation_spatial_only": [
+      {
+        "dataset": "scanrefer",
+        "case": 20,
+        "query_type": "explicit_direction",
+        "caption": "this table is to the left of the couch . it 's positioned on the floor between the rug and the carpet .",
+        "llm_reason": "priority rule 1 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_spatial_only",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 38,
+        "query_type": "geometric",
+        "caption": "this is a armchair . its white with patterns on it . its closest to the window in the room .",
+        "llm_reason": "priority rule 1 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_spatial_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.8876633849263494
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 45,
+        "query_type": "object_orientation",
+        "caption": "this is a black chair facing away from the viewer . it is closest to the viewer .",
+        "llm_reason": "priority rule 1 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_spatial_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.9999993677525989
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 52,
+        "query_type": "explicit_direction",
+        "caption": "the tiny mini fridge . the mini fridge on the corner by the whiteboard .",
+        "llm_reason": "priority rule 1 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_spatial_only",
+        "e0_acc25": true,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 74,
+        "query_type": "explicit_direction",
+        "caption": "the armchair is to the right of the other chair . it is facing the table .",
+        "llm_reason": "priority rule 1 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_spatial_only",
+        "e0_acc25": false,
+        "llm_acc25": true,
+        "llm_iou": 0.9999992012696625
+      }
+    ],
+    "E0->seeground_ablation_3dpos_only": [
+      {
+        "dataset": "scanrefer",
+        "case": 23,
+        "query_type": "geometric",
+        "caption": "a small circular table sits in the middle of the floor . it 's surrounded by four chairs .",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.9893537147992174
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 32,
+        "query_type": "explicit_direction",
+        "caption": "this picture is located on the back wall of the room . it is above the left bed .",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.9999982524439732
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 55,
+        "query_type": "object_orientation",
+        "caption": "the book shelf is in the back corner of the room . there is a window to the right of it on the adjoining wall and a desk in front of it .",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 71,
+        "query_type": "explicit_direction",
+        "caption": "this is a rectangular radiator . it is under a window .",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.8081918586430537
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 91,
+        "query_type": "room_side",
+        "caption": "this is a lamp . the lamp is at the corner of the room .",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "E0",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      }
+    ],
+    "seeground_ablation_3dpos_only->seeground_ablation_spatial_only": [
+      {
+        "dataset": "scanrefer",
+        "case": 95,
+        "query_type": "geometric",
+        "caption": "the pillow on the bed farther from the door . it is the top pillow on the side of the bed that is closer to the table between the beds .",
+        "llm_reason": "priority rule 1 matched",
+        "dictionary_route": "seeground_ablation_3dpos_only",
+        "llm_route": "seeground_ablation_spatial_only",
+        "e0_acc25": false,
+        "llm_acc25": true,
+        "llm_iou": 0.7507012669604471
+      }
+    ],
+    "E0->bev_raw_labeled": [
+      {
+        "dataset": "scanrefer",
+        "case": 171,
+        "query_type": "ordinal",
+        "caption": "it is a wooden desk chair . it is the chair that is second to last on the right side of the table .",
+        "llm_reason": "priority rule 3 matched",
+        "dictionary_route": "E0",
+        "llm_route": "bev_raw_labeled",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "scanrefer",
+        "case": 182,
+        "query_type": "ordinal",
+        "caption": "this is a rectangular flat panel monitor . it is the last monitor on the right in the front row of monitors .",
+        "llm_reason": "priority rule 3 matched",
+        "dictionary_route": "E0",
+        "llm_route": "bev_raw_labeled",
+        "e0_acc25": true,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "nr3d",
+        "case": 167,
+        "query_type": "explicit_direction",
+        "caption": "the cabinet on the left end of the long row of chairs",
+        "llm_reason": "priority rule 3 matched",
+        "dictionary_route": "E0",
+        "llm_route": "bev_raw_labeled",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0000001192092896
+      },
+      {
+        "dataset": "nr3d",
+        "case": 192,
+        "query_type": "ordinal",
+        "caption": "the square table in the middle of the room",
+        "llm_reason": "priority rule 3 matched",
+        "dictionary_route": "E0",
+        "llm_route": "bev_raw_labeled",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0
+      },
+      {
+        "dataset": "nr3d",
+        "case": 202,
+        "query_type": "explicit_direction",
+        "caption": "select the trash can at the back middle one",
+        "llm_reason": "priority rule 3 matched",
+        "dictionary_route": "E0",
+        "llm_route": "bev_raw_labeled",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      }
+    ],
+    "seeground_ablation_spatial_only->seeground_ablation_3dpos_only": [
+      {
+        "dataset": "nr3d",
+        "case": 38,
+        "query_type": "proximity_derived",
+        "caption": "the rail on the wall under the toilet paper holder",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0000046491622925
+      },
+      {
+        "dataset": "nr3d",
+        "case": 132,
+        "query_type": "proximity_derived",
+        "caption": "middle of the bar directly above the toilet flushing part",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 0.9999967813491821
+      },
+      {
+        "dataset": "nr3d",
+        "case": 164,
+        "query_type": "proximity_derived",
+        "caption": "the door between grey trash can and two folding tables",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0000014305114746
+      },
+      {
+        "dataset": "nr3d",
+        "case": 222,
+        "query_type": "proximity_derived",
+        "caption": "the chair between the desks in the middle of the room",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": false,
+        "llm_acc25": false,
+        "llm_iou": 0.0
+      },
+      {
+        "dataset": "nr3d",
+        "case": 242,
+        "query_type": "proximity_derived",
+        "caption": "it is the small bookshelf located between the two larger boo",
+        "llm_reason": "priority rule 4 matched",
+        "dictionary_route": "seeground_ablation_spatial_only",
+        "llm_route": "seeground_ablation_3dpos_only",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0000004768371582
+      }
+    ],
+    "bev_raw_labeled->E0": [
+      {
+        "dataset": "nr3d",
+        "case": 85,
+        "query_type": "ordinal",
+        "caption": "the smallest bathroom stall",
+        "llm_reason": "rule 2 matched, requires visual evidence (size)",
+        "dictionary_route": "bev_raw_labeled",
+        "llm_route": "E0",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0
+      },
+      {
+        "dataset": "nr3d",
+        "case": 232,
+        "query_type": "ordinal",
+        "caption": "much taller shelf of the two",
+        "llm_reason": "priority rule 2 matched, requiring visual evidence for 'taller'",
+        "dictionary_route": "bev_raw_labeled",
+        "llm_route": "E0",
+        "e0_acc25": true,
+        "llm_acc25": true,
+        "llm_iou": 1.0000003576278687
+      }
+    ]
+  }
+}

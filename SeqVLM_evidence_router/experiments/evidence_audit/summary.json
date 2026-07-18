@@ -1,0 +1,44 @@
+{
+  "note": "Automatic evidence audit using the final deterministic evidence rules, not human labels.",
+  "num_queries": 500,
+  "route_reason_counts": {
+    "visual_attribute_default_e0": 221,
+    "pure_proximity_spatial": 132,
+    "pure_ordinal_bev": 7,
+    "default_e0": 118,
+    "pure_geometric_3dpos": 4,
+    "viewpoint_needs_local_frame_default_e0": 18
+  },
+  "visual_attribute_count": 283,
+  "pure_ordinal_count": 30,
+  "pure_geometric_count": 39,
+  "by_dataset": {
+    "nr3d_250": {
+      "num_queries": 250,
+      "route_reason_counts": {
+        "pure_proximity_spatial": 95,
+        "viewpoint_needs_local_frame_default_e0": 17,
+        "default_e0": 76,
+        "visual_attribute_default_e0": 56,
+        "pure_ordinal_bev": 6
+      },
+      "visual_attribute_count": 86,
+      "pure_ordinal_count": 22,
+      "pure_geometric_count": 27
+    },
+    "scanrefer_250": {
+      "num_queries": 250,
+      "route_reason_counts": {
+        "visual_attribute_default_e0": 165,
+        "pure_proximity_spatial": 37,
+        "pure_ordinal_bev": 1,
+        "default_e0": 42,
+        "pure_geometric_3dpos": 4,
+        "viewpoint_needs_local_frame_default_e0": 1
+      },
+      "visual_attribute_count": 197,
+      "pure_ordinal_count": 8,
+      "pure_geometric_count": 12
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "E0": {
+    "num_queries": 209,
+    "acc_iou25": 0.5167,
+    "acc_iou50": 0.4641,
+    "mean_iou": 0.444,
+    "route_counts": {
+      "E0": 209
+    },
+    "route_reason_counts": {
+      "proximity_geometric_default_e0": 209
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "seeground_ablation_spatial_only": {
+    "num_queries": 37,
+    "acc_iou25": 0.5405,
+    "acc_iou50": 0.4865,
+    "mean_iou": 0.4482,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 37
+    },
+    "route_reason_counts": {
+      "proximity_spatial": 37
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 5,
+    "e0_regressions": 1,
+    "net_vs_e0": 4
+  },
+  "seeground_ablation_3dpos_only": {
+    "num_queries": 4,
+    "acc_iou25": 0.5,
+    "acc_iou50": 0.5,
+    "mean_iou": 0.5032,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 4
+    },
+    "route_reason_counts": {
+      "pure_geometric_3dpos": 4
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  }
+}

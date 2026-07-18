@@ -1,0 +1,50 @@
+{
+  "E0": {
+    "num_queries": 144,
+    "acc_iou25": 0.6042,
+    "acc_iou50": 0.6042,
+    "mean_iou": 0.6066,
+    "route_counts": {
+      "E0": 144
+    },
+    "route_reason_counts": {
+      "no_visual_fallback_default_e0": 144
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "seeground_ablation_spatial_only": {
+    "num_queries": 100,
+    "acc_iou25": 0.71,
+    "acc_iou50": 0.7,
+    "mean_iou": 0.7051,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 100
+    },
+    "route_reason_counts": {
+      "no_visual_fallback_spatial": 100
+    },
+    "source_unavailable_fallbacks": 5,
+    "e0_recoveries": 25,
+    "e0_regressions": 16,
+    "net_vs_e0": 9
+  },
+  "bev_raw_labeled": {
+    "num_queries": 6,
+    "acc_iou25": 0.8333,
+    "acc_iou50": 0.8333,
+    "mean_iou": 0.8333,
+    "route_counts": {
+      "bev_raw_labeled": 6
+    },
+    "route_reason_counts": {
+      "no_visual_fallback_ordinal_bev": 6
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 2,
+    "e0_regressions": 1,
+    "net_vs_e0": 1
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "E0": {
+    "num_queries": 149,
+    "acc_iou25": 0.604,
+    "acc_iou50": 0.5973,
+    "mean_iou": 0.602,
+    "route_counts": {
+      "E0": 149
+    },
+    "route_reason_counts": {
+      "viewpoint_needs_local_frame_default_e0": 17,
+      "default_e0": 76,
+      "visual_attribute_default_e0": 56
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "seeground_ablation_spatial_only": {
+    "num_queries": 95,
+    "acc_iou25": 0.7158,
+    "acc_iou50": 0.7158,
+    "mean_iou": 0.7175,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 95
+    },
+    "route_reason_counts": {
+      "pure_proximity_spatial": 95
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 25,
+    "e0_regressions": 16,
+    "net_vs_e0": 9
+  },
+  "bev_raw_labeled": {
+    "num_queries": 6,
+    "acc_iou25": 0.8333,
+    "acc_iou50": 0.8333,
+    "mean_iou": 0.8333,
+    "route_counts": {
+      "bev_raw_labeled": 6
+    },
+    "route_reason_counts": {
+      "pure_ordinal_bev": 6
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 2,
+    "e0_regressions": 1,
+    "net_vs_e0": 1
+  }
+}

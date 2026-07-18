@@ -1,0 +1,162 @@
+{
+  "num_queries": 250,
+  "rerun_acc25": 0.656,
+  "final_recomposition_acc25": 0.652,
+  "e0_acc25": 0.612,
+  "rerun_mean_iou": 0.6556,
+  "route_counts": {
+    "seeground_ablation_spatial_only": 95,
+    "E0": 149,
+    "bev_raw_labeled": 6
+  },
+  "route_summary": {
+    "E0": {
+      "num_queries": 149,
+      "rerun_acc25": 0.604,
+      "final_recomposition_acc25": 0.604,
+      "e0_acc25": 0.604,
+      "final_correct_rerun_wrong": 0,
+      "final_wrong_rerun_correct": 0
+    },
+    "bev_raw_labeled": {
+      "num_queries": 6,
+      "rerun_acc25": 0.6667,
+      "final_recomposition_acc25": 0.8333,
+      "e0_acc25": 0.6667,
+      "final_correct_rerun_wrong": 1,
+      "final_wrong_rerun_correct": 0
+    },
+    "seeground_ablation_spatial_only": {
+      "num_queries": 95,
+      "rerun_acc25": 0.7368,
+      "final_recomposition_acc25": 0.7158,
+      "e0_acc25": 0.6211,
+      "final_correct_rerun_wrong": 4,
+      "final_wrong_rerun_correct": 6
+    }
+  },
+  "acc25_transition_counts": {
+    "(True, True, 'seeground_ablation_spatial_only')": 64,
+    "(False, False, 'seeground_ablation_spatial_only')": 21,
+    "(False, False, 'E0')": 59,
+    "(True, False, 'seeground_ablation_spatial_only')": 4,
+    "(True, True, 'E0')": 90,
+    "(False, True, 'seeground_ablation_spatial_only')": 6,
+    "(True, True, 'bev_raw_labeled')": 4,
+    "(True, False, 'bev_raw_labeled')": 1,
+    "(False, False, 'bev_raw_labeled')": 1
+  },
+  "num_acc25_changed_vs_final": 11,
+  "changed_cases": [
+    {
+      "case": 5,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "it is the towel on the wall that is the farthest from the sinks",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 11,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "The bed next to the dresser, it is the pillow in the back, closest to the nightstand.",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 38,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the rail on the wall under the toilet paper holder",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 50,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "pick the door that is slightly open and is closer to the red an yellow painting",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 74,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the doors closest to the chair",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 78,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "look for the window that is closer to the olive green sofa",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 99,
+      "route": "bev_raw_labeled",
+      "query_type": "ordinal",
+      "caption": "facing the tables the second table from the left",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 115,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the smaller window near the shutters",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 128,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the laptop by the chair with the floral pattern",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 132,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "middle of the bar directly above the toilet flushing part",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 160,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "choose the pillow closest to the window",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.031663954413765856
+    }
+  ]
+}

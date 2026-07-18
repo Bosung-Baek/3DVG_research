@@ -1,0 +1,22 @@
+{
+  "bev_raw_labeled": {
+    "num_queries": 250,
+    "acc_iou25": 0.584,
+    "acc_iou50": 0.584,
+    "mean_iou": 0.5871,
+    "route_counts": {
+      "bev_raw_labeled": 250
+    },
+    "query_type_counts": {
+      "proximity_derived": 95,
+      "viewpoint_guided": 18,
+      "opposite_derived": 4,
+      "explicit_direction": 89,
+      "ordinal": 16,
+      "object_orientation": 9,
+      "none": 9,
+      "room_side": 6,
+      "geometric": 4
+    }
+  }
+}

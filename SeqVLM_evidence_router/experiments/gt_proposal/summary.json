@@ -1,0 +1,15 @@
+{
+  "dataset": "nr3d_250",
+  "diagnostic": "Mask3D candidate proposal oracle, GT used only for IoU scoring",
+  "num_queries": 250,
+  "oracle25": 0.672,
+  "oracle50": 0.568,
+  "oracle25_count": 168,
+  "oracle50_count": 142,
+  "best_iou_mean": 0.5576,
+  "avg_candidates": 4.036,
+  "avg_candidates_with_canvas": 3.452,
+  "zero_candidate_cases": 24,
+  "zero_canvas_candidate_cases": 54,
+  "source_csv": "experiments/gt_proposal/nr3d_mask3d_oracle_case_table.csv"
+}

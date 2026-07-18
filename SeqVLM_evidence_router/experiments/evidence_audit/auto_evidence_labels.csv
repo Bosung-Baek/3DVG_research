@@ -1,0 +1,501 @@
+dataset,case,query_type,route,route_reason,visual_attribute,pure_ordinal,pure_geometric,caption
+scanrefer_250,0,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is west of the left - most table . the chair is dark brown and has four legs .
+scanrefer_250,1,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a counter / desk where a tv often sits . it is beside the black chair .
+scanrefer_250,2,ordinal,E0,visual_attribute_default_e0,True,False,False,the trash can is right of the right - most door on the northern wall . the trash can is a trapezoidal prism and gray .
+scanrefer_250,3,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a long rectangular bench . it is next to another wide bench that 's closer to the pillar .
+scanrefer_250,4,ordinal,E0,visual_attribute_default_e0,True,False,False,the cabinet is the northwestern - most one . the cabinet is a brown rectangular prism .
+scanrefer_250,5,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is southwest of the left - most round table . the chair has a curved back and is blue .
+scanrefer_250,6,ordinal,E0,visual_attribute_default_e0,True,False,False,the monitor is the southeast - most one on the eastern - most table . the monitor has a black square center .
+scanrefer_250,7,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the coffee table is black and on top of an area rug that has 2 semi - circles on it . the coffee table has a book on it and is in front of a couch and across from a bookshelf .
+scanrefer_250,8,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is a beige and black chair . the beige and black chair is the chair at the right of the two chairs in the mid - front of the room .
+scanrefer_250,9,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,True,a chair sits pulled under a table . it 's the third chair from the left .
+scanrefer_250,10,opposite_derived,E0,visual_attribute_default_e0,True,False,False,"the monitor is opposite the desk with two monitors , and is next to the white shelf / cabinet . there is a black , non - rolling chair at the same desk ."
+scanrefer_250,11,explicit_direction,E0,default_e0,False,False,False,a window is lit up in the wall . it 's behind a row of chairs .
+scanrefer_250,12,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"this is a black , rolling office chair . this chair sits at the desk , at the end of the bed ."
+scanrefer_250,13,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"the picture is above the counter that 's between two chairs . the picture is blue , gold , and white ."
+scanrefer_250,14,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is south of the northwestern - most bookshelf . the chair is gray and has four legs .
+scanrefer_250,15,ordinal,E0,visual_attribute_default_e0,True,False,False,the chair the right - most one on the northern side of the table . the chair is red with two arms .
+scanrefer_250,16,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the chair is next to the northeast - most table . the chair is black with four legs .
+scanrefer_250,17,viewpoint_guided,E0,visual_attribute_default_e0,True,False,False,an l - shaped desk with a wood top . it is opposite the window in the room and directly to your left when you enter the door .
+scanrefer_250,18,none,E0,visual_attribute_default_e0,True,False,False,this towel is hanging . it is green .
+scanrefer_250,19,explicit_direction,E0,default_e0,False,True,False,"this is a table . this table is front of the book shelves , the book shelves it is in front of are the second and the third from the left . the third book shelf from the left is shorter than all the rest ."
+scanrefer_250,20,explicit_direction,E0,default_e0,False,False,True,this table is to the left of the couch . it 's positioned on the floor between the rug and the carpet .
+scanrefer_250,21,explicit_direction,E0,default_e0,False,False,False,a door stands in the hall . it 's to the right of some clothes hanging on the wall .
+scanrefer_250,22,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"this is a tan . metal frame chair . the chair is at the second table back , on the right side of the room . this chair is on the front left side edge of the table ."
+scanrefer_250,23,geometric,E0,visual_attribute_default_e0,True,False,False,a small circular table sits in the middle of the floor . it 's surrounded by four chairs .
+scanrefer_250,24,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the white towel is hanging on the wall in the bathroom . it is on the right wall next to the toilet .
+scanrefer_250,25,ordinal,E0,visual_attribute_default_e0,True,False,False,the table is black and against the back right wall . there are chairs around it .
+scanrefer_250,26,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a white plastic soap dispenser placed on the side of the wall .
+scanrefer_250,27,ordinal,E0,visual_attribute_default_e0,True,False,False,the chair is black and pushed into a desk . it is the chair furthest to the left . that is on the left .
+scanrefer_250,28,none,E0,visual_attribute_default_e0,True,False,False,the bookshelf has a white board leaning on it . the bookshelf has 3 layers .
+scanrefer_250,29,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the door is rectangular and white . it is located to the left of the world map on the wall .
+scanrefer_250,30,opposite_derived,E0,visual_attribute_default_e0,True,False,False,this is a brown door . it is across from an armchair .
+scanrefer_250,31,explicit_direction,E0,default_e0,False,False,False,large larder style stainless steel fridge freezer . has a split upper and lower areas with large wide handle . located to the left of the large larder style kitchen unit .
+scanrefer_250,32,explicit_direction,E0,default_e0,False,False,True,this picture is located on the back wall of the room . it is above the left bed .
+scanrefer_250,33,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there are dark brown kitchen cabinet . they are beneath the counter directly to the left of the doorway .
+scanrefer_250,34,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"a brown ottomon with two black knapsacks and a tissue box on it sits in front of a matching brown leather sofa , which is up against a wall . to its left is a black piano ."
+scanrefer_250,35,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"wooden cabinets are on the wall to the left of the kitchen sink . they are in the corner , to the left of the windows that sit above the sink ."
+scanrefer_250,36,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a rectangular red pillow . it is on the right side of a bed .
+scanrefer_250,37,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a rectangular brown door . it is next to a light switch .
+scanrefer_250,38,geometric,E0,visual_attribute_default_e0,True,False,False,this is a armchair . its white with patterns on it . its closest to the window in the room .
+scanrefer_250,39,explicit_direction,E0,default_e0,False,True,False,a rolling office chair on the right side of the table from the head chair . it is the second to last chair .
+scanrefer_250,40,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a red office chair . it is at the end with the tv and to the left .
+scanrefer_250,41,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black chair . the back of the chair is against the wall .
+scanrefer_250,42,explicit_direction,E0,visual_attribute_default_e0,True,False,False,a brown wooden door . on the left to the paper box .
+scanrefer_250,43,uncategorized,E0,visual_attribute_default_e0,True,False,False,"the refrigerator is in a corner and left of the oven . the refrigerator is a white , boxy prism ."
+scanrefer_250,44,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a pillow . its pink in color and is on top of the pattered sofa .
+scanrefer_250,45,object_orientation,E0,visual_attribute_default_e0,True,False,False,this is a black chair facing away from the viewer . it is closest to the viewer .
+scanrefer_250,46,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black office chair . it is to the left of a computer tower .
+scanrefer_250,47,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a white drying rack . placed next to another one .
+scanrefer_250,48,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the grey cushioned chair has wooden arms on each side . this grey cushioned chair has another beside it on the left .
+scanrefer_250,49,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black chair in a small classroom . it is on the right side of the table and is next to the wall .
+scanrefer_250,50,opposite_derived,E0,visual_attribute_default_e0,True,False,False,the chair is on the opposite side from the green paper cutter and has a chair to its right . the chair is gold and has four legs .
+scanrefer_250,51,none,E0,visual_attribute_default_e0,True,False,False,this pillow is on the bed . it is brown .
+scanrefer_250,52,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the tiny mini fridge . the mini fridge on the corner by the whiteboard .
+scanrefer_250,53,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the file cabinet is below the center desk on the right side of the room . the file cabinet is a dark gray box .
+scanrefer_250,54,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,this picture is hanged on the wall besides another picture . two monitors are present on the table under these pictures .
+scanrefer_250,55,object_orientation,E0,default_e0,False,False,False,the book shelf is in the back corner of the room . there is a window to the right of it on the adjoining wall and a desk in front of it .
+scanrefer_250,56,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a rectangular computer tower . it is on a stand with wheels next to a sofa .
+scanrefer_250,57,none,E0,visual_attribute_default_e0,True,False,False,the gray padded chair is on rollers . it is the only rolling chair at the table .
+scanrefer_250,58,explicit_direction,E0,visual_attribute_default_e0,True,False,False,a black chair . in front of the door .
+scanrefer_250,59,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the door is right of the purple chair . the door is a brown rectangle .
+scanrefer_250,60,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a small wooden cabinet . there is three small bins near it .
+scanrefer_250,61,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a rectangular computer tower . it is on a stand with wheels .
+scanrefer_250,62,none,E0,default_e0,False,False,False,two windows . on the side of the bathroom .
+scanrefer_250,63,ordinal,E0,visual_attribute_default_e0,True,False,False,the cabinet is in the middle of the room . the cabinet is a white prism with a blue top .
+scanrefer_250,64,geometric,seeground_ablation_3dpos_only,pure_geometric_3dpos,False,False,True,this is a tan end table . it is in between to couches .
+scanrefer_250,65,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a red office chair . it is at the back head of the table next to a black chair .
+scanrefer_250,66,ordinal,E0,visual_attribute_default_e0,True,False,False,this is a chair . its blue in color and is in the center of the room 5th from each corner .
+scanrefer_250,67,none,E0,visual_attribute_default_e0,True,False,False,this table is in the middle . it is square .
+scanrefer_250,68,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a trash can that has a bag in it . it is left of the counter on the floor in the corner .
+scanrefer_250,69,viewpoint_guided,E0,visual_attribute_default_e0,True,False,False,this is a black door with a metal handle . it is the entrance to the room .
+scanrefer_250,70,geometric,E0,visual_attribute_default_e0,True,False,False,an oval shaped sink . it is above a white cabinet .
+scanrefer_250,71,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a rectangular radiator . it is under a window .
+scanrefer_250,72,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the recycling bin is on the floor partially under the table . it is green at the top .
+scanrefer_250,73,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the backpack is yellow . the backpack is on the back of the black chair .
+scanrefer_250,74,explicit_direction,E0,default_e0,False,False,False,the armchair is to the right of the other chair . it is facing the table .
+scanrefer_250,75,geometric,E0,default_e0,False,False,False,this chair is facing down and right . it is curved and is the closest the viewer .
+scanrefer_250,76,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white soap dispenser . it is above the sink .
+scanrefer_250,77,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the small wooden bookshelf . the shelf is by the desk .
+scanrefer_250,78,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the table is brown . the table is on the right side of the room .
+scanrefer_250,79,uncategorized,E0,visual_attribute_default_e0,True,False,False,an ottoman made from leather . it is the one furthest to the left .
+scanrefer_250,80,explicit_direction,E0,default_e0,False,True,False,the object is a chair . it is on the right side of the room from the doorway at the end table . it is the second one next to the wall .
+scanrefer_250,81,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a grey patterned couch . its on the wall where the entry way is on the left .
+scanrefer_250,82,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is one purple chair in the room the purple chair is in front of a brown wooden door . the wooden door is the item we are looking for . the brown wooden door has shiny brass hardware . the purple chair and the brown wooden door are to the right of the big desk in front of all the little desks in the room .
+scanrefer_250,83,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the whiteboard is on the white wall . it is to the right of the doors .
+scanrefer_250,84,explicit_direction,E0,default_e0,False,False,False,it is a chair . there is a table in front and a bookshelf behind it . a backpack is in the seat .
+scanrefer_250,85,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is left of the table north of the green table . the chair is brown with four legs .
+scanrefer_250,86,room_side,E0,default_e0,False,False,False,the trash can is located along the far wall of the room . the trash can is also directly to the right of the toilet and underneath the toilet paper .
+scanrefer_250,87,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a square brown chair . it is against the wall and next to the door .
+scanrefer_250,88,object_orientation,E0,visual_attribute_default_e0,True,False,False,this is a white rectangular pillow . it is sitting at the head of the bed .
+scanrefer_250,89,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is a black trash can . the black trash can sits to the left of another black trash can that has a clear white trash bag in it .
+scanrefer_250,90,none,E0,visual_attribute_default_e0,True,False,False,there are two large wooden doors . the doors are a golden wooden color with large dark handles .
+scanrefer_250,91,room_side,E0,default_e0,False,False,False,this is a lamp . the lamp is at the corner of the room .
+scanrefer_250,92,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white pillow . it is under the picture .
+scanrefer_250,93,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black sofa chair . it is to the left of the lamp .
+scanrefer_250,94,explicit_direction,E0,default_e0,False,False,False,the picture is affixed to the wall . it is located to the left of the door .
+scanrefer_250,95,geometric,seeground_ablation_3dpos_only,pure_geometric_3dpos,False,False,True,the pillow on the bed farther from the door . it is the top pillow on the side of the bed that is closer to the table between the beds .
+scanrefer_250,96,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this tv is on the left wall . it is black .
+scanrefer_250,97,geometric,seeground_ablation_3dpos_only,pure_geometric_3dpos,False,False,True,the item is in end table . what is the only in end table found between the two couches in the room .
+scanrefer_250,98,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a rectangular dark cabinet . it is next to a white cabinet .
+scanrefer_250,99,none,E0,visual_attribute_default_e0,True,False,False,"there is a black desk with a clear rectangular glass . the desk is located near the window , and has a office chair pulled up to it ."
+scanrefer_250,100,explicit_direction,E0,default_e0,False,False,False,the couch has a pillow on the left side of it . there is a fire extinguisher on the wall behind the couch .
+scanrefer_250,101,explicit_direction,E0,default_e0,False,False,False,the cool office chair . the chair is by the desk .
+scanrefer_250,102,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a rectangular monitor . it is to the right of the one closest to the door .
+scanrefer_250,103,none,E0,visual_attribute_default_e0,True,False,False,there is a rectangular gray cabinet . it is on a wall next to a shelf .
+scanrefer_250,104,explicit_direction,E0,visual_attribute_default_e0,True,False,False,a medium sized wooden chair . the chair is in front of a window with blinds .
+scanrefer_250,105,room_side,E0,visual_attribute_default_e0,True,False,False,this is a simple dark square table with four chairs pushed up to it . it is near the end of the room . the chair on its right side is a rolling office chair .
+scanrefer_250,106,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the brown shelf is to the left of the window . it is so tall that it reaches the ceiling .
+scanrefer_250,107,explicit_direction,E0,default_e0,False,False,False,there are two carts with shelves and wheels against the wall . the one we want is on the left .
+scanrefer_250,108,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"this is a brown leather chair located under the first dark brown table immediately inside the door . it is on the middle side of the room , relative to the table ."
+scanrefer_250,109,explicit_direction,E0,default_e0,False,False,False,the door is to the right of the mail cubbies . it is directly across from the cabinets .
+scanrefer_250,110,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this is a chair against the wall by the plugins . this is by the right corner of the white board .
+scanrefer_250,111,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the window is tall and has a brown frame . the window is on the right of another one .
+scanrefer_250,112,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the large hanging curtain . the curtain is next to the little shelf .
+scanrefer_250,113,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white bathtub . it is behind a shower curtain .
+scanrefer_250,114,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the cart is below the announcement board . the cart is to the left of the black cart .
+scanrefer_250,115,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black chair . there are many black chairs in this room . but there are only two chairs that are right in front of the blackboard . if you are looking at the blackboard give me the chair on the left . if you are standing behind the chairs it is the chair on the right .
+scanrefer_250,116,geometric,E0,visual_attribute_default_e0,True,False,False,the bench is between two large bookshelves . the bench is rectangular and red brown in color .
+scanrefer_250,117,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this is a wooden desk . the desk is close to wall .
+scanrefer_250,118,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the object referenced here is a long black couch against a wall in the room . it has various pillows on it and is near a hanging orange sweater and a whiteboard .
+scanrefer_250,119,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the office chair is black and is pushed out from the desk . the chair is the second from the right .
+scanrefer_250,120,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a brown bed . it is to the left of another bed .
+scanrefer_250,121,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the green instrument case has a gray rolled up sleeping bag in front of it . the instrument case is to the left of the white dresser .
+scanrefer_250,122,room_side,E0,visual_attribute_default_e0,True,False,False,this is a black chair . it is in the corner of the room .
+scanrefer_250,123,ordinal,E0,visual_attribute_default_e0,True,False,False,the towel is hanging on the wall . it is the right most towel hanging . it is light colored .
+scanrefer_250,124,none,E0,visual_attribute_default_e0,True,False,False,the door is open facing the inside of the small bedroom . it sits midway in the wall and has a closet on one side of it .
+scanrefer_250,125,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the brown wooden chair . the chair is in the back in the middle .
+scanrefer_250,126,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,it is a black cabinet . the black cabinet is sitting next to the white cabinet and the white rail across from the white door .
+scanrefer_250,127,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a long black couch in the room . it is by the wall with a picture .
+scanrefer_250,128,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,there is a cylindrical table . it is next to a curtain .
+scanrefer_250,129,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a white pillow . next to the black pillow .
+scanrefer_250,130,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a rectangular door . it is next to a map .
+scanrefer_250,131,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a small square gray pillow . it is located on a black couch .
+scanrefer_250,132,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white cabinet . it is to the left of a toilet .
+scanrefer_250,133,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is a white toilet with the lid up at the end of the bathroom . there is a toilet on the right side hanging up .
+scanrefer_250,134,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"the trash can is on the floor to the left of the cabinet . there is a small white bin beside it , to the right ."
+scanrefer_250,135,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the trash can is grey and is on the floor . it is in the far corner of the room against the red wall and the glass wall .
+scanrefer_250,136,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the armchair on the left side of the room . it is grey .
+scanrefer_250,137,opposite_derived,E0,visual_attribute_default_e0,True,False,False,it is a brown leather couch with a bag on the left cushion . there is a fire extinguisher behind it and it is across from another identical couch .
+scanrefer_250,138,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this is a plain office chair . it si near the corner of the table . it is slightly pulled out and by the white board .
+scanrefer_250,139,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black chair on the right corner . it has an object on it .
+scanrefer_250,140,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the pillow is on top of a bed that is to the left of a desk and a drawer . the pillow is a white rectangle .
+scanrefer_250,141,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the table is brown and round . it is on the right side of the room .
+scanrefer_250,142,object_orientation,E0,visual_attribute_default_e0,True,False,False,this is a yellow office chair . it is facing the table .
+scanrefer_250,143,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the window has blinds on it . it is to the right of the bed in the room .
+scanrefer_250,144,ordinal,E0,visual_attribute_default_e0,True,False,False,"a white laundry basket is on top of a laundry machine . it is located at the far left machine , across from the door ."
+scanrefer_250,145,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a gray office chair . it is to the left of the monitors .
+scanrefer_250,146,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this chair is kept closer to the table . on right a white board can be seen on the wall .
+scanrefer_250,147,none,E0,default_e0,False,False,False,this is a window in the meeting room . it is near the chalkboard .
+scanrefer_250,148,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a red cube shaped footrest . the footrest is near the end of a large blue couch and a wooden table .
+scanrefer_250,149,explicit_direction,E0,default_e0,False,True,True,"this printer is directly below the window . it is sitting on the counter , in the corner ."
+scanrefer_250,150,geometric,E0,visual_attribute_default_e0,True,False,False,this is a white two drawer storage bin . it is between the bedside table and the wall .
+scanrefer_250,151,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the table is dark brown . it is to the right of two tall chairs tucked under it .
+scanrefer_250,152,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a white toilet flush button above the toilet . it is to the left of the sink .
+scanrefer_250,153,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black mattress . it is to the right of the radiator .
+scanrefer_250,154,room_side,E0,visual_attribute_default_e0,True,False,False,it is a grey circular table in the corner of the room . there is a lamp on top of it .
+scanrefer_250,155,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a brown wooden chair . it is in between multiple wooden chairs next to a wall .
+scanrefer_250,156,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this pillow is by the wall . it is dark .
+scanrefer_250,157,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is pulled into the desk . the chair has a wall behind it . the couch is in the background past it .
+scanrefer_250,158,none,E0,visual_attribute_default_e0,True,False,False,there are white washing machines . they are an island in the middle of the room .
+scanrefer_250,159,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is a gray trash can . the gray trash can sits at the bottom right of the long beige table behind the brown chairs .
+scanrefer_250,160,uncategorized,E0,default_e0,False,True,False,this fridge is in the corner on the back right . it faces left and is behind the cabinet . there is a table to the left and in front .
+scanrefer_250,161,room_side,E0,visual_attribute_default_e0,True,False,False,the cabinet is south of the northwest table . the cabinet is gray with four legs .
+scanrefer_250,162,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the radiator on the wall . the radiator is next to the toilet .
+scanrefer_250,163,none,E0,visual_attribute_default_e0,True,False,False,the shelf is black . there is a white lamp on top of it .
+scanrefer_250,164,explicit_direction,E0,default_e0,False,False,False,this shelf is on the other side . it is on the wall .
+scanrefer_250,165,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white monitor . it is on the floor .
+scanrefer_250,166,ordinal,E0,default_e0,False,False,False,trashcan sitting in a hallway .
+scanrefer_250,167,geometric,seeground_ablation_3dpos_only,pure_geometric_3dpos,False,False,True,this is a chair . it sets between 2 tables .
+scanrefer_250,168,uncategorized,E0,visual_attribute_default_e0,True,False,False,the microwave is left of the door . the microwave is a white rectangular prism .
+scanrefer_250,169,explicit_direction,E0,default_e0,False,False,True,the kitchen table chair . the chair is on the right under the table .
+scanrefer_250,170,explicit_direction,E0,default_e0,False,False,False,this is a chair . it sets against the wall by another chair .
+scanrefer_250,171,ordinal,E0,visual_attribute_default_e0,True,False,False,it is a wooden desk chair . it is the chair that is second to last on the right side of the table .
+scanrefer_250,172,object_orientation,E0,visual_attribute_default_e0,True,False,False,this is a black chair . it is at the corner of the table .
+scanrefer_250,173,uncategorized,E0,visual_attribute_default_e0,True,False,False,this cabinet is on the other side . its green in color .
+scanrefer_250,174,geometric,E0,visual_attribute_default_e0,True,False,False,this towel is curled . it is hung .
+scanrefer_250,175,none,E0,visual_attribute_default_e0,True,False,False,there is a table that has two chairs tucked under it . it also has a red and black object on it .
+scanrefer_250,176,none,E0,visual_attribute_default_e0,True,False,False,a white sink . on the side of the bathroom .
+scanrefer_250,177,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white keyboard . it is located below the computer screen on the right .
+scanrefer_250,178,ordinal,E0,visual_attribute_default_e0,True,False,False,the chair is in one of the sides of the room . the color of the chair is brown .
+scanrefer_250,179,none,E0,visual_attribute_default_e0,True,False,False,the highlighted object is the kitchen refrigerator . it has a freezer on top . it appears to have stainless steel components . there are magnets and other items stuck to the front and side of it .
+scanrefer_250,180,opposite_derived,E0,visual_attribute_default_e0,True,False,False,the chair is black and is pushed into the desk . it is located pushed into the desk across from the bed .
+scanrefer_250,181,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this bench is on the top left corner . it is dark .
+scanrefer_250,182,ordinal,E0,visual_attribute_default_e0,True,False,False,this is a rectangular flat panel monitor . it is the last monitor on the right in the front row of monitors .
+scanrefer_250,183,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a square table . it is to the left of shelves .
+scanrefer_250,184,explicit_direction,E0,default_e0,False,False,False,this chair is on the right side . it is facing left .
+scanrefer_250,185,geometric,E0,visual_attribute_default_e0,True,False,False,the multi color curtain is closest to the open closet door . right in front of this curtain there is door straight ahead .
+scanrefer_250,186,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a chair sits near a long wooden table . it is the second chair from the right .
+scanrefer_250,187,none,E0,default_e0,False,True,False,this chair is in the middle . it is facing right .
+scanrefer_250,188,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black chair . it is to the left of another chair .
+scanrefer_250,189,explicit_direction,E0,visual_attribute_default_e0,True,False,False,in the room there is a cream colored door to the left of the wooden shelves and to the right of the water heater . the door is slightly open and has a door handle about half way up on the right side .
+scanrefer_250,190,explicit_direction,E0,default_e0,False,False,False,the picture is on the back wall of the room . it is to the right of the shower curtain .
+scanrefer_250,191,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a metallic round table with a base of one pole . it is below the picture on the wall and between two red stools .
+scanrefer_250,192,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is left of a desk that is between the two blackboards . the chair is black with a curved back .
+scanrefer_250,193,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the pillow is on a black couch that is placed in the northern corner of the room with a whiteboard above it . it has a dirty silver color and is shaped like a rectangular prism with one of the sides caved in .
+scanrefer_250,194,geometric,E0,visual_attribute_default_e0,True,False,False,this is a white shelf . it is between tables .
+scanrefer_250,195,none,E0,visual_attribute_default_e0,True,False,False,a wooden square table . in the middle of the room .
+scanrefer_250,196,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,"the whiteboard is next to two doors . the whiteboard is a long , white rectangle ."
+scanrefer_250,197,geometric,E0,visual_attribute_default_e0,True,False,False,the trash can is the second closest to the door out of the group of cans . the trash can has a plastic bag over it .
+scanrefer_250,198,explicit_direction,E0,default_e0,False,True,False,this is the closet doors in the corner of the room . a bed is present in front of the closet .
+scanrefer_250,199,geometric,E0,visual_attribute_default_e0,True,False,False,there are two black chairs situated between six brown chairs and a black couch . this black chair is next to the black couch . it appears to be leather . it is black . there is a snack machine on the opposite wall .
+scanrefer_250,200,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the chair is black and oriented beside another surface . it is spatially facing about 330 degrees in relation to the viewer .
+scanrefer_250,201,explicit_direction,E0,default_e0,False,False,True,this is a framed picture on the wall in the bathroom . it is above the toilet .
+scanrefer_250,202,object_orientation,E0,visual_attribute_default_e0,True,False,False,this window is bright . it is facing inward .
+scanrefer_250,203,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,it is a white window . the white window is is next to the white window curtain .
+scanrefer_250,204,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a black keyboard . it is in front of a monitor .
+scanrefer_250,205,explicit_direction,E0,default_e0,False,False,False,this storage bin is on the top right . it is box shaped .
+scanrefer_250,206,ordinal,E0,visual_attribute_default_e0,True,False,False,the trash can is the rightmost one out of a row of three trash cans next to the bed . the trash can is blue and has a plastic bag on top .
+scanrefer_250,207,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the sink is north of the table in the center . the sink is rectangular and metallic .
+scanrefer_250,208,explicit_direction,E0,visual_attribute_default_e0,True,False,False,"this is a brown table . it sets along the wall , with a microwave on top of it ."
+scanrefer_250,209,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a square brown nightstand . it is left of the bed .
+scanrefer_250,210,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the black chair is located in front of the wooden door . the chair is also located to the right of a white shelving unit .
+scanrefer_250,211,ordinal,E0,visual_attribute_default_e0,True,False,False,the pillow is on top of the couch . it is on the furthest left .
+scanrefer_250,212,object_orientation,E0,visual_attribute_default_e0,True,False,False,this is a desk chair facing towards a desk . it is dark colored and pushed in .
+scanrefer_250,213,explicit_direction,E0,default_e0,False,False,False,this is a big screen tv . it is affixed to the wall .
+scanrefer_250,214,explicit_direction,E0,default_e0,False,False,False,this is a small night stand kept close to the wall . a table on the left and bed on the right are kept close to it .
+scanrefer_250,215,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a rectangular silver refrigerator . it is at the side of the room and next to brown cabinets .
+scanrefer_250,216,geometric,E0,visual_attribute_default_e0,True,False,False,the sink is white and has a wide counter around it . the sink is in between two walls .
+scanrefer_250,217,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the curtain is by the white table . the curtain is gray .
+scanrefer_250,218,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a rectangular radiator . it is next to a white chair .
+scanrefer_250,219,uncategorized,E0,default_e0,False,False,False,this is a janitor cart holding supplies . its front is facing away fron the viewer .
+scanrefer_250,220,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the rectangle trash can . the trash can is by the hamper .
+scanrefer_250,221,ordinal,E0,visual_attribute_default_e0,True,False,False,the object is a wooden chair . it is the right most chair against the wall . there is a large window behind it .
+scanrefer_250,222,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the sink is white . it is on top of the counter .
+scanrefer_250,223,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is a white soap dispenser . it is above a sink .
+scanrefer_250,224,none,E0,visual_attribute_default_e0,True,False,False,this is a rack object with different surfaces atop each other . there are objects on top of them .
+scanrefer_250,225,geometric,E0,visual_attribute_default_e0,True,False,False,this toaster oven is black . it is on the far hard surface .
+scanrefer_250,226,explicit_direction,E0,visual_attribute_default_e0,True,False,False,a grey chair is behind a table and black chairs . the grey chair is leaning back and has a black chair to the right of it .
+scanrefer_250,227,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a black and white toilet . it is to the left of the bathroom stall door .
+scanrefer_250,228,none,E0,default_e0,False,False,False,this is a toilet . it is made of porcelain .
+scanrefer_250,229,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a circular wooden end table . it is next to a teal couch .
+scanrefer_250,230,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is a white table . the white table is sitting behind the two brown desks in the far left corner of the room .
+scanrefer_250,231,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,there is a square beige table . it is next to a large rectangular table at the side of the room .
+scanrefer_250,232,explicit_direction,E0,default_e0,False,False,True,this radiator is attached to the wall under the window . two trash cans are present in front of this .
+scanrefer_250,233,none,E0,visual_attribute_default_e0,True,False,False,this is a closed door . it is wooden and has a handle .
+scanrefer_250,234,none,E0,visual_attribute_default_e0,True,False,False,this sofa chair is in the middle . it is dark .
+scanrefer_250,235,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,a green and black chair is pulled out from a desk . there is a keyboard to the left of it .
+scanrefer_250,236,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is a black adjustable desk chair . it is pushed up under the desk table that is against the wall from the left side of the bed .
+scanrefer_250,237,explicit_direction,E0,default_e0,False,False,False,a bookshelf is against the wall with a door to the left of it . this bookshelf has a desk and chair in front of it .
+scanrefer_250,238,none,E0,visual_attribute_default_e0,True,False,False,the door is next to the trash can and a table . the door is a brown rectangle .
+scanrefer_250,239,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is sitting with a round table behind it . there are two armchairs behind it .
+scanrefer_250,240,none,E0,visual_attribute_default_e0,True,False,False,this is a sink basin that is empty . it is white and tan .
+scanrefer_250,241,object_orientation,E0,visual_attribute_default_e0,True,False,False,"there is a chair with an orange seat in the back of the room , facing away from the wall . there is a blue container to the right ."
+scanrefer_250,242,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the bed is on the left side of the room . it has a green cover .
+scanrefer_250,243,explicit_direction,E0,default_e0,False,False,False,the door is to the right of the desk . the door has shelves in front of it .
+scanrefer_250,244,explicit_direction,E0,default_e0,False,False,False,there is a window . it is to the left of the desk and shelves .
+scanrefer_250,245,room_side,E0,visual_attribute_default_e0,True,False,False,the chair is north of the closet . the chair is white and has four legs .
+scanrefer_250,246,viewpoint_guided,E0,visual_attribute_default_e0,True,False,False,the waist height white oscillating fan is positioned beside the bed and desk chair . if you enter the bedroom door and continue straight ahead you will run into it before reaching the bed . against the rear wall .
+scanrefer_250,247,explicit_direction,E0,visual_attribute_default_e0,True,False,False,there is a rectangular dark coffee table . it is in front of a couch and at the center of the room .
+scanrefer_250,248,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,the object is a desk . if you enter the room it would be located on the right side directly in front of you against the window .
+scanrefer_250,249,explicit_direction,E0,default_e0,False,False,False,"you are looking for the chair closest to the front . it is on the right side , right behind the chair leg ."
+nr3d_250,0,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,it is the chair by itself not near the desk
+nr3d_250,1,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,select the sink farther from the washer
+nr3d_250,2,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this cabinet is dark and farther away from the door
+nr3d_250,3,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the box shelf you want is right next to the chair in the cor
+nr3d_250,4,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,while facing the play carpet it is the farthest chair to the
+nr3d_250,5,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,it is the towel on the wall that is the farthest from the si
+nr3d_250,6,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,this is the angled bookshelf far away from the corner of boo
+nr3d_250,7,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the chair with nothing colorful around it
+nr3d_250,8,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,it is the large curtain on the window with a small white tab
+nr3d_250,9,opposite_derived,E0,default_e0,False,False,False,"If you were standing in front of the sink, facing away from "
+nr3d_250,10,explicit_direction,E0,default_e0,False,False,False,when facing the play carpet it is the chair to the left not 
+nr3d_250,11,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,"The bed next to the dresser, it is the pillow in the back, c"
+nr3d_250,12,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the monitor that is closest to the windows
+nr3d_250,13,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the window farthest from the door
+nr3d_250,14,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,it is the left armchair between the two closest to the table
+nr3d_250,15,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the white monitor farthest from the trash cans which are in 
+nr3d_250,16,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the longer rail farthest from sink
+nr3d_250,17,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the shoes farthest from the front door
+nr3d_250,18,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,standing at the foot of the bed looking at the head of the b
+nr3d_250,19,explicit_direction,E0,visual_attribute_default_e0,True,False,False,when facing the long grey counter it is the window in the mi
+nr3d_250,20,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the sink is to the right of the metal thing on the wall and 
+nr3d_250,21,explicit_direction,E0,default_e0,False,False,False,from the foot of the bed choose the dresser that is to your 
+nr3d_250,22,ordinal,E0,default_e0,False,False,False,of the five monitors facing you the keyboard that is directl
+nr3d_250,23,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,find the sign that is under the cabinet and farthest away fr
+nr3d_250,24,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the picture that is slightly behind the air mattress propped
+nr3d_250,25,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the only pillow that is not on the bed
+nr3d_250,26,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,backpack is farthest away from window closest to the bookshe
+nr3d_250,27,explicit_direction,E0,visual_attribute_default_e0,True,False,False,turn and face the small white fridge between the desks and i
+nr3d_250,28,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,wall mounted cabinet the one that is not above printer
+nr3d_250,29,explicit_direction,E0,default_e0,False,False,False,when facing the monitors it is the monitor on the left
+nr3d_250,30,explicit_direction,E0,default_e0,False,False,True,this lamp is on a table between the beds
+nr3d_250,31,explicit_direction,E0,visual_attribute_default_e0,True,False,False,pick the grey chair next to the green one
+nr3d_250,32,explicit_direction,E0,default_e0,False,False,True,shelf up above the bed
+nr3d_250,33,explicit_direction,E0,default_e0,False,True,False,the armchair that is right in the corner
+nr3d_250,34,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the bookshelves the chair in the lower right corner
+nr3d_250,35,explicit_direction,E0,visual_attribute_default_e0,True,False,False,when facing the row of grey chairs the window that is over t
+nr3d_250,36,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,True,True,the smallest table its has no chairs under next to it
+nr3d_250,37,explicit_direction,E0,default_e0,False,False,False,the tall shelf behind the door
+nr3d_250,38,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,the rail on the wall under the toilet paper holder
+nr3d_250,39,object_orientation,E0,visual_attribute_default_e0,True,False,False,the pillow is yellow and standing upright on the couch not l
+nr3d_250,40,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,False,the toilet in the right stall
+nr3d_250,41,explicit_direction,E0,default_e0,False,False,False,facing the foot of the bed the pillow on the right
+nr3d_250,42,explicit_direction,E0,default_e0,False,False,False,the toilet paper on the right hand side of the toilet
+nr3d_250,43,explicit_direction,E0,default_e0,False,False,True,the shelf above the couch
+nr3d_250,44,ordinal,E0,visual_attribute_default_e0,True,False,False,the round table with the most objects on top of it
+nr3d_250,45,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the correct cup is closer to the edge of the desk
+nr3d_250,46,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the backpack on the floor next to the ipad on the bed
+nr3d_250,47,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the garbage can and not recycling bin
+nr3d_250,48,explicit_direction,E0,visual_attribute_default_e0,True,False,False,if we face the small yellow table the chair to the far right
+nr3d_250,49,explicit_direction,E0,default_e0,False,False,False,when facing the door the couch to the right
+nr3d_250,50,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,pick the door that is slightly open and is closer to the red
+nr3d_250,51,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,chair against the wall closest to the window
+nr3d_250,52,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the green chair
+nr3d_250,53,explicit_direction,E0,default_e0,False,False,False,facing the door the shelf to the right
+nr3d_250,54,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,True,False,tiny door in the corner
+nr3d_250,55,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the black shoes in front of the door
+nr3d_250,56,explicit_direction,E0,default_e0,False,False,False,printer on left shelving on right you want the back option o
+nr3d_250,57,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the printer directly in front of the window closest to the c
+nr3d_250,58,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the window in the middle of the room next to the black floor
+nr3d_250,59,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,toilet paper on top of the paper towel dispenser its the one
+nr3d_250,60,explicit_direction,E0,visual_attribute_default_e0,True,False,False,this is the round table by the closed white door
+nr3d_250,61,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the dresser under the bed with the orange pillow
+nr3d_250,62,none,E0,visual_attribute_default_e0,True,False,False,box surrounds door with glass inset
+nr3d_250,63,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the backpack closest to the windows
+nr3d_250,64,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the keyboard that is on the little side desk on the end of t
+nr3d_250,65,explicit_direction,E0,visual_attribute_default_e0,True,False,False,choose the shelf next to the blue shower
+nr3d_250,66,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is underneath the brown table in front bed
+nr3d_250,67,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the window closest to the recycling bin
+nr3d_250,68,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,find the box with the longest set of bookcases then choose t
+nr3d_250,69,explicit_direction,E0,default_e0,False,False,True,from under the room it is the shoes under the bed completely
+nr3d_250,70,object_orientation,E0,default_e0,False,True,False,chair near the table facing the chair in the corner
+nr3d_250,71,explicit_direction,E0,default_e0,False,False,False,if you face the two monitors pick the one of the left side t
+nr3d_250,72,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the open door by the trash cans leading into a room with whi
+nr3d_250,73,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the dresser underneath the bed with a purple covering
+nr3d_250,74,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the doors closest to the chair
+nr3d_250,75,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the smaller white colored box against the wall next to the g
+nr3d_250,76,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the trash can that has some multicolored folder things on th
+nr3d_250,77,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the table is the shorter lighter one with the pulled out cha
+nr3d_250,78,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,look for the window that is closer to the olive green sofa
+nr3d_250,79,object_orientation,E0,default_e0,False,False,False,the kitchen cabinets sink and counter plus part of the floor
+nr3d_250,80,explicit_direction,E0,visual_attribute_default_e0,True,False,False,toilet paper located directly below the metal holding bar an
+nr3d_250,81,explicit_direction,E0,default_e0,False,False,False,the sink on the right hand side
+nr3d_250,82,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the shelves choose the chair on the right closest to 
+nr3d_250,83,explicit_direction,E0,default_e0,False,False,False,if you are standing at the foot of the bed choose the pillow
+nr3d_250,84,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,these shoes are adjacent to the nearby door rather than in f
+nr3d_250,85,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,False,the smallest bathroom stall
+nr3d_250,86,explicit_direction,E0,default_e0,False,False,False,facing the wall with two pictures the picture on the right
+nr3d_250,87,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the backpack close to the bed on the floor
+nr3d_250,88,explicit_direction,E0,default_e0,False,False,False,the window on the right that has a fan in front of the middl
+nr3d_250,89,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the desk that has something teal light blue sitting on it
+nr3d_250,90,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,True,False,if you are standing in the middle of the room facing the two
+nr3d_250,91,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the trash bin in the right corner behind the blue trash can
+nr3d_250,92,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the shoes closest to the window
+nr3d_250,93,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair is in front of the table brown cabinet by sink
+nr3d_250,94,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the doors the door on the left
+nr3d_250,95,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the middle rolling cart white in color next to the teal and 
+nr3d_250,96,object_orientation,E0,default_e0,False,False,False,the backpack on the floor
+nr3d_250,97,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the chair against the whiteboard on the right side
+nr3d_250,98,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,True,False,choose the backpack in the corner closer to the window
+nr3d_250,99,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,False,facing the tables the second table from the left
+nr3d_250,100,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the towel on the left side of the oven door
+nr3d_250,101,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the correct window is taller and touches the ground
+nr3d_250,102,explicit_direction,E0,visual_attribute_default_e0,True,False,False,choose the black backpack hanging on the wall
+nr3d_250,103,none,E0,default_e0,False,False,False,the only office style chair in the room
+nr3d_250,104,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,False,the correct box is in the middle
+nr3d_250,105,explicit_direction,E0,default_e0,False,True,True,the smallest window above the door
+nr3d_250,106,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the monitor on the floor next to the desk
+nr3d_250,107,explicit_direction,E0,default_e0,False,False,False,the door that is directly south of the arm chair
+nr3d_250,108,explicit_direction,E0,default_e0,False,False,True,the picture above the desk
+nr3d_250,109,object_orientation,E0,default_e0,False,False,False,the lamp on the stand with two remotes
+nr3d_250,110,explicit_direction,E0,default_e0,False,False,True,the cabinets above the printer
+nr3d_250,111,explicit_direction,E0,default_e0,False,False,True,find the backpack that is in between the desk and the fan
+nr3d_250,112,explicit_direction,E0,default_e0,False,False,False,standing at the window facing the doors it is the one on the
+nr3d_250,113,explicit_direction,E0,default_e0,False,False,False,the table next to the copier
+nr3d_250,114,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the sinks choose the one on the right
+nr3d_250,115,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the smaller window near the shutters
+nr3d_250,116,explicit_direction,E0,default_e0,False,True,False,the taller dresser across from the bed
+nr3d_250,117,room_side,E0,default_e0,False,False,False,the correct trash can is not in the bathroom
+nr3d_250,118,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,white item resting on top of paper towel dispenser close to 
+nr3d_250,119,none,E0,visual_attribute_default_e0,True,False,False,chair next to the whiteboard
+nr3d_250,120,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,cabinet closest to the tv
+nr3d_250,121,explicit_direction,E0,default_e0,False,False,True,the rail directly above the toilet
+nr3d_250,122,ordinal,E0,visual_attribute_default_e0,True,False,False,the bathroom stall with the toilet seat that is up
+nr3d_250,123,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,it is the chair closest to the exit doorway
+nr3d_250,124,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the book is on the white shelf near the desk
+nr3d_250,125,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the larger green box underneath the smaller green box
+nr3d_250,126,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the desk closest to the window
+nr3d_250,127,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,True,True,facing the windows chose the center desk under the clock
+nr3d_250,128,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the laptop by the chair with the floral pattern
+nr3d_250,129,opposite_derived,E0,visual_attribute_default_e0,True,False,False,the door along the wall with the open door ( it is not the o
+nr3d_250,130,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the chairs this is the one on the left
+nr3d_250,131,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the sink closest to the washing machine
+nr3d_250,132,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,True,True,middle of the bar directly above the toilet flushing part
+nr3d_250,133,ordinal,E0,default_e0,False,False,False,when facing the three windows you need to choose the one all
+nr3d_250,134,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,large cabinet that is not above the desk
+nr3d_250,135,none,E0,default_e0,False,True,False,it is the door located in the corner of the room next to the
+nr3d_250,136,room_side,E0,default_e0,False,False,False,the monitor that is the only one on the side of the room wit
+nr3d_250,137,explicit_direction,E0,default_e0,False,True,False,when standing in the middle of the room facing the plants th
+nr3d_250,138,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the plants the plant on the right
+nr3d_250,139,explicit_direction,E0,default_e0,False,False,False,the soap dish on the left side of the sink
+nr3d_250,140,room_side,E0,default_e0,False,True,False,the tall set of shelves in the corner
+nr3d_250,141,ordinal,E0,visual_attribute_default_e0,True,False,False,i am the round table in the corner of the room
+nr3d_250,142,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,this couch is not next to a tall shelf unit
+nr3d_250,143,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,looking at the beds head on the bag nearest to the bed on th
+nr3d_250,144,explicit_direction,E0,default_e0,False,False,False,looking at both books on the desk it is the book on the righ
+nr3d_250,145,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,i am the ottoman closest to the coffee table
+nr3d_250,146,geometric,E0,visual_attribute_default_e0,True,False,False,window with a white frame by the shoes
+nr3d_250,147,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the small blue couch that is on the end
+nr3d_250,148,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the chair closest to the kitchen
+nr3d_250,149,explicit_direction,E0,default_e0,False,False,False,facing the door the bottom left chair
+nr3d_250,150,explicit_direction,E0,default_e0,False,False,False,the table in front of the chair with a circular stand
+nr3d_250,151,geometric,E0,visual_attribute_default_e0,True,False,False,i am the shelf above the bed with red clothes on the bed
+nr3d_250,152,explicit_direction,E0,default_e0,False,False,False,the box that is higher
+nr3d_250,153,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,if facing the doors the one on your left
+nr3d_250,154,explicit_direction,E0,visual_attribute_default_e0,True,False,False,when facing the wall with two white boards so that the door 
+nr3d_250,155,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the book on the bottom bunk closest to the outside of
+nr3d_250,156,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the keyboard that is not in front of the whiteboard
+nr3d_250,157,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the box stacked on top
+nr3d_250,158,opposite_derived,E0,default_e0,False,False,False,the door directly opposite the window
+nr3d_250,159,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,trash can closest to the copier
+nr3d_250,160,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the pillow closest to the window
+nr3d_250,161,explicit_direction,E0,default_e0,False,False,True,the right storage bin on the floor under the clock
+nr3d_250,162,explicit_direction,E0,visual_attribute_default_e0,True,False,False,i am shelves beside the yellow price tag
+nr3d_250,163,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the shelf next to the bed on the desk
+nr3d_250,164,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the door between grey trash can and two folding tables
+nr3d_250,165,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the towel hanging on the shower curtain rod closest to the t
+nr3d_250,166,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,the chair that is alone under the smaller tan table
+nr3d_250,167,explicit_direction,E0,default_e0,False,False,False,the cabinet on the left end of the long row of chairs
+nr3d_250,168,explicit_direction,E0,default_e0,False,False,False,the pillow on the side near the kitchen table
+nr3d_250,169,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,when facing the wall of bookshelves choose the box to the le
+nr3d_250,170,explicit_direction,E0,default_e0,False,False,False,facing the refrigerator the chair to the far right
+nr3d_250,171,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,bottom cabinet with a printer next to the standing fan
+nr3d_250,172,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,if you watching tv the box is to the right
+nr3d_250,173,ordinal,E0,visual_attribute_default_e0,True,False,False,the whiteboard that has a blue note on top
+nr3d_250,174,room_side,E0,default_e0,False,False,False,mirror in the bathroom
+nr3d_250,175,object_orientation,E0,default_e0,False,False,False,the correct door does not have the couch infront of it and h
+nr3d_250,176,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the middle option near the paper towels
+nr3d_250,177,explicit_direction,E0,default_e0,False,False,False,box in front of another
+nr3d_250,178,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the book closest to the windows
+nr3d_250,179,explicit_direction,E0,visual_attribute_default_e0,True,False,False,if facing the wall with the yellow page and mirror its the d
+nr3d_250,180,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the frame over the bed closest to the window
+nr3d_250,181,geometric,E0,visual_attribute_default_e0,True,False,False,the microwave on the light brown desk
+nr3d_250,182,explicit_direction,E0,default_e0,False,False,True,the kitchen cabinet located above the oven
+nr3d_250,183,ordinal,E0,visual_attribute_default_e0,True,False,False,the chair that does not have a blue bag on it
+nr3d_250,184,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the left artwork directly above the blue shredder
+nr3d_250,185,explicit_direction,E0,default_e0,False,False,False,when facing the table chair on the back side on the left
+nr3d_250,186,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the monitor closest to the window
+nr3d_250,187,explicit_direction,E0,default_e0,False,False,True,the artwork directly above the bed nearest the bathroom
+nr3d_250,188,explicit_direction,E0,default_e0,False,False,False,the pillow is directly to the right of the lamp
+nr3d_250,189,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,True,False,facing the boxes the rightmost one that is in front of a gre
+nr3d_250,190,none,E0,visual_attribute_default_e0,True,False,False,the curtains are grey
+nr3d_250,191,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the chair at the corner and there is a square table in front
+nr3d_250,192,ordinal,E0,visual_attribute_default_e0,True,False,False,the square table in the middle of the room
+nr3d_250,193,explicit_direction,E0,default_e0,False,False,False,when pushing in this chair it is the chair on the right
+nr3d_250,194,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,the lightest colored desk under the clock closest to the fil
+nr3d_250,195,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,False,the cup in the middle
+nr3d_250,196,explicit_direction,E0,default_e0,False,False,True,the cabinets above the sink
+nr3d_250,197,none,E0,default_e0,False,False,False,this sign is next to the sink and on the counter
+nr3d_250,198,explicit_direction,E0,visual_attribute_default_e0,True,False,False,you want the window that is dark greyish green to the right 
+nr3d_250,199,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the window near the table not the one near the shelves
+nr3d_250,200,explicit_direction,E0,default_e0,False,False,True,the chair in front of the window and between the beds
+nr3d_250,201,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the plant closest to the bed
+nr3d_250,202,explicit_direction,E0,default_e0,False,True,False,select the trash can at the back middle one
+nr3d_250,203,explicit_direction,E0,visual_attribute_default_e0,True,False,False,choose the glass doors
+nr3d_250,204,geometric,E0,visual_attribute_default_e0,True,False,False,choose the round table that is not in the corner
+nr3d_250,205,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,this trashcan is by a double door
+nr3d_250,206,explicit_direction,E0,default_e0,False,False,False,if looking at the window from the door the desk on the right
+nr3d_250,207,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this backpack is closer to the tall brown wardrobe cabinet '
+nr3d_250,208,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,it is the cup closest to the chair
+nr3d_250,209,ordinal,E0,visual_attribute_default_e0,True,False,False,the trash can in the corner with the blue bag
+nr3d_250,210,ordinal,E0,visual_attribute_default_e0,True,False,False,in the bathtub the shorter towel
+nr3d_250,211,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the chair that is closest to the kitchen
+nr3d_250,212,explicit_direction,E0,default_e0,False,False,False,there is a table in front of this armchair
+nr3d_250,213,opposite_derived,E0,default_e0,False,False,False,this desk is longer and located at the foot of the bed it is
+nr3d_250,214,viewpoint_guided,E0,visual_attribute_default_e0,True,False,False,looking straight at the orange towel the desk on the right
+nr3d_250,215,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,True,False,False,this toilet is the one with the seat up and is in the stall 
+nr3d_250,216,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,find the backpack that is farthest away from the window
+nr3d_250,217,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the darker brown nightstand beside the bed with a lamp sitti
+nr3d_250,218,object_orientation,E0,default_e0,False,False,False,the window that does not have a computer facing directly awa
+nr3d_250,219,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,choose the chair that is closest to the trash can
+nr3d_250,220,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the trashcan next to the open doorway
+nr3d_250,221,explicit_direction,E0,default_e0,False,False,False,the door that has a painting to the left of it
+nr3d_250,222,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,True,True,the chair between the desks in the middle of the room
+nr3d_250,223,none,E0,visual_attribute_default_e0,True,False,False,round table in corner with something black on it
+nr3d_250,224,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,closest cabinet to door
+nr3d_250,225,object_orientation,E0,default_e0,False,False,False,the armchair facing the door
+nr3d_250,226,object_orientation,E0,visual_attribute_default_e0,True,False,False,it is the brown table with a bag on it
+nr3d_250,227,none,E0,default_e0,False,False,False,bathroom sink next to the toilet
+nr3d_250,228,explicit_direction,E0,default_e0,False,False,True,lamp in between the beds
+nr3d_250,229,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,find the monitor that sits on the table near the window blin
+nr3d_250,230,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,face the door the table you want is across the room from the
+nr3d_250,231,none,E0,default_e0,False,False,False,the bottle is the only one sitting on the bathroom counter n
+nr3d_250,232,ordinal,bev_raw_labeled,pure_ordinal_bev,False,True,False,much taller shelf of the two
+nr3d_250,233,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the blue toddler chair that does not have a disney cars them
+nr3d_250,234,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,choose the smaller of the two windows it is on the left if y
+nr3d_250,235,explicit_direction,E0,default_e0,False,False,False,the top cabinet next to door
+nr3d_250,236,explicit_direction,E0,default_e0,False,False,False,the tall narrow window next to the exit door
+nr3d_250,237,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the blue trash can to the left of the grey trash can
+nr3d_250,238,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,the trash can located next to the two doors leading out
+nr3d_250,239,explicit_direction,E0,visual_attribute_default_e0,True,False,False,the blue bag on top of the end table next to the couch
+nr3d_250,240,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is the box on top
+nr3d_250,241,explicit_direction,E0,default_e0,False,False,True,the trash can in front of piles of papers that are under a d
+nr3d_250,242,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,True,it is the small bookshelf located between the two larger boo
+nr3d_250,243,explicit_direction,E0,default_e0,False,False,False,if you are facing the monitors select the mouse that goes wi
+nr3d_250,244,proximity_derived,seeground_ablation_spatial_only,pure_proximity_spatial,False,False,False,of the two chairs that are next to each other choose the one
+nr3d_250,245,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,facing the windows the window to the left
+nr3d_250,246,explicit_direction,E0,visual_attribute_default_e0,True,False,False,it is the chair with the towel hanging behind it
+nr3d_250,247,room_side,E0,visual_attribute_default_e0,True,False,False,the light in the middle of the room on the ceiling
+nr3d_250,248,room_side,E0,visual_attribute_default_e0,True,False,False,the window in the back of the room ( assuming the blackboard
+nr3d_250,249,viewpoint_guided,E0,viewpoint_needs_local_frame_default_e0,False,False,False,select the curtain beside the chairs the one on your left
