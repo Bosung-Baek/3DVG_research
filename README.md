@@ -1,142 +1,163 @@
-<div align="center">
+# Evidence-Aware Routing for Zero-Shot 3D Visual Grounding
 
-# SeqVLM: Proposal-Guided Multi-View Sequences Reasoning via VLM for Zero-Shot 3D Visual Grounding
+This repository hosts the code and reproducibility artifact for our current
+zero-shot 3D visual grounding study. The project builds on the SeqVLM-style
+candidate selection pipeline and studies a simple question:
 
-**Jiawen Lin · Shiran Bian · Yihang Zhu · Wenbin Tan · Yachao Zhang · Yuan Xie · Yanyun Qu**
+> Should every referring expression be sent to a VLM with the same visual input,
+> or should the input representation change according to the evidence required
+> by the query?
 
-### ACM Multimedia 2025
+Our answer is an **evidence-aware router**: a deterministic routing module that
+keeps RGB canvas input for visual or mixed queries, but switches to structured
+spatial input when the query mainly asks for distance, proximity, or pure layout
+relations.
 
-<p align="center">
-    <a href='https://arxiv.org/pdf/2508.20758'>
-      <img src='https://img.shields.io/badge/Paper-PDF-red?style=flat&logo=arXiv&logoColor=red' alt='Paper PDF'>
-    </a>
-</p>
+## What Is New
 
-</div>
+The original SeqVLM pipeline uses a candidate-centered RGB canvas as the default
+VLM input. We keep that baseline and add a routing layer before VLM selection.
+The router decides which representation should be used for each query while
+keeping the same candidate pool.
 
-<p align="center">
-  <img src="figures/framework.png" alt="SeqVLM Framework" width="100%">
-</p>
+The paper-facing artifact is located at:
 
-<p align="center">
-SeqVLM is a novel framework for zero-shot 3D visual grounding that leverages multi-view real-world scene images for target object reasoning. It introduces a new object-centric reasoning paradigm, starting from a potential object and verifying it via multi-view consistency, inspired by human cognition.
-</p>
+```text
+SeqVLM_evidence_router/
+```
 
----
+It contains:
 
-## 🔧 Installation
+- the final evidence-aware router,
+- input-format modules,
+- bundled source outputs for ScanRefer and NR3D verification,
+- main-table and ablation summaries,
+- smoke tests for reproducing the locked results,
+- documentation for the current TMM-oriented experiment plan.
 
-1.  **Clone the repository and navigate to the project directory:**
-    ```bash
-    git clone https://github.com/JiawLin/SeqVLM.git
-    cd SeqVLM
-    ```
+## Key Terms
 
-2.  **Create and activate the Conda environment:**
-    ```bash
-    conda create -n SeqVLM python=3.9
-    conda activate SeqVLM
-    ```
+**3D visual grounding**  
+Given a natural-language query and a 3D scene, the task is to identify the target
+object instance described by the query.
 
-3.  **Install the required dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+**Zero-shot setting**  
+The pipeline uses a VLM for inference without training a dataset-specific 3D
+grounding model on the target benchmark split.
 
----
+**E0 RGB canvas**  
+The baseline SeqVLM-style input. Candidate objects are shown through RGB
+multi-view canvas images, and the VLM selects the target candidate.
 
-## 🚀 Quick Start
+**Evidence-aware routing**  
+A rule-based decision step that chooses the VLM input representation according
+to the type of evidence needed by the query. The router does not use the dataset
+name as a decision variable.
 
-### 1. Data Preparation
+**Spatial-only text**  
+A text prompt containing candidate categories, 3D centers, sizes, anchor-object
+offsets, and distances. It intentionally avoids RGB appearance evidence.
 
-1.  **ScanRefer Dataset**: Download the ScanRefer dataset from the [official repository](https://github.com/daveredrum/ScanRefer) and place it under `data/scanrefer`.
+**BEV labeled layout**  
+A bird's-eye-view layout image with candidate labels, paired with coordinate
+text. It is used only for pure ordinal/layout queries in the final router.
 
-2.  **Nr3D Dataset**: Download the preprocessed Vil3dref data from the [official repository](https://github.com/cshizhe/vil3dref) and place it under `data/referit3d`.
+**3D position text**  
+A structured text representation of candidate and anchor 3D locations. It is
+reserved for pure geometric relations such as `between`, `under`, or `inside`.
 
-3.  **3D Features**: Generate `feats_3d.pkl` by following the instructions from [ZSVG3D](https://github.com/CurryYuan/ZSVG3D) and place the file in the `data/` directory.
+**Fallback to E0**  
+When a query contains visual attributes, viewpoint-local relations, or ambiguous
+mixed evidence, the router conservatively keeps the RGB canvas baseline. This
+prevents spatial-only inputs from discarding necessary visual information.
 
-4.  **Mask3D Predictions**: Download the Mask3D predictions from [this link provided by ZSVG3D](https://github.com/CurryYuan/ZSVG3D) and place them in the `data/` directory.
+**Recomposition evaluation**  
+The bundled verification benchmark recomposes already completed VLM source
+outputs according to the final router. This isolates the effect of routing and
+input representation while keeping the proposal/candidate pool fixed.
 
-5.  **Preprocessed Image Sequences**: Download our preprocessed multi-view image sequences for [ScanRefer](https://drive.google.com/file/d/1znsEMyzZqMsuBwrXTByPNlIqDkZuvZPk/view?usp=sharing) and [Nr3D](https://drive.google.com/file/d/1rASHZ8YrsjrJzoaYKManMqwQB0WGp8w5/view?usp=drive_link). Unzip and place them in the `data/` directory.
+## Final Router
 
-6.  **(Optional) Fallback Strategy Data**: The final version of our code implements a fallback strategy using ZSVG3D when the VLM fails, which yields a slightly performance boost. If you wish to use this feature, please download the preprocessed data required by ZSVG3D:
-    *   [GT Instances](https://cuhko365-my.sharepoint.com/:u:/g/personal/221019046_link_cuhk_edu_cn/Ed4HCYSQh5xDgmaCM4PatOsBWHpri34gHXePO2VwUKJWfw?e=M7vXJz)
-    *   [Mask3D Predictions](https://cuhko365-my.sharepoint.com/:u:/g/personal/221019046_link_cuhk_edu_cn/EcSxmNrwwRVGsy3BhSNx5jgBjmpxPETNiKhCJCO5J_QCWw?e=C1Laoo)
+Implementation:
 
-    Place the downloaded files into the `data/` directory.
+```text
+SeqVLM_evidence_router/tools/query_type_router.py
+```
 
-    > **Note:** To run the original SeqVLM without the fallback mechanism, please comment out lines 53-59 in `seqvlm/adaptive_predictor.py`.
+Routing priority:
 
-### 2. Download Model Weights
+| Priority | Condition | Route | Rationale |
+|---:|---|---|---|
+| 1 | `proximity_derived` | spatial-only text | Distance and proximity cues are directly represented by coordinates and anchor distances. |
+| 2 | visual attribute included | E0 RGB canvas | Color, material, shape, object state, and object-on-top cues require visual evidence. |
+| 3 | pure `ordinal` | BEV labeled layout | Pure order/layout queries can benefit from a top-down view. |
+| 4 | pure `geometric` | 3D position text | Pure geometric relations are naturally expressed by structured 3D coordinates. |
+| 5 | `viewpoint_guided` | E0 RGB canvas | Current BEV is global-frame, not viewer-local-frame. |
+| 6 | default / mixed / ambiguous | E0 RGB canvas | Conservative fallback reduces routing-induced regressions. |
 
-Download the model weights for [CLIP-ViT-Base-Patch16](https://huggingface.co/openai/clip-vit-base-patch16) and, if you are using the fallback strategy, [BLIP-2-Flan-T5-XL](https://huggingface.co/Salesforce/blip2-flan-t5-xl). Place them in the `data/huggingface/` directory.
+## Main Results
 
-### 3. API Configuration
+The locked 250-query verification results are:
 
-Set your large language model API keys and any necessary paths in the `config.yaml` file.
+| Dataset | Method | Acc@0.25 | Acc@0.50 | mIoU |
+|---|---|---:|---:|---:|
+| ScanRefer | E0 baseline | 0.504 | 0.452 | 0.4306 |
+| ScanRefer | evidence router | **0.520** | **0.468** | **0.4455** |
+| NR3D | E0 baseline | 0.612 | 0.604 | 0.6107 |
+| NR3D | evidence router | **0.652** | **0.648** | **0.6514** |
 
-### 4. Evaluation
+The same routing policy improves both datasets without dataset-specific
+calibration.
 
-*   **To evaluate on ScanRefer:**
-    ```bash
-    cd seqvlm
-    sh run_script.sh
-    ```
+## Reproduce the Locked Results
 
-*   **To evaluate on Nr3D:**
-    ```bash
-    cd seqvlm
-    sh run_script_nr3d.sh
-    ```
+```bash
+cd SeqVLM_evidence_router
+pip install -r requirements.txt
+python tests/smoke_test_pipeline.py
+```
 
----
+Expected output includes:
 
-## ⚙️ Preprocessing from Scratch
+```text
+SMOKE TEST PASSED
+ScanRefer evidence router: Acc@0.25=0.520, Acc@0.50=0.468, mIoU=0.4455
+NR3D evidence router:     Acc@0.25=0.652, Acc@0.50=0.648, mIoU=0.6514
+```
 
-If you wish to process the multi-view image sequences yourself, please run the following scripts from the `preprocess/` directory in order:
+For details, see:
 
-1.  `download-scannet.py`
-2.  `extract_posed_image.py`
-3.  `crop_2d_image.py`
-4.  `stitch.py`
+- `SeqVLM_evidence_router/REPRODUCIBILITY.md`
+- `SeqVLM_evidence_router/experiments/README.md`
+- `SeqVLM_evidence_router/experiments/TMM_EXPERIMENT_PLAN.md`
+- `SeqVLM_evidence_router/AGENT_CONTEXT.md`
 
----
+## Repository Layout
 
-## 🙏 Acknowledgments
+```text
+.
+├── SeqVLM_evidence_router/   # Paper-facing artifact and locked experiments
+├── seqvlm/                   # Existing SeqVLM-based research code
+├── preprocess/               # Existing preprocessing scripts
+├── prompts/                  # Existing prompt templates
+├── visprog/                  # Existing visual-programming utilities
+└── data/                     # Existing compact metadata/examples
+```
 
-Our work builds upon several amazing projects. We would like to extend our gratitude to the authors of:
+## Scope and Limitations
 
-*   [ZSVG3D](https://github.com/CurryYuan/ZSVG3D)
-*   [VLM-Grounder](https://github.com/InternRobotics/VLM-Grounder)
-*   [SeeGround](https://github.com/iris0329/SeeGround)
+The artifact is intended for paper introduction and result verification. It
+bundles completed source outputs and compact diagnostics. It does not include
+private API keys, the full ScanNet/Mask3D raw asset tree, or every intermediate
+canvas generated during the original development workspace.
 
----
+Fresh end-to-end VLM runs and raw canvas/BEV regeneration require external scene
+assets and private API configuration. The included smoke test and recomposition
+scripts are the canonical lightweight verification path for the reported
+results.
 
-## 📜 Citation
+## Acknowledgments
 
-If you find our work useful, please consider citing:
-
-```bibtex
-@inproceedings{lin2025seqvlm,
-  title={SeqVLM: Proposal-Guided Multi-View Sequences Reasoning via VLM for Zero-Shot 3D Visual Grounding},
-  author={Lin, Jiawen and Bian, Shiran and Zhu, Yihang and Tan, Wenbin and Zhang, Yachao and Xie, Yuan and Qu, Yanyun},
-  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia},
-  pages={3094--3103},
-  year={2025}
-}
-
-@article{lin2025seqvlm,
-  title={SeqVLM: Proposal-Guided Multi-View Sequences Reasoning via VLM for Zero-Shot 3D Visual Grounding},
-  author={Lin, Jiawen and Bian, Shiran and Zhu, Yihang and Tan, Wenbin and Zhang, Yachao and Xie, Yuan and Qu, Yanyun},
-  journal={arXiv preprint arXiv:2508.20758},
-  year={2025}
-}
-
-@article{lin2025seqvlm,
-  title={SeqVLM: Proposal-Guided Multi-View Sequences Reasoning via VLM for Zero-Shot 3D Visual Grounding},
-  author={Lin, Jiawen and Bian, Shiran and Zhu, Yihang and Tan, Wenbin and Zhang, Yachao and Xie, Yuan and Qu, Yanyun},
-  journal={arXiv e-prints},
-  pages={arXiv--2508},
-  year={2025}
-}
-
+This work builds on ideas and tooling from SeqVLM, ZSVG3D, SeeGround, and related
+zero-shot 3D visual grounding pipelines. The evidence-aware routing artifact is
+provided to make the current routing experiments inspectable and reproducible.
