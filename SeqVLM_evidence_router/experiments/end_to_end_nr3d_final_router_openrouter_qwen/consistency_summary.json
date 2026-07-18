@@ -1,0 +1,202 @@
+{
+  "num_queries": 250,
+  "rerun_acc25": 0.632,
+  "final_recomposition_acc25": 0.652,
+  "e0_acc25": 0.612,
+  "rerun_mean_iou": 0.6316,
+  "route_counts": {
+    "seeground_ablation_spatial_only": 95,
+    "E0": 149,
+    "bev_raw_labeled": 6
+  },
+  "route_summary": {
+    "E0": {
+      "num_queries": 149,
+      "rerun_acc25": 0.604,
+      "final_recomposition_acc25": 0.604,
+      "e0_acc25": 0.604,
+      "final_correct_rerun_wrong": 0,
+      "final_wrong_rerun_correct": 0
+    },
+    "bev_raw_labeled": {
+      "num_queries": 6,
+      "rerun_acc25": 0.6667,
+      "final_recomposition_acc25": 0.8333,
+      "e0_acc25": 0.6667,
+      "final_correct_rerun_wrong": 1,
+      "final_wrong_rerun_correct": 0
+    },
+    "seeground_ablation_spatial_only": {
+      "num_queries": 95,
+      "rerun_acc25": 0.6737,
+      "final_recomposition_acc25": 0.7158,
+      "e0_acc25": 0.6211,
+      "final_correct_rerun_wrong": 9,
+      "final_wrong_rerun_correct": 5
+    }
+  },
+  "acc25_transition_counts": {
+    "(True, True, 'seeground_ablation_spatial_only')": 59,
+    "(False, False, 'seeground_ablation_spatial_only')": 22,
+    "(False, False, 'E0')": 59,
+    "(True, False, 'seeground_ablation_spatial_only')": 9,
+    "(True, True, 'E0')": 90,
+    "(False, True, 'seeground_ablation_spatial_only')": 5,
+    "(True, True, 'bev_raw_labeled')": 4,
+    "(True, False, 'bev_raw_labeled')": 1,
+    "(False, False, 'bev_raw_labeled')": 1
+  },
+  "num_acc25_changed_vs_final": 15,
+  "changed_cases": [
+    {
+      "case": 5,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "it is the towel on the wall that is the farthest from the sinks",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 38,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the rail on the wall under the toilet paper holder",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 50,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "pick the door that is slightly open and is closer to the red an yellow painting",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 51,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "chair against the wall closest to the window",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 59,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "toilet paper on top of the paper towel dispenser its the one at the bottom closest to the window",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.00376343956208575
+    },
+    {
+      "case": 64,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the keyboard that is on the little side desk on the end of the big desks and is near the shelves",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 74,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the doors closest to the chair",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 78,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "look for the window that is closer to the olive green sofa",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 99,
+      "route": "bev_raw_labeled",
+      "query_type": "ordinal",
+      "caption": "facing the tables the second table from the left",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 115,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the smaller window near the shutters",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 128,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the laptop by the chair with the floral pattern",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 132,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "middle of the bar directly above the toilet flushing part",
+      "final_acc25": false,
+      "rerun_acc25": true,
+      "final_iou": 0.0,
+      "rerun_iou": 1.0
+    },
+    {
+      "case": 160,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "choose the pillow closest to the window",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.031663954413765856
+    },
+    {
+      "case": 165,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the towel hanging on the shower curtain rod closest to the toilet",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    },
+    {
+      "case": 222,
+      "route": "seeground_ablation_spatial_only",
+      "query_type": "proximity_derived",
+      "caption": "the chair between the desks in the middle of the room",
+      "final_acc25": true,
+      "rerun_acc25": false,
+      "final_iou": 1.0,
+      "rerun_iou": 0.0
+    }
+  ]
+}

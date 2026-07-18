@@ -1,0 +1,10 @@
+{
+  "num_cases": 20,
+  "bucket_counts": {
+    "e0_fail_spatial_success": 4,
+    "spatial_regression": 4,
+    "bev_success": 4,
+    "router_failure": 4,
+    "visual_fallback_kept_correct": 4
+  }
+}

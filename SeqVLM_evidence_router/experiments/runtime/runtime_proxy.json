@@ -1,0 +1,48 @@
+{
+  "note": "Proxy accounting from completed result files. It reports call counts, not wall-clock latency.",
+  "methods": {
+    "E0_baseline": {
+      "router": "none",
+      "extra_router_vlm_or_llm_calls_per_query": 0,
+      "selection_vlm_calls_per_query": 1
+    },
+    "dictionary_evidence_router": {
+      "router": "deterministic local rules",
+      "extra_router_vlm_or_llm_calls_per_query": 0,
+      "selection_vlm_calls_per_query": 1
+    },
+    "priority_llm_router": {
+      "router": "OpenRouter Qwen route classifier",
+      "extra_router_vlm_or_llm_calls_per_query": 1,
+      "selection_vlm_calls_per_query": 1,
+      "observed_parse_rows": 500
+    }
+  },
+  "datasets": {
+    "scanrefer": {
+      "num_queries": 250,
+      "route_counts": {
+        "E0": 208,
+        "seeground_ablation_spatial_only": 37,
+        "bev_raw_labeled": 1,
+        "seeground_ablation_3dpos_only": 4
+      },
+      "avg_query_words": 20.43,
+      "dictionary_router_calls": 0,
+      "vlm_selection_calls": 250,
+      "llm_router_extra_calls_if_used": 250
+    },
+    "nr3d": {
+      "num_queries": 250,
+      "route_counts": {
+        "seeground_ablation_spatial_only": 95,
+        "E0": 149,
+        "bev_raw_labeled": 6
+      },
+      "avg_query_words": 9.67,
+      "dictionary_router_calls": 0,
+      "vlm_selection_calls": 250,
+      "llm_router_extra_calls_if_used": 250
+    }
+  }
+}

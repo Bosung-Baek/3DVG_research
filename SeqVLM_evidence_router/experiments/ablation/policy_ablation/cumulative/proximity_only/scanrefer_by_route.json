@@ -1,0 +1,34 @@
+{
+  "E0": {
+    "num_queries": 213,
+    "acc_iou25": 0.5164,
+    "acc_iou50": 0.4648,
+    "mean_iou": 0.4454,
+    "route_counts": {
+      "E0": 213
+    },
+    "route_reason_counts": {
+      "proximity_only_default_e0": 213
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "seeground_ablation_spatial_only": {
+    "num_queries": 37,
+    "acc_iou25": 0.5405,
+    "acc_iou50": 0.4865,
+    "mean_iou": 0.4482,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 37
+    },
+    "route_reason_counts": {
+      "proximity_only_spatial": 37
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 5,
+    "e0_regressions": 1,
+    "net_vs_e0": 4
+  }
+}

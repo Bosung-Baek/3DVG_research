@@ -1,0 +1,251 @@
+case_id,scan_id,obj_name,target_id,gt_found,n_candidates,n_candidates_with_canvas,oracle25,oracle50,best_iou
+0,scene0351_00,chair,0,True,4,0,True,True,0.9393
+1,scene0307_00,sink,5,True,2,2,True,False,0.3212
+2,scene0629_00,cabinet,22,True,1,1,False,False,0.0
+3,scene0633_00,box shelf,25,True,0,0,False,False,0.0
+4,scene0568_00,chair,15,True,5,0,True,True,0.9931
+5,scene0527_00,towel,23,True,10,10,True,False,0.3643
+6,scene0208_00,bookshelf,106,True,21,21,True,True,0.5642
+7,scene0187_00,chair,1,True,4,4,False,False,0.0
+8,scene0633_00,curtain,22,True,1,1,True,True,0.775
+9,scene0063_00,chair,7,True,6,6,False,False,0.0
+10,scene0568_00,chair,0,True,5,0,True,True,1.0
+11,scene0221_00,pillow,41,True,10,10,True,True,0.8798
+12,scene0663_00,monitor,10,True,3,3,True,True,1.0
+13,scene0474_00,window,36,True,3,3,True,True,0.7565
+14,scene0423_00,armchair,3,True,3,3,True,True,1.0
+15,scene0329_00,monitor,32,True,4,4,True,True,0.8619
+16,scene0146_00,rail,3,True,0,0,False,False,0.0
+17,scene0435_00,shoes,16,True,4,4,True,True,1.0
+18,scene0699_00,pillow,26,True,4,4,True,True,0.8138
+19,scene0678_00,window,25,True,4,4,True,True,0.8217
+20,scene0607_00,sink,16,True,1,1,True,False,0.2935
+21,scene0697_00,dresser,11,True,2,2,True,True,0.9726
+22,scene0095_00,keyboard,28,True,4,4,False,False,0.0
+23,scene0328_00,sign,30,True,0,0,False,False,0.0
+24,scene0629_00,picture,32,True,5,5,False,False,0.0
+25,scene0652_00,pillow,17,True,15,15,True,True,1.0
+26,scene0700_00,backpack,6,True,1,1,False,False,0.0
+27,scene0643_00,desk,40,True,4,4,True,True,0.7472
+28,scene0704_00,cabinet,15,True,5,0,True,True,0.9931
+29,scene0696_00,monitor,4,True,3,3,True,False,0.3654
+30,scene0645_00,lamp,33,True,6,5,True,True,0.9656
+31,scene0565_00,chair,0,True,4,4,True,True,0.9845
+32,scene0648_00,shelf,23,True,5,5,False,False,0.0
+33,scene0645_00,armchair,23,True,3,3,True,True,0.8961
+34,scene0598_00,chair,7,True,6,0,True,True,1.0
+35,scene0169_00,window,28,True,1,1,False,False,0.1452
+36,scene0187_00,table,6,True,7,7,True,True,0.9778
+37,scene0643_00,shelf,38,True,2,2,False,False,0.0
+38,scene0086_00,rail,15,True,0,0,False,False,0.0
+39,scene0591_00,pillow,16,True,2,2,True,True,1.0
+40,scene0686_00,toilet,23,True,2,0,True,True,1.0
+41,scene0699_00,pillow,25,True,4,4,True,True,1.0
+42,scene0458_00,toilet paper,4,True,10,10,True,True,1.0
+43,scene0353_00,shelf,7,True,5,5,True,True,0.8258
+44,scene0665_00,table,17,True,10,10,True,True,1.0
+45,scene0025_00,cup,31,True,2,2,False,False,0.0982
+46,scene0580_00,backpack,9,True,0,0,False,False,0.0
+47,scene0643_00,trash can,29,True,3,3,True,True,0.7348
+48,scene0063_00,chair,5,True,6,6,True,True,1.0
+49,scene0025_00,couch,4,True,2,2,True,True,0.9762
+50,scene0629_00,door,0,True,6,6,True,True,0.9325
+51,scene0598_00,chair,11,True,6,0,True,True,1.0
+52,scene0378_00,office chair,40,True,2,2,True,True,0.981
+53,scene0378_00,bookshelf,37,True,2,2,True,True,0.9947
+54,scene0699_00,door,18,True,2,2,False,False,0.0
+55,scene0435_00,shoes,17,True,4,4,False,False,0.0616
+56,scene0462_00,box,21,True,7,7,False,False,0.0983
+57,scene0077_00,printer,1,True,3,3,True,True,0.915
+58,scene0678_00,window,32,True,4,4,False,False,0.0
+59,scene0550_00,toilet paper,18,True,6,6,False,False,0.0728
+60,scene0647_00,table,9,True,4,4,True,True,1.0
+61,scene0648_00,dresser,27,True,4,4,True,True,0.8247
+62,scene0565_00,door,20,True,4,4,True,True,1.0
+63,scene0474_00,backpack,9,True,3,3,True,True,1.0
+64,scene0644_00,keyboard,41,True,6,6,True,True,1.0
+65,scene0307_00,shelf,24,True,12,12,True,True,0.568
+66,scene0221_00,chair,29,True,3,3,True,True,0.9464
+67,scene0249_00,window,33,True,6,4,True,True,0.7301
+68,scene0208_00,bookshelf,1,True,21,21,True,False,0.36
+69,scene0353_00,shoes,33,True,5,5,False,False,0.0507
+70,scene0427_00,chair,4,True,4,0,True,True,0.9949
+71,scene0696_00,monitor,4,True,3,3,True,False,0.3654
+72,scene0251_00,door,14,True,11,11,True,True,0.9919
+73,scene0648_00,dresser,28,True,4,4,True,True,0.8838
+74,scene0050_00,doors,8,True,4,4,False,False,0.0
+75,scene0462_00,box,21,True,7,7,False,False,0.0983
+76,scene0231_00,trash can,31,True,2,2,False,False,0.1307
+77,scene0030_00,table,48,True,5,5,False,False,0.0895
+78,scene0207_00,window,12,True,5,5,True,True,0.9932
+79,scene0149_00,kitchen counter,0,True,3,3,True,True,0.7514
+80,scene0553_00,toilet paper,8,True,2,2,True,True,1.0
+81,scene0607_00,sink,16,True,1,1,True,False,0.2935
+82,scene0314_00,office chair,8,True,0,0,False,False,0.0
+83,scene0580_00,pillow,17,True,4,4,True,True,1.0
+84,scene0435_00,shoes,16,True,4,4,True,True,1.0
+85,scene0086_00,bathroom stall,28,True,12,0,True,True,0.5729
+86,scene0231_00,picture,20,True,10,10,True,True,0.9744
+87,scene0699_00,backpack,27,True,3,3,True,True,0.9586
+88,scene0222_00,window,29,True,2,2,True,False,0.3715
+89,scene0643_00,desk,0,True,4,4,True,True,0.9828
+90,scene0598_00,monitor,3,True,3,0,True,True,0.5447
+91,scene0412_00,trash can,15,True,7,7,True,True,0.992
+92,scene0046_00,shoes,49,True,9,9,True,True,0.8937
+93,scene0607_00,chair,9,True,8,8,True,True,1.0
+94,scene0580_00,door,25,True,3,3,True,True,0.913
+95,scene0343_00,cart,8,True,0,0,False,False,0.0
+96,scene0700_00,backpack,6,True,1,1,False,False,0.0
+97,scene0494_00,chair,11,True,4,4,True,True,1.0
+98,scene0580_00,backpack,16,True,0,0,False,False,0.0
+99,scene0343_00,table,15,True,3,3,True,False,0.4057
+100,scene0670_00,towel,13,True,2,2,True,False,0.4356
+101,scene0678_00,window,32,True,4,4,False,False,0.0
+102,scene0671_00,backpack,16,True,0,0,False,False,0.0
+103,scene0207_00,chair,11,True,4,4,True,True,1.0
+104,scene0535_00,box,29,True,1,1,False,False,0.0
+105,scene0578_00,window,13,True,2,0,True,True,0.5038
+106,scene0565_00,monitor,4,True,4,4,False,False,0.0
+107,scene0050_00,door,9,True,4,4,True,True,1.0
+108,scene0435_00,picture,57,True,2,2,True,True,1.0
+109,scene0697_00,lamp,19,True,2,2,False,False,0.0591
+110,scene0704_00,cabinets,14,True,5,0,True,True,0.9968
+111,scene0648_00,backpack,4,True,2,2,True,True,1.0
+112,scene0580_00,door,25,True,3,3,True,True,0.913
+113,scene0552_00,table,11,True,3,3,True,True,0.9822
+114,scene0607_00,sink,16,True,1,1,True,False,0.2935
+115,scene0598_00,window,18,True,1,0,False,False,0.0
+116,scene0697_00,dresser,10,True,2,2,True,False,0.4532
+117,scene0645_00,trash can,29,True,3,3,True,True,0.6287
+118,scene0553_00,toilet paper,10,True,2,2,False,False,0.0
+119,scene0427_00,chair,6,True,4,0,True,True,1.0
+120,scene0011_00,cabinet,20,True,2,2,True,False,0.3427
+121,scene0086_00,rail,16,True,0,0,False,False,0.0
+122,scene0686_00,bathroom stall,2,True,4,0,True,True,0.5285
+123,scene0648_00,chair,25,True,2,2,True,True,0.7784
+124,scene0643_00,book,27,True,9,9,False,False,0.0
+125,scene0357_00,box,0,True,0,0,False,False,0.0
+126,scene0663_00,desk,3,True,3,3,True,True,0.8028
+127,scene0653_00,desk,16,True,12,12,True,True,0.6057
+128,scene0050_00,laptop,28,True,4,4,True,False,0.3697
+129,scene0583_00,door,12,True,4,4,False,False,0.025
+130,scene0251_00,chair,6,True,2,2,True,True,0.9989
+131,scene0307_00,sink,4,True,2,2,True,False,0.4608
+132,scene0086_00,rail,16,True,0,0,False,False,0.0
+133,scene0030_00,window,26,True,4,4,True,False,0.4408
+134,scene0518_00,cabinet,13,True,1,1,False,False,0.0
+135,scene0565_00,door,19,True,4,4,True,True,1.0
+136,scene0474_00,monitor,41,True,9,9,True,False,0.4512
+137,scene0608_00,plant,14,True,4,4,True,False,0.3559
+138,scene0591_00,plant,26,True,1,1,False,False,0.0
+139,scene0693_00,soap dish,18,True,3,0,False,False,0.0
+140,scene0643_00,shelf,38,True,2,2,False,False,0.0
+141,scene0665_00,table,19,True,10,10,False,False,0.1799
+142,scene0025_00,couch,4,True,2,2,True,True,0.9762
+143,scene0221_00,bag,19,True,4,4,False,False,0.0873
+144,scene0648_00,book,6,True,4,4,True,False,0.3997
+145,scene0608_00,ottoman,9,True,2,2,True,True,1.0
+146,scene0203_00,window,8,True,3,3,False,False,0.012
+147,scene0081_00,couch,8,True,1,1,False,False,0.0466
+148,scene0651_00,chair,8,True,5,5,True,True,0.9941
+149,scene0427_00,chair,4,True,4,0,True,True,0.9949
+150,scene0187_00,coffee table,9,True,2,2,True,True,1.0
+151,scene0648_00,shelf,23,True,5,5,False,False,0.0
+152,scene0357_00,box,1,True,0,0,False,False,0.0
+153,scene0050_00,door,9,True,4,4,True,True,1.0
+154,scene0644_00,whiteboard,35,True,8,8,True,True,0.6308
+155,scene0353_00,book,35,True,5,5,False,False,0.0008
+156,scene0351_00,keyboard,18,True,3,0,True,True,1.0
+157,scene0357_00,box,1,True,0,0,False,False,0.0
+158,scene0077_00,door,9,True,3,3,True,True,1.0
+159,scene0278_00,trash can,4,True,1,1,True,True,1.0
+160,scene0699_00,pillow,25,True,4,4,True,True,1.0
+161,scene0606_00,storage bin,30,True,0,0,False,False,0.0
+162,scene0343_00,shelf,5,True,5,5,True,True,0.9285
+163,scene0648_00,shelf,24,True,5,5,False,False,0.1626
+164,scene0251_00,door,13,True,11,11,True,True,0.955
+165,scene0153_00,towel,20,True,3,3,True,True,0.7279
+166,scene0300_00,chair,9,True,3,3,True,True,0.9396
+167,scene0169_00,cabinet,26,True,2,2,True,True,0.7208
+168,scene0699_00,pillow,26,True,4,4,True,True,0.8138
+169,scene0030_00,bookshelf,18,True,2,2,True,False,0.3315
+170,scene0651_00,chair,9,True,5,5,True,True,1.0
+171,scene0593_00,cabinet,18,True,4,4,False,False,0.1584
+172,scene0426_00,box,26,True,2,2,False,False,0.0
+173,scene0653_00,board,11,True,1,1,False,False,0.0
+174,scene0645_00,mirror,72,True,2,2,True,True,0.5565
+175,scene0050_00,door,10,True,4,4,True,True,0.8575
+176,scene0084_00,toilet paper,7,True,2,2,False,False,0.0
+177,scene0685_00,box,16,True,0,0,False,False,0.0
+178,scene0643_00,book,27,True,9,9,False,False,0.0
+179,scene0077_00,door,20,True,3,3,True,True,0.5059
+180,scene0645_00,picture,57,True,12,12,False,False,0.0
+181,scene0063_00,microwave,3,True,0,0,False,False,0.0
+182,scene0149_00,kitchen cabinets,8,True,11,11,True,False,0.4215
+183,scene0558_00,chair,2,True,3,3,True,True,1.0
+184,scene0704_00,picture,11,True,4,0,True,True,1.0
+185,scene0598_00,chair,11,True,6,0,True,True,1.0
+186,scene0598_00,monitor,3,True,3,0,True,True,0.5447
+187,scene0645_00,picture,58,True,12,12,True,True,0.7981
+188,scene0221_00,pillow,45,True,10,10,True,True,1.0
+189,scene0565_00,box,7,True,11,11,True,True,0.5334
+190,scene0256_00,curtain,9,True,3,3,True,True,0.9624
+191,scene0461_00,armchair,2,True,2,0,True,True,0.9345
+192,scene0609_00,table,4,True,5,5,True,True,1.0
+193,scene0343_00,chair,18,True,10,10,True,True,0.8765
+194,scene0653_00,desk,14,True,12,12,True,True,0.6124
+195,scene0100_00,cup,18,True,0,0,False,False,0.0
+196,scene0488_00,kitchen cabinets,18,True,19,0,True,True,0.9411
+197,scene0328_00,sign,28,True,0,0,False,False,0.0
+198,scene0565_00,window,34,True,7,7,True,True,0.9902
+199,scene0549_00,window,30,True,0,0,False,False,0.0
+200,scene0648_00,chair,26,True,2,2,True,True,0.9683
+201,scene0648_00,plant,9,True,2,2,True,True,0.9894
+202,scene0412_00,trash can,14,True,7,7,True,True,1.0
+203,scene0050_00,doors,8,True,4,4,False,False,0.0
+204,scene0616_00,table,4,True,3,3,True,True,1.0
+205,scene0011_00,trash can,32,True,2,2,True,False,0.4363
+206,scene0353_00,desk,17,True,2,2,True,True,0.5985
+207,scene0353_00,backpack,32,True,3,3,True,False,0.4035
+208,scene0025_00,cup,31,True,2,2,False,False,0.0982
+209,scene0251_00,trash can,11,True,6,6,True,True,1.0
+210,scene0664_00,towel,14,True,4,4,False,False,0.0
+211,scene0651_00,chair,8,True,5,5,True,True,0.9941
+212,scene0461_00,armchair,2,True,2,0,True,True,0.9345
+213,scene0222_00,desk,13,True,2,2,True,True,0.7839
+214,scene0353_00,desk,50,True,2,2,True,False,0.2507
+215,scene0686_00,toilet,23,True,2,0,True,True,1.0
+216,scene0046_00,backpack,50,True,2,2,False,False,0.0
+217,scene0697_00,nightstand,6,True,2,2,True,True,0.5386
+218,scene0653_00,window,25,True,2,2,True,True,0.6976
+219,scene0494_00,chair,2,True,4,4,True,True,0.9901
+220,scene0251_00,trash can,12,True,6,6,True,True,1.0
+221,scene0389_00,door,12,True,4,0,False,False,0.2144
+222,scene0535_00,chair,26,True,3,3,True,True,1.0
+223,scene0549_00,end table,7,True,4,4,True,True,1.0
+224,scene0644_00,cabinet,8,True,5,5,True,True,0.9952
+225,scene0064_00,armchair,7,True,9,0,True,True,0.9055
+226,scene0300_00,table,6,True,2,2,True,True,0.6265
+227,scene0207_00,sink,57,True,2,2,True,False,0.4787
+228,scene0645_00,lamp,33,True,6,5,True,True,0.9656
+229,scene0426_00,monitor,16,True,2,2,True,True,1.0
+230,scene0196_00,table,2,True,7,6,True,True,1.0
+231,scene0458_00,bottle,18,True,1,1,True,True,1.0
+232,scene0025_00,shelf,11,True,0,0,False,False,0.0
+233,scene0568_00,chair,2,True,5,0,True,True,1.0
+234,scene0025_00,window,21,True,2,2,False,False,0.0779
+235,scene0704_00,cabinets,14,True,5,0,True,True,0.9968
+236,scene0474_00,window,23,True,3,3,True,True,0.8618
+237,scene0329_00,trash can,14,True,5,4,True,True,1.0
+238,scene0011_00,trash can,32,True,2,2,True,False,0.4363
+239,scene0203_00,bag,21,True,1,1,False,False,0.0
+240,scene0256_00,box,3,True,0,0,False,False,0.0
+241,scene0231_00,trash can,31,True,2,2,False,False,0.1307
+242,scene0030_00,bookshelf,68,True,2,2,False,False,0.1016
+243,scene0598_00,mouse,16,True,1,0,False,False,0.0
+244,scene0314_00,office chair,7,True,0,0,False,False,0.0
+245,scene0025_00,window,21,True,2,2,False,False,0.0779
+246,scene0432_00,sofa chair,2,True,0,0,False,False,0.0
+247,scene0246_00,light,2,True,4,4,False,False,0.0
+248,scene0500_00,window,28,True,16,16,True,True,0.5073
+249,scene0645_00,curtain,40,True,6,6,True,True,0.5121

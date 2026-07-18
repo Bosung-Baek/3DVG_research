@@ -1,0 +1,32 @@
+{
+  "num_queries": 250,
+  "acc_iou25": 0.652,
+  "acc_iou50": 0.648,
+  "mean_iou": 0.6514,
+  "route_counts": {
+    "seeground_ablation_spatial_only": 95,
+    "E0": 149,
+    "bev_raw_labeled": 6
+  },
+  "route_reason_counts": {
+    "pure_proximity_spatial": 95,
+    "viewpoint_needs_local_frame_default_e0": 17,
+    "default_e0": 76,
+    "visual_attribute_default_e0": 56,
+    "pure_ordinal_bev": 6
+  },
+  "query_type_counts": {
+    "proximity_derived": 95,
+    "viewpoint_guided": 18,
+    "opposite_derived": 4,
+    "explicit_direction": 89,
+    "ordinal": 16,
+    "object_orientation": 9,
+    "none": 9,
+    "room_side": 6,
+    "geometric": 4
+  },
+  "e0_recoveries": 27,
+  "e0_regressions": 17,
+  "net_vs_e0": 10
+}

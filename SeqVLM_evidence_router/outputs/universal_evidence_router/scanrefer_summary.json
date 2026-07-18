@@ -1,0 +1,35 @@
+{
+  "num_queries": 250,
+  "acc_iou25": 0.52,
+  "acc_iou50": 0.468,
+  "mean_iou": 0.4455,
+  "route_counts": {
+    "E0": 208,
+    "seeground_ablation_spatial_only": 37,
+    "bev_raw_labeled": 1,
+    "seeground_ablation_3dpos_only": 4
+  },
+  "route_reason_counts": {
+    "visual_attribute_default_e0": 165,
+    "pure_proximity_spatial": 37,
+    "pure_ordinal_bev": 1,
+    "default_e0": 42,
+    "pure_geometric_3dpos": 4,
+    "viewpoint_needs_local_frame_default_e0": 1
+  },
+  "query_type_counts": {
+    "explicit_direction": 124,
+    "proximity_derived": 37,
+    "ordinal": 18,
+    "opposite_derived": 5,
+    "viewpoint_guided": 4,
+    "none": 24,
+    "geometric": 17,
+    "uncategorized": 6,
+    "object_orientation": 8,
+    "room_side": 7
+  },
+  "e0_recoveries": 5,
+  "e0_regressions": 1,
+  "net_vs_e0": 4
+}

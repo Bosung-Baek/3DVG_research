@@ -1,0 +1,18 @@
+{
+  "E0": {
+    "num_queries": 250,
+    "acc_iou25": 0.504,
+    "acc_iou50": 0.452,
+    "mean_iou": 0.4306,
+    "route_counts": {
+      "E0": 250
+    },
+    "route_reason_counts": {
+      "e0_only": 250
+    },
+    "source_unavailable_fallbacks": 0,
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "nr3d_full_branch_fill_in": "experiments/ablation/nr3d_missing_branches/openrouter_qwen/summary.json",
+  "nr3d_end_to_end_repeat_summary": "experiments/end_to_end_nr3d_final_router_openrouter_qwen_repeat_summary.json",
+  "gt_proposal_oracle": "experiments/gt_proposal/summary.json",
+  "vlm_model_change": "experiments/ablation/vlm_model_change/summary.json"
+}

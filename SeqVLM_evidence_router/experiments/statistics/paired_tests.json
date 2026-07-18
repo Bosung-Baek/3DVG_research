@@ -1,0 +1,114 @@
+{
+  "scanrefer": {
+    "acc25": {
+      "gain": 0.016,
+      "mcnemar": {
+        "recoveries_b": 5,
+        "regressions_c": 1,
+        "discordant": 6,
+        "exact_two_sided_p": 0.21875
+      },
+      "bootstrap": {
+        "gain": 0.01612,
+        "ci95": [
+          0.0,
+          0.036
+        ],
+        "num_samples": 5000,
+        "seed": 7
+      }
+    },
+    "acc50": {
+      "gain": 0.016,
+      "mcnemar": {
+        "recoveries_b": 4,
+        "regressions_c": 0,
+        "discordant": 4,
+        "exact_two_sided_p": 0.125
+      },
+      "bootstrap": {
+        "gain": 0.0159936,
+        "ci95": [
+          0.004,
+          0.032
+        ],
+        "num_samples": 5000,
+        "seed": 8
+      }
+    },
+    "miou": {
+      "gain": 0.01497303841843419,
+      "bootstrap": {
+        "gain": 0.014938024776602964,
+        "ci95": [
+          0.0020469332669202167,
+          0.03093368893112496
+        ],
+        "num_samples": 5000,
+        "seed": 9
+      },
+      "permutation": {
+        "observed_gain": 0.01497303841843419,
+        "two_sided_p": 0.041391721655668866,
+        "num_samples": 5000,
+        "seed": 10
+      }
+    }
+  },
+  "nr3d": {
+    "acc25": {
+      "gain": 0.04,
+      "mcnemar": {
+        "recoveries_b": 27,
+        "regressions_c": 17,
+        "discordant": 44,
+        "exact_two_sided_p": 0.17417114727072658
+      },
+      "bootstrap": {
+        "gain": 0.0401648,
+        "ci95": [
+          -0.012,
+          0.092
+        ],
+        "num_samples": 5000,
+        "seed": 7
+      }
+    },
+    "acc50": {
+      "gain": 0.044,
+      "mcnemar": {
+        "recoveries_b": 28,
+        "regressions_c": 17,
+        "discordant": 45,
+        "exact_two_sided_p": 0.1351564508456704
+      },
+      "bootstrap": {
+        "gain": 0.0438072,
+        "ci95": [
+          -0.008,
+          0.096
+        ],
+        "num_samples": 5000,
+        "seed": 8
+      }
+    },
+    "miou": {
+      "gain": 0.04073598165932052,
+      "bootstrap": {
+        "gain": 0.041110320232675676,
+        "ci95": [
+          -0.01000636730436838,
+          0.09045440302803393
+        ],
+        "num_samples": 5000,
+        "seed": 9
+      },
+      "permutation": {
+        "observed_gain": 0.04073598165932052,
+        "two_sided_p": 0.1331733653269346,
+        "num_samples": 5000,
+        "seed": 10
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "dataset": "nr3d_250",
+  "model": "openrouter-qwen",
+  "baseline_e0": {
+    "dataset": "NR3D",
+    "method": "E0 baseline",
+    "acc_iou25": 0.612,
+    "acc_iou50": 0.604,
+    "mean_iou": 0.6107,
+    "source": "inputs/nr3d/official_e0_nr3d_openrouter_qwen_250.jsonl"
+  },
+  "final_recomposition": {
+    "dataset": "NR3D",
+    "method": "evidence router",
+    "num_queries": 250,
+    "acc_iou25": 0.652,
+    "acc_iou50": 0.648,
+    "mean_iou": 0.6514,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 95,
+      "E0": 149,
+      "bev_raw_labeled": 6
+    },
+    "route_reason_counts": {
+      "pure_proximity_spatial": 95,
+      "viewpoint_needs_local_frame_default_e0": 17,
+      "default_e0": 76,
+      "visual_attribute_default_e0": 56,
+      "pure_ordinal_bev": 6
+    },
+    "query_type_counts": {
+      "proximity_derived": 95,
+      "viewpoint_guided": 18,
+      "opposite_derived": 4,
+      "explicit_direction": 89,
+      "ordinal": 16,
+      "object_orientation": 9,
+      "none": 9,
+      "room_side": 6,
+      "geometric": 4
+    },
+    "e0_recoveries": 27,
+    "e0_regressions": 17,
+    "net_vs_e0": 10,
+    "source": "outputs/universal_evidence_router/nr3d_universal_evidence_routed_results.jsonl"
+  },
+  "num_repeats": 2,
+  "repeats": [
+    {
+      "run": 1,
+      "path": "experiments/end_to_end_nr3d_final_router_openrouter_qwen/summary.json",
+      "acc_iou25": 0.632,
+      "acc_iou50": 0.628,
+      "mean_iou": 0.6316,
+      "num_acc25_changed_vs_recomposition": 15,
+      "route_summary": {
+        "E0": {
+          "num_queries": 149,
+          "rerun_acc25": 0.604,
+          "final_recomposition_acc25": 0.604,
+          "e0_acc25": 0.604,
+          "final_correct_rerun_wrong": 0,
+          "final_wrong_rerun_correct": 0
+        },
+        "bev_raw_labeled": {
+          "num_queries": 6,
+          "rerun_acc25": 0.6667,
+          "final_recomposition_acc25": 0.8333,
+          "e0_acc25": 0.6667,
+          "final_correct_rerun_wrong": 1,
+          "final_wrong_rerun_correct": 0
+        },
+        "seeground_ablation_spatial_only": {
+          "num_queries": 95,
+          "rerun_acc25": 0.6737,
+          "final_recomposition_acc25": 0.7158,
+          "e0_acc25": 0.6211,
+          "final_correct_rerun_wrong": 9,
+          "final_wrong_rerun_correct": 5
+        }
+      }
+    },
+    {
+      "run": 2,
+      "path": "experiments/end_to_end_nr3d_final_router_openrouter_qwen_repeat2/summary.json",
+      "acc_iou25": 0.656,
+      "acc_iou50": 0.652,
+      "mean_iou": 0.6556,
+      "num_acc25_changed_vs_recomposition": 11,
+      "route_summary": {
+        "E0": {
+          "num_queries": 149,
+          "rerun_acc25": 0.604,
+          "final_recomposition_acc25": 0.604,
+          "e0_acc25": 0.604,
+          "final_correct_rerun_wrong": 0,
+          "final_wrong_rerun_correct": 0
+        },
+        "bev_raw_labeled": {
+          "num_queries": 6,
+          "rerun_acc25": 0.6667,
+          "final_recomposition_acc25": 0.8333,
+          "e0_acc25": 0.6667,
+          "final_correct_rerun_wrong": 1,
+          "final_wrong_rerun_correct": 0
+        },
+        "seeground_ablation_spatial_only": {
+          "num_queries": 95,
+          "rerun_acc25": 0.7368,
+          "final_recomposition_acc25": 0.7158,
+          "e0_acc25": 0.6211,
+          "final_correct_rerun_wrong": 4,
+          "final_wrong_rerun_correct": 6
+        }
+      }
+    }
+  ],
+  "repeat_mean": {
+    "acc_iou25": 0.644,
+    "acc_iou50": 0.64,
+    "mean_iou": 0.6436
+  },
+  "repeat_population_std": {
+    "acc_iou25": 0.012,
+    "acc_iou50": 0.012,
+    "mean_iou": 0.012
+  },
+  "interpretation": "E0 route is reused and deterministic in this setup; observed variance comes from new VLM calls on non-E0 spatial/BEV branches."
+}

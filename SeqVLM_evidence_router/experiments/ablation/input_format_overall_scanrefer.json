@@ -1,0 +1,26 @@
+{
+  "E0_baseline": {
+    "num_queries": 250,
+    "acc_iou25": 0.504,
+    "acc_iou50": 0.452,
+    "mean_iou": 0.4306
+  },
+  "BEV_labeled_layout": {
+    "num_queries": 250,
+    "acc_iou25": 0.444,
+    "acc_iou50": 0.412,
+    "mean_iou": 0.3823
+  },
+  "spatial_only_text": {
+    "num_queries": 250,
+    "acc_iou25": 0.392,
+    "acc_iou50": 0.356,
+    "mean_iou": 0.3356
+  },
+  "3d_position_text": {
+    "num_queries": 250,
+    "acc_iou25": 0.42,
+    "acc_iou50": 0.388,
+    "mean_iou": 0.3623
+  }
+}

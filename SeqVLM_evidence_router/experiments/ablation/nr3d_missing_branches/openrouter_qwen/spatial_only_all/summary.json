@@ -1,0 +1,31 @@
+{
+  "pipeline": "nr3d_query_type_route_first_vlm",
+  "dataset": "nr3d_250",
+  "data_source": "data/nr3d_250.json",
+  "parse_source": "experiments/full_ablation/outputs/nr3d_dfrc_llm_parse.jsonl",
+  "e0_source": "experiments/full_ablation/outputs/official_e0_nr3d_openrouter_qwen_250.jsonl",
+  "model": "openrouter-qwen",
+  "route_policy": {
+    "policy": "forced_route_fill_in",
+    "forced_route": "seeground_ablation_spatial_only",
+    "patched_runner": "/home/knuvi/bosung/SeqVLM/tools/run_nr3d_query_type_routed_vlm_eval.py"
+  },
+  "num_queries": 250,
+  "acc_iou25": 0.58,
+  "acc_iou50": 0.58,
+  "mean_iou": 0.5838,
+  "route_counts": {
+    "seeground_ablation_spatial_only": 250
+  },
+  "query_type_counts": {
+    "proximity_derived": 95,
+    "viewpoint_guided": 18,
+    "opposite_derived": 4,
+    "explicit_direction": 89,
+    "ordinal": 16,
+    "object_orientation": 9,
+    "none": 9,
+    "room_side": 6,
+    "geometric": 4
+  }
+}

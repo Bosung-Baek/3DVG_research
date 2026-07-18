@@ -1,0 +1,194 @@
+{
+  "explicit_direction": {
+    "num_queries": 124,
+    "acc_iou25": 0.5161,
+    "acc_iou50": 0.4758,
+    "mean_iou": 0.4566,
+    "route_counts": {
+      "E0": 124
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 93,
+      "default_e0": 31
+    },
+    "query_type_counts": {
+      "explicit_direction": 124
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "proximity_derived": {
+    "num_queries": 37,
+    "acc_iou25": 0.5405,
+    "acc_iou50": 0.4865,
+    "mean_iou": 0.4482,
+    "route_counts": {
+      "seeground_ablation_spatial_only": 37
+    },
+    "route_reason_counts": {
+      "pure_proximity_spatial": 37
+    },
+    "query_type_counts": {
+      "proximity_derived": 37
+    },
+    "e0_recoveries": 5,
+    "e0_regressions": 1,
+    "net_vs_e0": 4
+  },
+  "none": {
+    "num_queries": 24,
+    "acc_iou25": 0.625,
+    "acc_iou50": 0.5,
+    "mean_iou": 0.4783,
+    "route_counts": {
+      "E0": 24
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 20,
+      "default_e0": 4
+    },
+    "query_type_counts": {
+      "none": 24
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "ordinal": {
+    "num_queries": 18,
+    "acc_iou25": 0.2222,
+    "acc_iou50": 0.2222,
+    "mean_iou": 0.2171,
+    "route_counts": {
+      "E0": 17,
+      "bev_raw_labeled": 1
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 16,
+      "pure_ordinal_bev": 1,
+      "default_e0": 1
+    },
+    "query_type_counts": {
+      "ordinal": 18
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "geometric": {
+    "num_queries": 17,
+    "acc_iou25": 0.5882,
+    "acc_iou50": 0.4706,
+    "mean_iou": 0.4493,
+    "route_counts": {
+      "E0": 13,
+      "seeground_ablation_3dpos_only": 4
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 12,
+      "pure_geometric_3dpos": 4,
+      "default_e0": 1
+    },
+    "query_type_counts": {
+      "geometric": 17
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "object_orientation": {
+    "num_queries": 8,
+    "acc_iou25": 0.75,
+    "acc_iou50": 0.75,
+    "mean_iou": 0.6216,
+    "route_counts": {
+      "E0": 8
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 7,
+      "default_e0": 1
+    },
+    "query_type_counts": {
+      "object_orientation": 8
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "room_side": {
+    "num_queries": 7,
+    "acc_iou25": 0.7143,
+    "acc_iou50": 0.7143,
+    "mean_iou": 0.6833,
+    "route_counts": {
+      "E0": 7
+    },
+    "route_reason_counts": {
+      "default_e0": 2,
+      "visual_attribute_default_e0": 5
+    },
+    "query_type_counts": {
+      "room_side": 7
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "uncategorized": {
+    "num_queries": 6,
+    "acc_iou25": 0.1667,
+    "acc_iou50": 0.0,
+    "mean_iou": 0.0821,
+    "route_counts": {
+      "E0": 6
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 4,
+      "default_e0": 2
+    },
+    "query_type_counts": {
+      "uncategorized": 6
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "opposite_derived": {
+    "num_queries": 5,
+    "acc_iou25": 0.8,
+    "acc_iou50": 0.8,
+    "mean_iou": 0.7887,
+    "route_counts": {
+      "E0": 5
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 5
+    },
+    "query_type_counts": {
+      "opposite_derived": 5
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  },
+  "viewpoint_guided": {
+    "num_queries": 4,
+    "acc_iou25": 0.25,
+    "acc_iou50": 0.25,
+    "mean_iou": 0.2427,
+    "route_counts": {
+      "E0": 4
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 3,
+      "viewpoint_needs_local_frame_default_e0": 1
+    },
+    "query_type_counts": {
+      "viewpoint_guided": 4
+    },
+    "e0_recoveries": 0,
+    "e0_regressions": 0,
+    "net_vs_e0": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scanrefer": {
+    "num_queries": 250,
+    "e0_acc25": 0.504,
+    "router_acc25": 0.52,
+    "oracle_acc25": 0.612,
+    "e0_fail_oracle_success": 27,
+    "router_recovered_from_oracle_pool": 5,
+    "missed_oracle_recoveries": 22
+  },
+  "nr3d_available_source": {
+    "num_queries": 250,
+    "e0_acc25": 0.612,
+    "router_acc25": 0.652,
+    "oracle_acc25": 0.728,
+    "e0_fail_oracle_success": 29,
+    "router_recovered_from_oracle_pool": 27,
+    "missed_oracle_recoveries": 2
+  }
+}

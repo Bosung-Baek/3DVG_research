@@ -1,0 +1,110 @@
+{
+  "proximity_derived": {
+    "num_queries": 95,
+    "acc_iou25": 0.6632,
+    "acc_iou50": 0.6632,
+    "mean_iou": 0.667,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 95
+    },
+    "query_type_counts": {
+      "proximity_derived": 95
+    }
+  },
+  "explicit_direction": {
+    "num_queries": 89,
+    "acc_iou25": 0.5281,
+    "acc_iou50": 0.5281,
+    "mean_iou": 0.5327,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 89
+    },
+    "query_type_counts": {
+      "explicit_direction": 89
+    }
+  },
+  "viewpoint_guided": {
+    "num_queries": 18,
+    "acc_iou25": 0.2778,
+    "acc_iou50": 0.2778,
+    "mean_iou": 0.2812,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 18
+    },
+    "query_type_counts": {
+      "viewpoint_guided": 18
+    }
+  },
+  "ordinal": {
+    "num_queries": 16,
+    "acc_iou25": 0.375,
+    "acc_iou50": 0.375,
+    "mean_iou": 0.3816,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 16
+    },
+    "query_type_counts": {
+      "ordinal": 16
+    }
+  },
+  "none": {
+    "num_queries": 9,
+    "acc_iou25": 0.6667,
+    "acc_iou50": 0.6667,
+    "mean_iou": 0.6667,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 9
+    },
+    "query_type_counts": {
+      "none": 9
+    }
+  },
+  "object_orientation": {
+    "num_queries": 9,
+    "acc_iou25": 0.5556,
+    "acc_iou50": 0.5556,
+    "mean_iou": 0.5556,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 9
+    },
+    "query_type_counts": {
+      "object_orientation": 9
+    }
+  },
+  "room_side": {
+    "num_queries": 6,
+    "acc_iou25": 0.6667,
+    "acc_iou50": 0.6667,
+    "mean_iou": 0.6667,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 6
+    },
+    "query_type_counts": {
+      "room_side": 6
+    }
+  },
+  "geometric": {
+    "num_queries": 4,
+    "acc_iou25": 0.75,
+    "acc_iou50": 0.75,
+    "mean_iou": 0.75,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 4
+    },
+    "query_type_counts": {
+      "geometric": 4
+    }
+  },
+  "opposite_derived": {
+    "num_queries": 4,
+    "acc_iou25": 0.25,
+    "acc_iou50": 0.25,
+    "mean_iou": 0.25,
+    "route_counts": {
+      "seeground_ablation_3dpos_only": 4
+    },
+    "query_type_counts": {
+      "opposite_derived": 4
+    }
+  }
+}
