@@ -124,6 +124,22 @@ The smoke test checks:
 The GitHub Actions workflow in `.github/workflows/smoke-test.yml` runs the same
 test on push and pull request.
 
+## Paper Figures
+
+Paper-facing figures are generated from locked repository-local experiment
+artifacts. The figure script does not call a VLM API and does not require private
+raw scene assets.
+
+```bash
+python tools/create_paper_figures.py
+```
+
+Outputs are written to `experiments/figures/` as both `.png` and `.pdf`.
+The generated figures cover the pipeline overview, main table, input-format
+ablation, query-type/input interaction, route contribution, router ablations,
+LLM-router comparison, oracle gap, rerun variance, and representative
+failure/recovery cases.
+
 ## Paper Experiment Suite
 
 The repo is scoped to the paper experiments below.

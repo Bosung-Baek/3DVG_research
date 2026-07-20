@@ -550,3 +550,26 @@ visual-spatial query를 과도하게 spatial route로 보내는 경향이 있다
 | Runtime/cost proxy | `experiments/runtime/runtime_proxy.json` |
 | Failure/recovery cases | `experiments/failure_visualization/cases.jsonl` |
 | Evidence audit proxy | `experiments/evidence_audit/summary.json` |
+
+## 22. Paper Figures
+
+논문 본문/보충자료에 바로 사용할 수 있는 figure는
+`experiments/figures/`에 저장했다. 모든 figure는 PNG와 PDF를 함께 제공한다.
+
+재생성 명령:
+
+```bash
+python tools/create_paper_figures.py
+```
+
+| Figure | Path stem | 내용 |
+|---|---|---|
+| Fig. 1 | `experiments/figures/fig1_pipeline_overview` | Evidence-aware routing pipeline과 route priority |
+| Fig. 2 | `experiments/figures/fig2_main_results` | ScanRefer/NR3D main result 비교 |
+| Fig. 3 | `experiments/figures/fig3_input_format_ablation_scanrefer` | ScanRefer 전체 query에 입력 형식을 일괄 적용한 ablation |
+| Fig. 4 | `experiments/figures/fig4_query_type_input_heatmap_scanrefer` | Query type별 입력 형식 성능 heatmap |
+| Fig. 5 | `experiments/figures/fig5_route_distribution_contribution` | 최종 route 분포와 recovery/regression contribution |
+| Fig. 6 | `experiments/figures/fig6_policy_component_ablation` | Policy cumulative ablation과 router component ablation |
+| Fig. 7 | `experiments/figures/fig7_llm_router_comparison` | Dictionary router와 priority LLM router 비교 |
+| Fig. 8 | `experiments/figures/fig8_oracle_and_rerun` | Representation oracle gap과 NR3D rerun variance |
+| Fig. 9 | `experiments/figures/fig9_failure_case_summary` | 대표 recovery/regression/fallback case 요약 |

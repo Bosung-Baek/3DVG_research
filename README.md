@@ -132,6 +132,16 @@ For details, see:
 - `SeqVLM_evidence_router/experiments/TMM_EXPERIMENT_PLAN.md`
 - `SeqVLM_evidence_router/AGENT_CONTEXT.md`
 
+## Generate Paper Figures
+
+The paper-facing figures are generated from locked experiment artifacts and are
+stored in `SeqVLM_evidence_router/experiments/figures/`.
+
+```bash
+cd SeqVLM_evidence_router
+python tools/create_paper_figures.py
+```
+
 ## Repository Layout
 
 ```text
