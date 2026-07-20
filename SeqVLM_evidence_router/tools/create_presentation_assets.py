@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import math
 import re
+import sys
 import textwrap
 from pathlib import Path
 
@@ -18,9 +19,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Rectangle
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+from PIL import ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from input_formats.bev_raw_labeled import render_bev_mesh
+
 OUT_DIR = ROOT / "experiments" / "presentation_assets"
 
 GREEN = "#16A34A"
@@ -31,6 +36,8 @@ PURPLE = "#7C3AED"
 GRAY = "#64748B"
 BLACK = "#111827"
 BG = "#F8FAFC"
+MASK3D_DIR = Path("/data/knuvi/bosung/Mask3d/scannet200")
+SCANNET_ORIGIN = Path("/data/knuvi/bosung/scannet_origin")
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -63,6 +70,138 @@ def parse_size(text: str) -> tuple[float, float, float]:
 
 def candidate_letter(i: int) -> str:
     return chr(ord("A") + i)
+
+
+def font(size: int, bold: bool = True):
+    path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    try:
+        return ImageFont.truetype(path, size=size)
+    except Exception:
+        return ImageFont.load_default()
+
+
+def load_axis_alignment(scene_id: str) -> np.ndarray:
+    txt = SCANNET_ORIGIN / scene_id / f"{scene_id}.txt"
+    mat = np.eye(4, dtype=np.float32)
+    if not txt.exists():
+        return mat
+    for line in txt.read_text(encoding="utf-8", errors="ignore").splitlines():
+        if "axisAlignment" not in line:
+            continue
+        vals = [float(x) for x in line.split("=")[-1].strip().split()]
+        if len(vals) == 16:
+            return np.array(vals, dtype=np.float32).reshape(4, 4)
+    return mat
+
+
+def instance_aabb_px(ins_pcds: np.ndarray, idx: int, to_px):
+    if idx >= len(ins_pcds) or ins_pcds[idx].shape[0] == 0:
+        return None
+    pts = ins_pcds[idx][:, :2]
+    px, py = to_px(pts[:, 0], pts[:, 1])
+    return float(px.min()), float(py.min()), float(px.max()), float(py.max())
+
+
+def draw_dashed_rect(draw: ImageDraw.ImageDraw, box, color, width=5, dash=16):
+    x0, y0, x1, y1 = box
+    for x in range(int(x0), int(x1), dash * 2):
+        draw.line([(x, y0), (min(x + dash, x1), y0)], fill=color, width=width)
+        draw.line([(x, y1), (min(x + dash, x1), y1)], fill=color, width=width)
+    for y in range(int(y0), int(y1), dash * 2):
+        draw.line([(x0, y), (x0, min(y + dash, y1))], fill=color, width=width)
+        draw.line([(x1, y), (x1, min(y + dash, y1))], fill=color, width=width)
+
+
+def draw_badge(draw: ImageDraw.ImageDraw, xy, text: str, fill, text_fill=(255, 255, 255), size=30):
+    fnt = font(size, True)
+    x, y = xy
+    bbox = draw.textbbox((0, 0), text, font=fnt)
+    tw, th = bbox[2] - bbox[0] + 18, bbox[3] - bbox[1] + 12
+    x = max(8, min(int(x), 1100 - tw - 8))
+    y = max(8, min(int(y), 1100 - th - 8))
+    draw.rounded_rectangle([x, y, x + tw, y + th], radius=8, fill=fill, outline=(255, 255, 255), width=2)
+    draw.text((x + 9, y + 6), text, fill=text_fill, font=fnt)
+
+
+def make_real_bev_overlay(
+    scene_id: str,
+    candidate_ids: list[int],
+    anchor_ids: list[int],
+    gt_id: int | None,
+    pred_id: int | None,
+    result_badge: str,
+    img_size: int = 1100,
+    crop_local: bool = False,
+):
+    data = np.load(MASK3D_DIR / f"{scene_id}.npz", allow_pickle=True)
+    ins_pcds = data["ins_pcds"]
+    axis_mat = load_axis_alignment(scene_id)
+    base, coord_info = render_bev_mesh(
+        scene_id,
+        ins_pcds,
+        axis_mat,
+        candidate_ids,
+        anchor_ids,
+        img_size=img_size,
+    )
+    img = base.convert("RGBA")
+    overlay = ImageDraw.Draw(img, "RGBA")
+    to_px = coord_info["to_px"]
+
+    visible_boxes = []
+    for aid in anchor_ids:
+        box = instance_aabb_px(ins_pcds, aid, to_px)
+        if box is None:
+            continue
+        visible_boxes.append(box)
+        draw_dashed_rect(overlay, box, (249, 115, 22, 255), width=5)
+        draw_badge(overlay, (box[0], box[1] - 48), "anchor", (249, 115, 22, 235), size=24)
+
+    for rank, cid in enumerate(candidate_ids):
+        box = instance_aabb_px(ins_pcds, cid, to_px)
+        if box is None:
+            continue
+        visible_boxes.append(box)
+        if cid == gt_id and cid == pred_id:
+            color = (22, 163, 74, 255)
+            fill = (22, 163, 74, 58)
+            suffix = " GT/PRED"
+        elif cid == gt_id:
+            color = (22, 163, 74, 255)
+            fill = (22, 163, 74, 50)
+            suffix = " GT"
+        elif cid == pred_id:
+            color = (220, 38, 38, 255)
+            fill = (220, 38, 38, 50)
+            suffix = " PRED"
+        else:
+            color = (37, 99, 235, 255)
+            fill = (37, 99, 235, 36)
+            suffix = ""
+        x0, y0, x1, y1 = box
+        overlay.rounded_rectangle([x0, y0, x1, y1], radius=4, fill=fill, outline=color, width=6)
+        draw_badge(overlay, (x0, y0 - 52), f"{candidate_letter(rank)} id{cid}{suffix}", color, size=25)
+
+    if crop_local and visible_boxes:
+        xs0, ys0, xs1, ys1 = zip(*visible_boxes)
+        pad = 180
+        crop = (
+            max(0, int(min(xs0) - pad)),
+            max(0, int(min(ys0) - pad)),
+            min(img.width, int(max(xs1) + pad)),
+            min(img.height, int(max(ys1) + pad)),
+        )
+        img = img.crop(crop).resize((img_size, img_size), resample=1)
+        overlay = ImageDraw.Draw(img, "RGBA")
+
+    draw_badge(overlay, (20, 20), result_badge, (17, 24, 39, 238), size=30)
+    return img.convert("RGB")
+
+
+def show_image(ax, img, title: str):
+    ax.imshow(img)
+    ax.set_title(title, fontsize=16, weight="bold")
+    ax.axis("off")
 
 
 def parse_nr3d_prompt(prompt: str) -> tuple[dict | None, list[dict]]:
@@ -361,6 +500,8 @@ def make_nr3d_failure_success_assets(nr3d_e0: dict[int, dict], nr3d_spatial: dic
     gt_id = sp["obj_id"]
     e0_pred_id = e0["trace"]["pred_instance"]
     spatial_pred_id = sp["selected_instance_id"]
+    candidate_ids = [c["id"] for c in candidates]
+    anchor_ids = [anchor["id"]] if anchor else []
 
     # E0 failure: separate BEV overlay asset.
     fig = plt.figure(figsize=(13.5, 7.6))
@@ -376,15 +517,15 @@ def make_nr3d_failure_success_assets(nr3d_e0: dict[int, dict], nr3d_spatial: dic
     )
     text_panel(ax_text, "Failure case", body, title_color=RED, body_size=15)
     ax_bev = fig.add_subplot(gs[0, 1])
-    draw_bev_overlay(
-        ax_bev,
-        candidates,
-        anchor=anchor,
+    fail_bev = make_real_bev_overlay(
+        e0["scene_id"],
+        candidate_ids,
+        anchor_ids,
         gt_id=gt_id,
         pred_id=e0_pred_id,
-        title="E0 failure shown on BEV overlay",
-        result_label=f"E0 predicted id{e0_pred_id}; GT id{gt_id}",
+        result_badge=f"E0 predicted id{e0_pred_id}; GT id{gt_id}",
     )
+    show_image(ax_bev, fail_bev, "E0 failure on actual mesh BEV render")
     fig.suptitle("Presentation Asset: E0 Failure Overlay", fontsize=21, weight="bold")
     save(fig, "asset_01_e0_failure_bev_overlay")
 
@@ -405,15 +546,15 @@ def make_nr3d_failure_success_assets(nr3d_e0: dict[int, dict], nr3d_spatial: dic
     )
     text_panel(ax_text, "Success case", body, title_color=GREEN, body_size=15)
     ax_bev = fig.add_subplot(gs[0, 1])
-    draw_bev_overlay(
-        ax_bev,
-        candidates,
-        anchor=anchor,
+    success_bev = make_real_bev_overlay(
+        e0["scene_id"],
+        candidate_ids,
+        anchor_ids,
         gt_id=gt_id,
         pred_id=spatial_pred_id,
-        title="Spatial-only success shown on BEV overlay",
-        result_label=f"Spatial-only selected id{spatial_pred_id}; GT id{gt_id}",
+        result_badge=f"Spatial-only selected id{spatial_pred_id}; GT id{gt_id}",
     )
+    show_image(ax_bev, success_bev, "Spatial-only success on actual mesh BEV render")
     fig.suptitle("Presentation Asset: Spatial-Only Success Overlay", fontsize=21, weight="bold")
     save(fig, "asset_02_spatial_success_bev_overlay")
 
@@ -435,6 +576,8 @@ def make_geometric_2x2(scan_e0: dict[int, dict], scan_3d: dict[int, dict]) -> No
     gt_id = pos["gt_instance_id"]
     e0_pred_id = e0["trace"]["pred_instance"]
     pos_pred_id = pos["selected_instance_id"]
+    candidate_ids = pos["candidate_instance_ids"]
+    anchor_ids = [6]  # nearest door to the stored anchor center in scene0251_00
     known_ids = {c["id"] for c in candidates}
     if gt_id not in known_ids:
         # The locked ScanRefer 3D-position output stores a truncated prompt for
@@ -477,26 +620,26 @@ def make_geometric_2x2(scan_e0: dict[int, dict], scan_3d: dict[int, dict]) -> No
     text_panel(ax_pos_q, "(b) 3D-position input query", pos_body, title_color=GREEN, body_size=12.5, mono=False)
 
     ax_e0_bev = fig.add_subplot(gs[1, 0])
-    draw_bev_overlay(
-        ax_e0_bev,
-        candidates,
-        anchor=anchor,
+    e0_bev = make_real_bev_overlay(
+        pos["scene_id"],
+        candidate_ids,
+        anchor_ids,
         gt_id=gt_id,
         pred_id=e0_pred_id,
-        title="E0 prediction on shared BEV overlay",
-        result_label=f"E0 predicted id{e0_pred_id}; GT id{gt_id}",
+        result_badge=f"E0 predicted id{e0_pred_id}; GT id{gt_id}",
     )
+    show_image(ax_e0_bev, e0_bev, "E0 prediction on actual mesh BEV render")
 
     ax_pos_bev = fig.add_subplot(gs[1, 1])
-    draw_bev_overlay(
-        ax_pos_bev,
-        candidates,
-        anchor=anchor,
+    pos_bev = make_real_bev_overlay(
+        pos["scene_id"],
+        candidate_ids,
+        anchor_ids,
         gt_id=gt_id,
         pred_id=pos_pred_id,
-        title="3D-position prediction on shared BEV overlay",
-        result_label=f"3D-position selected id{pos_pred_id}; GT id{gt_id}",
+        result_badge=f"3D-position selected id{pos_pred_id}; GT id{gt_id}",
     )
+    show_image(ax_pos_bev, pos_bev, "3D-position prediction on actual mesh BEV render")
 
     fig.suptitle("Geometric Query: E0 vs 3D-Position Prediction", fontsize=22, weight="bold")
     save(fig, "asset_04_geometric_e0_vs_3d_position_2x2")
@@ -511,10 +654,10 @@ Each asset is saved as both PNG and PDF.
 
 | Asset | File stem | Use |
 |---|---|---|
-| 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction/GT overlaid on BEV. |
-| 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query, overlaid on BEV. |
+| 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction/GT overlaid on an actual mesh BEV render. |
+| 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query, overlaid on an actual mesh BEV render. |
 | 3 | `asset_03_failure_vs_success_3d_overlay` | Same failure/success pair as a 3D box rendering. |
-| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 comparison: E0 query/input vs 3D-position query/input, with BEV overlays. |
+| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 comparison: E0 query/input vs 3D-position query/input, with actual mesh BEV overlays. |
 
 Regenerate:
 

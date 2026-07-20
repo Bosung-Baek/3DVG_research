@@ -163,14 +163,14 @@ python tools/create_qualitative_figures.py
 
 Slide-ready case visualizations are stored in `experiments/presentation_assets/`.
 These are simplified qualitative assets with larger text and prediction/GT
-overlays for talks.
+overlays on actual mesh BEV renderings for talks.
 
 | Asset | File stem | What it shows |
 |---|---|---|
-| 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction and GT separated on a BEV overlay. |
-| 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query on a BEV overlay. |
+| 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction and GT separated on an actual mesh BEV render. |
+| 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query on an actual mesh BEV render. |
 | 3 | `asset_03_failure_vs_success_3d_overlay` | Same E0 failure vs spatial-only success pair as 3D box renderings. |
-| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 geometric-query comparison: E0 input/query and BEV prediction vs 3D-position input/query and BEV prediction. |
+| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 geometric-query comparison: E0 input/query and actual mesh BEV prediction vs 3D-position input/query and actual mesh BEV prediction. |
 
 Regenerate:
 
