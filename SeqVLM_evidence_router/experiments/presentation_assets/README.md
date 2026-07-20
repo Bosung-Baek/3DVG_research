@@ -8,7 +8,8 @@ Each asset is saved as both PNG and PDF.
 | 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction/GT overlaid on an actual mesh BEV render. |
 | 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query, overlaid on an actual mesh BEV render. |
 | 3 | `asset_03_failure_vs_success_3d_overlay` | Same failure/success pair as a 3D box rendering. |
-| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 comparison: E0 query/input vs 3D-position query/input, with actual mesh BEV overlays. |
+| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 comparison for a geometric bench/bookshelf query, with actual mesh BEV overlays. |
+| 5 | `asset_05_mesh_bev_recovery_grid` | Four slide-ready E0 failure vs routed recovery examples on actual mesh BEV renders. |
 
 Regenerate:
 

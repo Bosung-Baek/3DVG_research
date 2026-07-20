@@ -123,6 +123,34 @@ def draw_badge(draw: ImageDraw.ImageDraw, xy, text: str, fill, text_fill=(255, 2
     draw.text((x + 9, y + 6), text, fill=text_fill, font=fnt)
 
 
+def instance_center(ins_pcds: np.ndarray, idx: int) -> np.ndarray | None:
+    if idx >= len(ins_pcds) or ins_pcds[idx].shape[0] == 0:
+        return None
+    pts = ins_pcds[idx][:, :3]
+    return (pts.min(axis=0) + pts.max(axis=0)) / 2.0
+
+
+def find_nearest_label_instance(scene_id: str, center: tuple[float, float, float], keywords: list[str]) -> int | None:
+    data = np.load(MASK3D_DIR / f"{scene_id}.npz", allow_pickle=True)
+    ins_pcds = data["ins_pcds"]
+    labels = data["ins_labels"] if "ins_labels" in data.files else []
+    q = np.array(center, dtype=np.float32)
+    best = None
+    best_dist = float("inf")
+    for idx, label in enumerate(labels):
+        label_text = str(label).lower()
+        if keywords and not any(k.lower() in label_text for k in keywords):
+            continue
+        c = instance_center(ins_pcds, idx)
+        if c is None:
+            continue
+        dist = float(np.linalg.norm(c - q))
+        if dist < best_dist:
+            best = idx
+            best_dist = dist
+    return best
+
+
 def make_real_bev_overlay(
     scene_id: str,
     candidate_ids: list[int],
@@ -132,15 +160,20 @@ def make_real_bev_overlay(
     result_badge: str,
     img_size: int = 1100,
     crop_local: bool = False,
+    pred_success: bool = False,
 ):
     data = np.load(MASK3D_DIR / f"{scene_id}.npz", allow_pickle=True)
     ins_pcds = data["ins_pcds"]
     axis_mat = load_axis_alignment(scene_id)
+    render_candidate_ids = list(candidate_ids)
+    for extra_id in (pred_id, gt_id):
+        if extra_id is not None and extra_id not in render_candidate_ids:
+            render_candidate_ids.append(extra_id)
     base, coord_info = render_bev_mesh(
         scene_id,
         ins_pcds,
         axis_mat,
-        candidate_ids,
+        render_candidate_ids,
         anchor_ids,
         img_size=img_size,
     )
@@ -157,26 +190,31 @@ def make_real_bev_overlay(
         draw_dashed_rect(overlay, box, (249, 115, 22, 255), width=5)
         draw_badge(overlay, (box[0], box[1] - 48), "anchor", (249, 115, 22, 235), size=24)
 
-    for rank, cid in enumerate(candidate_ids):
+    for rank, cid in enumerate(render_candidate_ids):
         box = instance_aabb_px(ins_pcds, cid, to_px)
         if box is None:
             continue
         visible_boxes.append(box)
         if cid == gt_id and cid == pred_id:
             color = (22, 163, 74, 255)
-            fill = (22, 163, 74, 58)
+            fill = None
             suffix = " GT/PRED"
         elif cid == gt_id:
             color = (22, 163, 74, 255)
-            fill = (22, 163, 74, 50)
+            fill = None
             suffix = " GT"
         elif cid == pred_id:
-            color = (220, 38, 38, 255)
-            fill = (220, 38, 38, 50)
-            suffix = " PRED"
+            if pred_success:
+                color = (22, 163, 74, 255)
+                fill = None
+                suffix = " SEL"
+            else:
+                color = (220, 38, 38, 255)
+                fill = None
+                suffix = " PRED"
         else:
             color = (37, 99, 235, 255)
-            fill = (37, 99, 235, 36)
+            fill = None
             suffix = ""
         x0, y0, x1, y1 = box
         overlay.rounded_rectangle([x0, y0, x1, y1], radius=4, fill=fill, outline=color, width=6)
@@ -570,19 +608,23 @@ def make_nr3d_failure_success_assets(nr3d_e0: dict[int, dict], nr3d_spatial: dic
 
 
 def make_geometric_2x2(scan_e0: dict[int, dict], scan_3d: dict[int, dict]) -> None:
-    e0 = scan_e0[197]
-    pos = scan_3d[197]
+    e0 = scan_e0[116]
+    pos = scan_3d[116]
     anchor, candidates = parse_scanrefer_prompt(pos["prompt_text"], pos["candidate_instance_ids"])
     gt_id = pos["gt_instance_id"]
     e0_pred_id = e0["trace"]["pred_instance"]
     pos_pred_id = pos["selected_instance_id"]
     candidate_ids = pos["candidate_instance_ids"]
-    anchor_ids = [6]  # nearest door to the stored anchor center in scene0251_00
+    anchor_ids = []
+    if anchor:
+        anchor_id = find_nearest_label_instance(pos["scene_id"], anchor["center"], ["bookshelf", "book"])
+        if anchor_id is not None:
+            anchor_ids.append(anchor_id)
     known_ids = {c["id"] for c in candidates}
     if gt_id not in known_ids:
-        # The locked ScanRefer 3D-position output stores a truncated prompt for
-        # this case. Recover the GT candidate box from the paired E0 record so
-        # the slide overlay still shows the successful 3D-position prediction.
+        # Some locked ScanRefer prompts are truncated in the source file. Recover
+        # the GT candidate box from the paired E0 record so the slide overlay
+        # still shows the target object.
         cx, cy, cz, sx, sy, sz = e0["target_box"]
         candidates.append(
             {
@@ -614,7 +656,7 @@ def make_geometric_2x2(scan_e0: dict[int, dict], scan_3d: dict[int, dict]) -> No
         f"Query:\n\"{textwrap.fill(pos['query'], 54)}\"\n\n"
         "Structured evidence:\n"
         "- candidate-anchor offsets\n"
-        "- distances to the door anchor\n"
+        "- distances to the bookshelf anchor\n"
         "- candidate sizes / heights"
     )
     text_panel(ax_pos_q, "(b) 3D-position input query", pos_body, title_color=GREEN, body_size=12.5, mono=False)
@@ -627,6 +669,7 @@ def make_geometric_2x2(scan_e0: dict[int, dict], scan_3d: dict[int, dict]) -> No
         gt_id=gt_id,
         pred_id=e0_pred_id,
         result_badge=f"E0 predicted id{e0_pred_id}; GT id{gt_id}",
+        crop_local=True,
     )
     show_image(ax_e0_bev, e0_bev, "E0 prediction on actual mesh BEV render")
 
@@ -637,12 +680,63 @@ def make_geometric_2x2(scan_e0: dict[int, dict], scan_3d: dict[int, dict]) -> No
         anchor_ids,
         gt_id=gt_id,
         pred_id=pos_pred_id,
-        result_badge=f"3D-position selected id{pos_pred_id}; GT id{gt_id}",
+        result_badge=f"3D-position selected id{pos_pred_id}; GT id{gt_id}; IoU={pos['iou']:.3f}",
+        crop_local=True,
+        pred_success=True,
     )
     show_image(ax_pos_bev, pos_bev, "3D-position prediction on actual mesh BEV render")
 
     fig.suptitle("Geometric Query: E0 vs 3D-Position Prediction", fontsize=22, weight="bold")
     save(fig, "asset_04_geometric_e0_vs_3d_position_2x2")
+
+
+def make_recovery_grid(scan_e0: dict[int, dict], scan_sources: dict[str, dict[int, dict]]) -> None:
+    cases = [
+        ("Spatial-only", scan_sources["spatial"][1], "desk beside chair"),
+        ("Spatial-only", scan_sources["spatial"][3], "bench next to bench"),
+        ("3D-position", scan_sources["3dpos"][116], "bench between bookshelves"),
+        ("BEV", scan_sources["bev"][100], "couch behind wall object"),
+    ]
+    fig, axes = plt.subplots(2, 4, figsize=(20, 9.5))
+    for col, (route_name, routed, short_label) in enumerate(cases):
+        case_id = int(routed["query_id"])
+        e0 = scan_e0[case_id]
+        anchor, _ = parse_scanrefer_prompt(routed["prompt_text"], routed["candidate_instance_ids"])
+        anchor_ids = []
+        if anchor:
+            keywords = routed.get("anchor_nouns") or []
+            anchor_id = find_nearest_label_instance(routed["scene_id"], anchor["center"], keywords)
+            if anchor_id is not None:
+                anchor_ids.append(anchor_id)
+
+        candidate_ids = routed["candidate_instance_ids"]
+        gt_id = routed["gt_instance_id"]
+        e0_pred_id = e0.get("trace", {}).get("pred_instance")
+        route_pred_id = routed["selected_instance_id"]
+        fail_img = make_real_bev_overlay(
+            routed["scene_id"],
+            candidate_ids,
+            anchor_ids,
+            gt_id=gt_id,
+            pred_id=e0_pred_id,
+            result_badge=f"E0 fail: id{e0_pred_id}; GT id{gt_id}",
+            crop_local=True,
+        )
+        success_img = make_real_bev_overlay(
+            routed["scene_id"],
+            candidate_ids,
+            anchor_ids,
+            gt_id=gt_id,
+            pred_id=route_pred_id,
+            result_badge=f"{route_name} success: id{route_pred_id}; GT id{gt_id}",
+            crop_local=True,
+            pred_success=True,
+        )
+        show_image(axes[0, col], fail_img, f"E0 failure\n{short_label}")
+        show_image(axes[1, col], success_img, f"{route_name} recovery")
+
+    fig.suptitle("Failure-to-Recovery Examples on Actual Mesh BEV Renders", fontsize=23, weight="bold")
+    save(fig, "asset_05_mesh_bev_recovery_grid")
 
 
 def write_readme() -> None:
@@ -657,7 +751,8 @@ Each asset is saved as both PNG and PDF.
 | 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction/GT overlaid on an actual mesh BEV render. |
 | 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query, overlaid on an actual mesh BEV render. |
 | 3 | `asset_03_failure_vs_success_3d_overlay` | Same failure/success pair as a 3D box rendering. |
-| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 comparison: E0 query/input vs 3D-position query/input, with actual mesh BEV overlays. |
+| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 comparison for a geometric bench/bookshelf query, with actual mesh BEV overlays. |
+| 5 | `asset_05_mesh_bev_recovery_grid` | Four slide-ready E0 failure vs routed recovery examples on actual mesh BEV renders. |
 
 Regenerate:
 
@@ -681,9 +776,15 @@ def main() -> None:
     nr3d_spatial = by_case("experiments/ablation/nr3d_missing_branches/openrouter_qwen/spatial_only_all/nr3d_query_type_routed_vlm_results.jsonl")
     scan_e0 = by_case("inputs/scanrefer/full_E0_baseline_qwen72b.jsonl")
     scan_3d = by_case("inputs/scanrefer/seeground_ablation_3dpos_only/results.jsonl", query_id=True)
+    scan_sources = {
+        "spatial": by_case("inputs/scanrefer/seeground_ablation_spatial_only/results.jsonl", query_id=True),
+        "3dpos": scan_3d,
+        "bev": by_case("inputs/scanrefer/bev_raw_labeled/results.jsonl", query_id=True),
+    }
 
     make_nr3d_failure_success_assets(nr3d_e0, nr3d_spatial)
     make_geometric_2x2(scan_e0, scan_3d)
+    make_recovery_grid(scan_e0, scan_sources)
     write_readme()
     print(f"Wrote presentation assets to {OUT_DIR}")
 
