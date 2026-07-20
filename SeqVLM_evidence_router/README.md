@@ -140,6 +140,25 @@ ablation, query-type/input interaction, route contribution, router ablations,
 LLM-router comparison, oracle gap, rerun variance, and representative
 failure/recovery cases.
 
+## Qualitative Figures
+
+The paper qualitative examples requested for visual inspection are stored in
+`experiments/qualitative_figures/` as both `.png` and `.pdf`.
+
+| Figure | File stem | What it shows |
+|---|---|---|
+| 1 | `qual1_3d_scene_query_candidate_boxes` | 3D scene coordinate view, natural-language query, and candidate object boxes. |
+| 2 | `qual2_e0_rgb_canvas_candidate_overlay` | E0 RGB canvas candidates with candidate letter/id overlay. |
+| 3 | `qual3_e0_failure_vs_spatial_success` | Same NR3D query where E0 fails but spatial-only text succeeds. |
+| 4 | `qual4_geometric_e0_vs_3d_position` | Geometric ScanRefer query comparing E0 prediction and 3D-position prediction. |
+
+Regeneration uses real locked query/result records plus local pre-rendered
+SeqVLM canvas assets:
+
+```bash
+python tools/create_qualitative_figures.py
+```
+
 ## Paper Experiment Suite
 
 The repo is scoped to the paper experiments below.
