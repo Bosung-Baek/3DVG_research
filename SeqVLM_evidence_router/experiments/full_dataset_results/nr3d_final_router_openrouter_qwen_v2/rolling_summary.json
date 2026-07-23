@@ -1,0 +1,80 @@
+{
+  "processed": 7457,
+  "total_expected": 7457,
+  "remaining": 0,
+  "acc25": 0.5958160118009923,
+  "acc50": 0.5946090921282017,
+  "miou": 0.5985232015555854,
+  "status_counts": {
+    "ok": 7383,
+    "error": 74
+  },
+  "route_counts": {
+    "seeground_ablation_spatial_only": 3015,
+    "seeground_ablation_3dpos_only": 350,
+    "E0": 3982,
+    "bev_raw_labeled": 110
+  },
+  "route_display_counts": {
+    "spatial-only text": 3015,
+    "3D position text": 350,
+    "E0 RGB canvas": 3982,
+    "BEV labeled layout": 110
+  },
+  "by_route": {
+    "seeground_ablation_spatial_only": {
+      "n": 3015,
+      "acc25": 0.6593698175787728,
+      "acc50": 0.6583747927031509,
+      "miou": 0.6609166673300165
+    },
+    "seeground_ablation_3dpos_only": {
+      "n": 350,
+      "acc25": 0.6114285714285714,
+      "acc50": 0.6114285714285714,
+      "miou": 0.6137217514285714
+    },
+    "E0": {
+      "n": 3982,
+      "acc25": 0.5497237569060773,
+      "acc50": 0.548216976393772,
+      "miou": 0.5532306956303366
+    },
+    "bev_raw_labeled": {
+      "n": 110,
+      "acc25": 0.4727272727272727,
+      "acc50": 0.4727272727272727,
+      "miou": 0.47960471818181816
+    }
+  },
+  "by_route_display": {
+    "spatial-only text": {
+      "n": 3015,
+      "acc25": 0.6593698175787728,
+      "acc50": 0.6583747927031509,
+      "miou": 0.6609166673300165
+    },
+    "3D position text": {
+      "n": 350,
+      "acc25": 0.6114285714285714,
+      "acc50": 0.6114285714285714,
+      "miou": 0.6137217514285714
+    },
+    "E0 RGB canvas": {
+      "n": 3982,
+      "acc25": 0.5497237569060773,
+      "acc50": 0.548216976393772,
+      "miou": 0.5532306956303366
+    },
+    "BEV labeled layout": {
+      "n": 110,
+      "acc25": 0.4727272727272727,
+      "acc50": 0.4727272727272727,
+      "miou": 0.47960471818181816
+    }
+  },
+  "n_api_calls": 8841,
+  "prompt_tokens": 54323043,
+  "completion_tokens": 578323,
+  "elapsed_seconds": 19755.24
+}

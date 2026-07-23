@@ -21,6 +21,28 @@ For a concise verification checklist, see
 | NR3D | E0 baseline | 0.612 | 0.604 | 0.6107 |
 | NR3D | evidence router | 0.652 | 0.648 | 0.6514 |
 
+These locked rows are the 250-query paper verification artifacts bundled with
+the repository. Full-validation runs are tracked separately under
+`experiments/full_dataset_results/`.
+
+## Full-Validation Run Status
+
+The first completed full-validation run is the NR3D final evidence-router run on
+7,457 queries. It uses the corrected NR3D object-ID candidate/canvas pipeline
+and external OpenRouter Qwen calls.
+
+| Dataset | Run | N | Acc@0.25 | Acc@0.50 | mIoU |
+|---|---|---:|---:|---:|---:|
+| NR3D val | final evidence router | 7,457 | 0.5958 | 0.5946 | 0.5985 |
+
+Summary files:
+
+- `experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/summary.json`
+- `experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/error_analysis.json`
+
+This row is not directly comparable to the 250-query locked baseline above. A
+full NR3D E0-only baseline is still required for the full-validation main table.
+
 ## Pipeline
 
 ```text
@@ -139,44 +161,6 @@ The generated figures cover the pipeline overview, main table, input-format
 ablation, query-type/input interaction, route contribution, router ablations,
 LLM-router comparison, oracle gap, rerun variance, and representative
 failure/recovery cases.
-
-## Qualitative Figures
-
-The paper qualitative examples requested for visual inspection are stored in
-`experiments/qualitative_figures/` as both `.png` and `.pdf`.
-
-| Figure | File stem | What it shows |
-|---|---|---|
-| 1 | `qual1_3d_scene_query_candidate_boxes` | 3D scene coordinate view, natural-language query, and candidate object boxes. |
-| 2 | `qual2_e0_rgb_canvas_candidate_overlay` | E0 RGB canvas candidates with candidate letter/id overlay. |
-| 3 | `qual3_e0_failure_vs_spatial_success` | Same NR3D query where E0 fails but spatial-only text succeeds. |
-| 4 | `qual4_geometric_e0_vs_3d_position` | Geometric ScanRefer query comparing E0 prediction and 3D-position prediction. |
-
-Regeneration uses real locked query/result records plus local pre-rendered
-SeqVLM canvas assets:
-
-```bash
-python tools/create_qualitative_figures.py
-```
-
-## Presentation Assets
-
-Slide-ready case visualizations are stored in `experiments/presentation_assets/`.
-These are simplified qualitative assets with larger text and prediction/GT
-overlays on actual mesh BEV renderings for talks.
-
-| Asset | File stem | What it shows |
-|---|---|---|
-| 1 | `asset_01_e0_failure_bev_overlay` | E0 failure case with prediction and GT separated on an actual mesh BEV render. |
-| 2 | `asset_02_spatial_success_bev_overlay` | Spatial-only success case for the same query on an actual mesh BEV render. |
-| 3 | `asset_03_failure_vs_success_3d_overlay` | Same E0 failure vs spatial-only success pair as 3D box renderings. |
-| 4 | `asset_04_geometric_e0_vs_3d_position_2x2` | 2x2 geometric-query comparison: E0 input/query and actual mesh BEV prediction vs 3D-position input/query and actual mesh BEV prediction. |
-
-Regenerate:
-
-```bash
-python tools/create_presentation_assets.py
-```
 
 ## Paper Experiment Suite
 

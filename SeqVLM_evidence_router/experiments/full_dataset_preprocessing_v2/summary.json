@@ -1,0 +1,134 @@
+{
+  "stage": "api_free_full_dataset_preprocessing",
+  "sample_per_route": 0,
+  "source_counts": {
+    "scanrefer": 9508,
+    "nr3d": 7457
+  },
+  "scanrefer": {
+    "num_queries": 9508,
+    "route_counts": {
+      "E0": 7279,
+      "seeground_ablation_spatial_only": 1664,
+      "seeground_ablation_3dpos_only": 346,
+      "bev_raw_labeled": 219
+    },
+    "query_type_counts": {
+      "none": 5336,
+      "proximity_derived": 1664,
+      "geometric": 1578,
+      "ordinal": 930
+    },
+    "route_reason_counts": {
+      "visual_attribute_default_e0": 6020,
+      "pure_proximity_spatial": 1664,
+      "pure_geometric_3dpos": 346,
+      "pure_ordinal_bev": 219,
+      "default_e0": 1259
+    },
+    "coverage": {
+      "num_queries": 9508,
+      "num_scenes": 141,
+      "num_canvas_scenes": 115,
+      "ok_with_canvas": 7232,
+      "no_candidate": 1194,
+      "no_canvas_candidate": 1082,
+      "avg_candidates_when_found": 7.4834,
+      "avg_canvas_candidates_when_found": 6.8005,
+      "examples": [
+        {
+          "case": 3,
+          "scene_id": "scene0011_00",
+          "obj_name": "kitchen_cabinets",
+          "issue": "no_candidate"
+        },
+        {
+          "case": 18,
+          "scene_id": "scene0011_00",
+          "obj_name": "kitchen_cabinets",
+          "issue": "no_candidate"
+        },
+        {
+          "case": 21,
+          "scene_id": "scene0011_00",
+          "obj_name": "kitchen_cabinets",
+          "issue": "no_candidate"
+        },
+        {
+          "case": 53,
+          "scene_id": "scene0011_00",
+          "obj_name": "kitchen_cabinets",
+          "issue": "no_candidate"
+        },
+        {
+          "case": 75,
+          "scene_id": "scene0011_00",
+          "obj_name": "kitchen_cabinets",
+          "issue": "no_candidate"
+        },
+        {
+          "case": 76,
+          "scene_id": "scene0015_00",
+          "obj_name": "table",
+          "issue": "no_canvas_candidate",
+          "n_candidates": 12
+        },
+        {
+          "case": 77,
+          "scene_id": "scene0015_00",
+          "obj_name": "chair",
+          "issue": "no_canvas_candidate",
+          "n_candidates": 23
+        },
+        {
+          "case": 78,
+          "scene_id": "scene0015_00",
+          "obj_name": "table",
+          "issue": "no_canvas_candidate",
+          "n_candidates": 12
+        }
+      ]
+    }
+  },
+  "nr3d": {
+    "num_queries": 7457,
+    "route_counts": {
+      "E0": 3982,
+      "seeground_ablation_spatial_only": 3015,
+      "seeground_ablation_3dpos_only": 350,
+      "bev_raw_labeled": 110
+    },
+    "query_type_counts": {
+      "viewpoint_guided": 2465,
+      "proximity_derived": 3015,
+      "none": 1134,
+      "geometric": 578,
+      "ordinal": 133,
+      "explicit_direction": 132
+    },
+    "route_reason_counts": {
+      "viewpoint_needs_local_frame_default_e0": 1725,
+      "pure_proximity_spatial": 3015,
+      "default_e0": 805,
+      "pure_geometric_3dpos": 350,
+      "visual_attribute_default_e0": 1452,
+      "pure_ordinal_bev": 110
+    },
+    "coverage": {
+      "num_queries": 7457,
+      "num_scenes": 130,
+      "num_canvas_scenes": 311,
+      "ok_with_canvas": 7457,
+      "avg_candidates_when_found": 3.1251,
+      "avg_canvas_candidates_when_found": 3.1251,
+      "examples": []
+    }
+  },
+  "notes": [
+    "No VLM/API calls are made in this preprocessing stage.",
+    "ScanRefer uses the official raw val annotation at /data/knuvi/bosung/scanrefer/ScanRefer_filtered_val.json with 9508 source rows.",
+    "ScanRefer target category uses the official object_name field.",
+    "ScanRefer relation_source is deterministic from caption cues because the official raw annotation has no ZSVG symbolic program.",
+    "Nr3D relation_source is deterministic from ZSVG program, view_dep flag, and caption cues."
+  ]
+}

@@ -4,6 +4,11 @@
 최종 목표는 ScanRefer와 NR3D에 공통으로 적용 가능한 zero-shot 3D visual
 grounding pipeline을 만드는 것이다.
 
+Full validation-set 실험 준비 문서는 별도로 관리한다.
+
+- Full-dataset execution plan: `experiments/FULL_DATASET_EVALUATION_PLAN.md`
+- Full-dataset checklist: `experiments/FULL_DATASET_CHECKLIST.md`
+
 핵심 아이디어는 쿼리를 새로운 언어학적 taxonomy로 완전히 분류하는 것이
 아니라, VLM이 정답 후보를 고르기 위해 필요한 evidence를 보고 입력 표현을
 선택하는 것이다.
@@ -502,7 +507,53 @@ Priority LLM router와 dictionary router의 transition matrix는
 이 subset에서 LLM Acc@0.25는 0.424, E0 Acc@0.25는 0.606이었다. 즉 LLM은 mixed
 visual-spatial query를 과도하게 spatial route로 보내는 경향이 있다.
 
-## 20. Current Interpretation
+## 20. Full NR3D Validation Run
+
+NR3D full validation split 7,457개에 대해 corrected v2 object-ID materialized
+input pipeline으로 final evidence router를 실행했다. 이 실험은 250-query locked
+main table과 별개이며, full-validation main table을 만들기 위한 첫 번째
+route-first run이다.
+
+결과는 다음 위치에 저장했다.
+
+- Summary: `experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/summary.json`
+- Error analysis: `experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/error_analysis.json`
+- Full generated output: `/data/knuvi/bosung/evidence_router_full_runs_v2/nr3d/final_router/openrouter-qwen/`
+
+| Dataset | Run | N | Acc@0.25 | Acc@0.50 | mIoU |
+|---|---|---:|---:|---:|---:|
+| NR3D val | final evidence router, OpenRouter Qwen | 7,457 | 0.5958 | 0.5946 | 0.5985 |
+
+Route별 결과:
+
+| Route | N | Acc@0.25 | Acc@0.50 | mIoU |
+|---|---:|---:|---:|---:|
+| E0 RGB canvas | 3,982 | 0.5497 | 0.5482 | 0.5532 |
+| spatial-only text | 3,015 | 0.6594 | 0.6584 | 0.6609 |
+| 3D position text | 350 | 0.6114 | 0.6114 | 0.6137 |
+| BEV labeled layout | 110 | 0.4727 | 0.4727 | 0.4796 |
+
+Run diagnostics:
+
+| Item | Value |
+|---|---:|
+| Processed | 7,457 / 7,457 |
+| OK rows | 7,383 |
+| Error rows | 74 |
+| API calls | 8,841 |
+| Prompt tokens | 54,323,043 |
+| Completion tokens | 578,323 |
+| Runtime | 19,755.24 sec |
+
+오류 74건은 대부분 OpenRouter upstream rate-limit/timeout 또는 E0 tournament
+postprocessing issue였다. 전체 score는 오류 row까지 포함한 conservative metric이고,
+OK row만 계산하면 Acc@0.25 0.5991, Acc@0.50 0.5979, mIoU 0.6018이다.
+
+주의할 점은 이 결과를 250-query NR3D E0 baseline과 직접 비교하면 안 된다는
+것이다. Full-validation main table을 위해서는 동일한 7,457개 query에 대한
+full E0-only baseline이 필요하다.
+
+## 21. Current Interpretation
 
 현재까지의 가장 안전한 주장은 다음과 같다.
 
@@ -523,7 +574,7 @@ visual-spatial query를 과도하게 spatial route로 보내는 경향이 있다
    NR3D에서는 개선되지만 ScanRefer에서는 mixed query over-routing 때문에 하락한다.
    따라서 최종 pipeline은 deterministic evidence-aware router를 채택한다.
 
-## 21. Output Files
+## 22. Output Files
 
 | Output | Path |
 |---|---|
@@ -550,8 +601,10 @@ visual-spatial query를 과도하게 spatial route로 보내는 경향이 있다
 | Runtime/cost proxy | `experiments/runtime/runtime_proxy.json` |
 | Failure/recovery cases | `experiments/failure_visualization/cases.jsonl` |
 | Evidence audit proxy | `experiments/evidence_audit/summary.json` |
+| Full NR3D final-router summary | `experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/summary.json` |
+| Full NR3D final-router error analysis | `experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/error_analysis.json` |
 
-## 22. Paper Figures
+## 23. Paper Figures
 
 논문 본문/보충자료에 바로 사용할 수 있는 figure는
 `experiments/figures/`에 저장했다. 모든 figure는 PNG와 PDF를 함께 제공한다.

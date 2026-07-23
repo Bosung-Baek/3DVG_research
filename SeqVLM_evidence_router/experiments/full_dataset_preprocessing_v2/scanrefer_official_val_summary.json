@@ -1,0 +1,85 @@
+{
+  "num_queries": 9508,
+  "route_counts": {
+    "E0": 7279,
+    "seeground_ablation_spatial_only": 1664,
+    "seeground_ablation_3dpos_only": 346,
+    "bev_raw_labeled": 219
+  },
+  "query_type_counts": {
+    "none": 5336,
+    "proximity_derived": 1664,
+    "geometric": 1578,
+    "ordinal": 930
+  },
+  "route_reason_counts": {
+    "visual_attribute_default_e0": 6020,
+    "pure_proximity_spatial": 1664,
+    "pure_geometric_3dpos": 346,
+    "pure_ordinal_bev": 219,
+    "default_e0": 1259
+  },
+  "coverage": {
+    "num_queries": 9508,
+    "num_scenes": 141,
+    "num_canvas_scenes": 115,
+    "ok_with_canvas": 7232,
+    "no_candidate": 1194,
+    "no_canvas_candidate": 1082,
+    "avg_candidates_when_found": 7.4834,
+    "avg_canvas_candidates_when_found": 6.8005,
+    "examples": [
+      {
+        "case": 3,
+        "scene_id": "scene0011_00",
+        "obj_name": "kitchen_cabinets",
+        "issue": "no_candidate"
+      },
+      {
+        "case": 18,
+        "scene_id": "scene0011_00",
+        "obj_name": "kitchen_cabinets",
+        "issue": "no_candidate"
+      },
+      {
+        "case": 21,
+        "scene_id": "scene0011_00",
+        "obj_name": "kitchen_cabinets",
+        "issue": "no_candidate"
+      },
+      {
+        "case": 53,
+        "scene_id": "scene0011_00",
+        "obj_name": "kitchen_cabinets",
+        "issue": "no_candidate"
+      },
+      {
+        "case": 75,
+        "scene_id": "scene0011_00",
+        "obj_name": "kitchen_cabinets",
+        "issue": "no_candidate"
+      },
+      {
+        "case": 76,
+        "scene_id": "scene0015_00",
+        "obj_name": "table",
+        "issue": "no_canvas_candidate",
+        "n_candidates": 12
+      },
+      {
+        "case": 77,
+        "scene_id": "scene0015_00",
+        "obj_name": "chair",
+        "issue": "no_canvas_candidate",
+        "n_candidates": 23
+      },
+      {
+        "case": 78,
+        "scene_id": "scene0015_00",
+        "obj_name": "table",
+        "issue": "no_canvas_candidate",
+        "n_candidates": 12
+      }
+    ]
+  }
+}

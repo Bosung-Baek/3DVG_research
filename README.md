@@ -109,6 +109,26 @@ The locked 250-query verification results are:
 The same routing policy improves both datasets without dataset-specific
 calibration.
 
+## Full-Validation Status
+
+We have also started full validation-set evaluation. The first completed run is
+the NR3D final evidence-router evaluation on all 7,457 validation queries using
+the corrected object-ID candidate/canvas pipeline and OpenRouter Qwen.
+
+| Dataset | Run | N | Acc@0.25 | Acc@0.50 | mIoU |
+|---|---|---:|---:|---:|---:|
+| NR3D val | final evidence router | 7,457 | 0.5958 | 0.5946 | 0.5985 |
+
+This full-validation row is tracked separately from the locked 250-query table.
+It should not be compared directly to the 250-query E0 baseline. A full NR3D
+E0-only baseline is still required for a full-validation main table.
+
+Lightweight summaries are stored in:
+
+```text
+SeqVLM_evidence_router/experiments/full_dataset_results/nr3d_final_router_openrouter_qwen_v2/
+```
+
 ## Reproduce the Locked Results
 
 ```bash

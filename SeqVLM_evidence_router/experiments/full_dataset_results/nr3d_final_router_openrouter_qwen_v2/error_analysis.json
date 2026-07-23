@@ -1,0 +1,383 @@
+{
+  "source_results": "/data/knuvi/bosung/evidence_router_full_runs_v2/nr3d/final_router/openrouter-qwen/results.jsonl",
+  "all": {
+    "n": 7457,
+    "acc25": 0.5958160118009923,
+    "acc50": 0.5946090921282017,
+    "miou": 0.5985232015555854
+  },
+  "ok_only": {
+    "n": 7383,
+    "acc25": 0.599078965190302,
+    "acc50": 0.5978599485304077,
+    "miou": 0.601775488961127
+  },
+  "error_only": {
+    "n": 74,
+    "acc25": 0.2702702702702703,
+    "acc50": 0.2702702702702703,
+    "miou": 0.2740416081081081
+  },
+  "status_counts": {
+    "ok": 7383,
+    "error": 74
+  },
+  "error_by_route": {
+    "E0": 58,
+    "seeground_ablation_spatial_only": 13,
+    "bev_raw_labeled": 2,
+    "seeground_ablation_3dpos_only": 1
+  },
+  "error_message_counts": [
+    {
+      "count": 32,
+      "message": "RateLimitError(\"Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen2.5-vl-72b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your ow"
+    },
+    {
+      "count": 23,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "count": 8,
+      "message": "InternalServerError(\"Error code: 504 - {'error': {'message': 'The operation was aborted', 'code': 504, 'metadata': {'provider_name': 'Nebius', 'previous_errors': [{'code': 429, 'message': 'Provider returned error', 'prov"
+    },
+    {
+      "count": 4,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\"); TypeError(\"'NoneType' object is not subscriptable\"); TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "count": 2,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\"); TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "count": 2,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\"); RateLimitError(\"Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen2.5-vl-72b-instruct is temporarily rate-l"
+    },
+    {
+      "count": 1,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\"); AttributeError(\"'NoneType' object has no attribute 'prompt_tokens'\")"
+    },
+    {
+      "count": 1,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\"); TypeError(\"'NoneType' object is not subscriptable\"); RateLimitError(\"Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw'"
+    },
+    {
+      "count": 1,
+      "message": "TypeError(\"'NoneType' object is not subscriptable\"); InternalServerError(\"Error code: 504 - {'error': {'message': 'The operation was aborted', 'code': 504, 'metadata': {'provider_name': 'Nebius', 'previous_errors': [{'co"
+    }
+  ],
+  "route_status": {
+    "E0": {
+      "n": 3982,
+      "errors": 58,
+      "error_acc25_correct": 20,
+      "metrics_all": {
+        "n": 3982,
+        "acc25": 0.5497237569060773,
+        "acc50": 0.548216976393772,
+        "miou": 0.5532306956303366
+      },
+      "metrics_ok_only": {
+        "n": 3924,
+        "acc25": 0.5527522935779816,
+        "acc50": 0.5512232415902141,
+        "miou": 0.5562399467380225
+      }
+    },
+    "bev_raw_labeled": {
+      "n": 110,
+      "errors": 2,
+      "error_acc25_correct": 0,
+      "metrics_all": {
+        "n": 110,
+        "acc25": 0.4727272727272727,
+        "acc50": 0.4727272727272727,
+        "miou": 0.47960471818181816
+      },
+      "metrics_ok_only": {
+        "n": 108,
+        "acc25": 0.48148148148148145,
+        "acc50": 0.48148148148148145,
+        "miou": 0.488486287037037
+      }
+    },
+    "seeground_ablation_3dpos_only": {
+      "n": 350,
+      "errors": 1,
+      "error_acc25_correct": 0,
+      "metrics_all": {
+        "n": 350,
+        "acc25": 0.6114285714285714,
+        "acc50": 0.6114285714285714,
+        "miou": 0.6137217514285714
+      },
+      "metrics_ok_only": {
+        "n": 349,
+        "acc25": 0.6131805157593123,
+        "acc50": 0.6131805157593123,
+        "miou": 0.6154802664756447
+      }
+    },
+    "seeground_ablation_spatial_only": {
+      "n": 3015,
+      "errors": 13,
+      "error_acc25_correct": 0,
+      "metrics_all": {
+        "n": 3015,
+        "acc25": 0.6593698175787728,
+        "acc50": 0.6583747927031509,
+        "miou": 0.6609166673300165
+      },
+      "metrics_ok_only": {
+        "n": 3002,
+        "acc25": 0.6622251832111925,
+        "acc50": 0.6612258494337109,
+        "miou": 0.6637787315123251
+      }
+    }
+  },
+  "sample_errors": [
+    {
+      "case": 142,
+      "scan_id": "scene0653_00",
+      "caption": "the desk that lets you see outside the window by looking straight ahead while at the desk",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "pred_instance": 14,
+      "iou": 0.0,
+      "acc25": false,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\"); TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 785,
+      "scan_id": "scene0607_00",
+      "caption": "facing the sinks the one on the left",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        16,
+        17
+      ],
+      "pred_instance": 16,
+      "iou": 0.0,
+      "acc25": false,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 842,
+      "scan_id": "scene0500_00",
+      "caption": "in a row of five windows the third window from the left",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        23,
+        25,
+        26,
+        27,
+        28
+      ],
+      "pred_instance": 26,
+      "iou": 1.0,
+      "acc25": true,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 2413,
+      "scan_id": "scene0164_00",
+      "caption": "the kitchen cabinet that is underneath the sink",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        35
+      ],
+      "pred_instance": 10,
+      "iou": 1.0,
+      "acc25": true,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 2725,
+      "scan_id": "scene0329_00",
+      "caption": "the monitor directly behind the red desk chair",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        12,
+        30,
+        31,
+        32,
+        33
+      ],
+      "pred_instance": 30,
+      "iou": 1.0,
+      "acc25": true,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 2738,
+      "scan_id": "scene0653_00",
+      "caption": "the correct file cabinet has a back pack on the ground in front of it and a purple burgundy item on top of it",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        0,
+        1,
+        27,
+        30,
+        39,
+        44
+      ],
+      "pred_instance": 27,
+      "iou": 1.0,
+      "acc25": true,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 3204,
+      "scan_id": "scene0496_00",
+      "caption": "this is a small single window behind two grey armchairs and two slat back brown chairs",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        25,
+        26,
+        27,
+        29
+      ],
+      "pred_instance": null,
+      "iou": 0.0,
+      "acc25": false,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 3214,
+      "scan_id": "scene0653_00",
+      "caption": "a white box sitting on the floor between two chairs",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        32,
+        38,
+        51,
+        52
+      ],
+      "pred_instance": 38,
+      "iou": 1.0,
+      "acc25": true,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 3226,
+      "scan_id": "scene0697_00",
+      "caption": "facing the bed the pillow under left that is on the bed",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        17,
+        18,
+        25
+      ],
+      "pred_instance": 18,
+      "iou": 1.0,
+      "acc25": true,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 3225,
+      "scan_id": "scene0030_00",
+      "caption": "the bottom shelf with books",
+      "route": "E0",
+      "route_display": null,
+      "vlm_input_kind": "e0_rgb_canvas_tournament",
+      "candidate_ids": [
+        23,
+        24,
+        25,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "pred_instance": 89,
+      "iou": 0.0,
+      "acc25": false,
+      "error": "TypeError(\"'NoneType' object is not subscriptable\")"
+    },
+    {
+      "case": 6638,
+      "scan_id": "scene0412_00",
+      "caption": "in the group of three this trash can is round and grayish",
+      "route": "seeground_ablation_spatial_only",
+      "route_display": null,
+      "vlm_input_kind": "spatial_only",
+      "candidate_ids": [
+        5,
+        13,
+        14,
+        15
+      ],
+      "pred_instance": null,
+      "iou": 0.0,
+      "acc25": false,
+      "error": "RateLimitError(\"Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen2.5-vl-72b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Nebius', 'is_byok': False, 'retry_after_seconds': 2, 'retry_after_seconds_raw': 2, 'previous_errors': [{'code': 429, 'message': 'Provider returned error', 'provider_name': 'Parasail', 'raw': 'qwen/qwen2.5-vl-72b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations'}]}}, 'user_id': 'user_3E3k2SZjSvwuKl5WKIn9wAWgXKb'}\")"
+    },
+    {
+      "case": 6639,
+      "scan_id": "scene0535_00",
+      "caption": "the chair is not in the center of the room",
+      "route": "bev_raw_labeled",
+      "route_display": null,
+      "vlm_input_kind": "bev_labeled_layout",
+      "candidate_ids": [
+        9,
+        15,
+        16,
+        26
+      ],
+      "pred_instance": null,
+      "iou": 0.0,
+      "acc25": false,
+      "error": "RateLimitError(\"Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen2.5-vl-72b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Nebius', 'is_byok': False, 'retry_after_seconds': 3, 'retry_after_seconds_raw': 3, 'previous_errors': [{'code': 429, 'message': 'Provider returned error', 'provider_name': 'Parasail', 'raw': 'qwen/qwen2.5-vl-72b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations'}]}}, 'user_id': 'user_3E3k2SZjSvwuKl5WKIn9wAWgXKb'}\")"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "num_queries": 7457,
+  "route_counts": {
+    "E0": 3982,
+    "seeground_ablation_spatial_only": 3015,
+    "seeground_ablation_3dpos_only": 350,
+    "bev_raw_labeled": 110
+  },
+  "query_type_counts": {
+    "viewpoint_guided": 2465,
+    "proximity_derived": 3015,
+    "none": 1134,
+    "geometric": 578,
+    "ordinal": 133,
+    "explicit_direction": 132
+  },
+  "route_reason_counts": {
+    "viewpoint_needs_local_frame_default_e0": 1725,
+    "pure_proximity_spatial": 3015,
+    "default_e0": 805,
+    "pure_geometric_3dpos": 350,
+    "visual_attribute_default_e0": 1452,
+    "pure_ordinal_bev": 110
+  },
+  "coverage": {
+    "num_queries": 7457,
+    "num_scenes": 130,
+    "num_canvas_scenes": 311,
+    "ok_with_canvas": 7457,
+    "avg_candidates_when_found": 3.1251,
+    "avg_canvas_candidates_when_found": 3.1251,
+    "examples": []
+  }
+}
