@@ -1,0 +1,127 @@
+{
+  "name": "epp-audit-toolkit",
+  "version": "0.1.0",
+  "contains_third_party_dataset_content": false,
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1069,
+      "sha256": "3b64813cd921d8f5fbc4ec1cc3cf46b43d4e13b8b44da2315cc0139030d7638d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2997,
+      "sha256": "72a9820a0434e661e8049777917bd065105f474078b4b52eec4468c6b1a8fac0"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "bytes": 735,
+      "sha256": "80e582590ff7174a51d28a971a495dbf0337efac3e4e0a33ccd7a1874539d0d2"
+    },
+    {
+      "path": "dist/epp_audit-0.1.0-py3-none-any.whl",
+      "bytes": 8550,
+      "sha256": "f7154e738481a9690bf3acf2331012c32fbf69fbc0e2f314c5ab20a17eb46afe"
+    },
+    {
+      "path": "examples/manuscript_expectations.json",
+      "bytes": 587,
+      "sha256": "13ac049bb23538342e33ed6d34d8cf51b76eebb6909565309054bfc9f5f43c96"
+    },
+    {
+      "path": "examples/reproduce_repository_profiles.py",
+      "bytes": 5391,
+      "sha256": "1dc99e0cfc412f2dc2a10dcf4365cfd04167d9e43915ab220c5adfac77428f47"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 476,
+      "sha256": "8b5aeb10d6f9883c85124a1c74de9f1a23c170011ab52b7a9e505bf11ec5b2a3"
+    },
+    {
+      "path": "reproduction_report.json",
+      "bytes": 2694,
+      "sha256": "62f24f74cd0dd8ba271af831a9d876ee26695df5c912de9e6a13cee401f57aab"
+    },
+    {
+      "path": "src/epp_audit.egg-info/PKG-INFO",
+      "bytes": 3268,
+      "sha256": "4ac892458c192916441f1ad563173b90b533661524ec158512c981934a492bcd"
+    },
+    {
+      "path": "src/epp_audit.egg-info/SOURCES.txt",
+      "bytes": 371,
+      "sha256": "4635d46faf57f46724048f7658ccf23778b05565c231ad2ca27f58fe4a704d2e"
+    },
+    {
+      "path": "src/epp_audit.egg-info/dependency_links.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/epp_audit.egg-info/entry_points.txt",
+      "bytes": 51,
+      "sha256": "12c6158efcd6ca2f6d084c5d09e9279cf318cb7601e3367fe693fbd389e92a00"
+    },
+    {
+      "path": "src/epp_audit.egg-info/top_level.txt",
+      "bytes": 12,
+      "sha256": "cd4463da39fa1afdc206b862b98f0016812709e8d03a10585daae11af830f828"
+    },
+    {
+      "path": "src/epp_toolkit/__init__.py",
+      "bytes": 73,
+      "sha256": "6b1ba57aba6ffee077ec50309021be68dbc3f61cbea069fe9a7b5c2526cb8f44"
+    },
+    {
+      "path": "src/epp_toolkit/__pycache__/__init__.cpython-38.pyc",
+      "bytes": 314,
+      "sha256": "83d7acc7435abec27c28ca1c3bfee9571761725eacd78cbf2d416d37476c29c8"
+    },
+    {
+      "path": "src/epp_toolkit/__pycache__/adapters.cpython-38.pyc",
+      "bytes": 3223,
+      "sha256": "5aaca0280300df3c241bbf0c0121224d46719f45006070059ff21a29b63b8865"
+    },
+    {
+      "path": "src/epp_toolkit/__pycache__/audit.cpython-38.pyc",
+      "bytes": 5406,
+      "sha256": "c277593ec68e8e2316e0079fe2dc9ebf20a3dd91389a72895677e7d63c6a1664"
+    },
+    {
+      "path": "src/epp_toolkit/__pycache__/contract.cpython-38.pyc",
+      "bytes": 2109,
+      "sha256": "2ac0335c25f4eea157f6ded6a0297d07716a552c6e0f682eae6044a81fb20eb8"
+    },
+    {
+      "path": "src/epp_toolkit/adapters.py",
+      "bytes": 2871,
+      "sha256": "f0a354cddc94f11555d9264fd93b208967b0102c1a55c997b3519c1f49f85186"
+    },
+    {
+      "path": "src/epp_toolkit/audit.py",
+      "bytes": 3898,
+      "sha256": "88732c21753c68f8e9871941e9937ea8e725bb6c9781406d476881f295c3c823"
+    },
+    {
+      "path": "src/epp_toolkit/cli.py",
+      "bytes": 3232,
+      "sha256": "c5ba2cf0f924277ff0b18d09e1a11a9fa8142b980f7f94f637015edba4e60b78"
+    },
+    {
+      "path": "src/epp_toolkit/contract.py",
+      "bytes": 2308,
+      "sha256": "3ae3987ae1e0c45f47e84a2aff6bf96b222acbd7cf3351320da1448830a79f3b"
+    },
+    {
+      "path": "tests/__pycache__/test_core.cpython-38.pyc",
+      "bytes": 3055,
+      "sha256": "d9d696108c5d73014ffc68e77e9cf64edf2ac33f534a15d4b4b40b3a8c744a89"
+    },
+    {
+      "path": "tests/test_core.py",
+      "bytes": 2587,
+      "sha256": "22a1cbb4595b405c929d77ab9fd5b6978c9020d0274acc1b4900f7eed379c88b"
+    }
+  ]
+}

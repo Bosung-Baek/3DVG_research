@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epp-audit"
+version = "0.1.0"
+description = "Evidence-Path Evaluation Protocol toolkit for auditable grounding pipelines"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Anonymous WACV submission"}]
+dependencies = []
+
+[project.scripts]
+epp-audit = "epp_toolkit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

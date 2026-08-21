@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: epp-audit
+Version: 0.1.0
+Summary: Evidence-Path Evaluation Protocol toolkit for auditable grounding pipelines
+Author: Anonymous WACV submission
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# EPP Audit Toolkit
+
+`epp-audit` evaluates where a grounding pipeline loses the evidence needed for
+its final decision. It reports four components without silently imputing
+unavailable quantities:
+
+1. **Target Availability (TA)**
+2. **Target Exposure (TE)**
+3. **Output Validity (OV)**
+4. **Grounding Outcome (GO)**
+
+The toolkit evaluates system traces, not datasets or models directly. A system
+adapter converts native traces into the versioned EPP trace contract.
+
+## Installation
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+pip install dist/epp_audit-0.1.0-py3-none-any.whl
+epp-audit --help
+```
+
+The core package has no runtime dependencies outside the Python standard
+library.
+
+## Quick start
+
+```bash
+epp-audit adapt \
+  --adapter seqvlm-exp06 \
+  --input 'results_control_shard*.jsonl' \
+  --output canonical.jsonl
+
+epp-audit audit \
+  --input canonical.jsonl \
+  --output-dir audit_report
+```
+
+Outputs include:
+
+- `profile.json`: exact numerators, denominators, rates, and Wilson intervals;
+- `records.jsonl`: row-level EPP states;
+- `observability.json`: component provenance and missingness;
+- `exclusions.jsonl`: malformed or explicitly excluded rows;
+- `source_manifest.json`: input hashes and package version;
+- `profile.csv`: compact table-ready summary.
+
+## Canonical trace contract
+
+Each JSONL row contains:
+
+```json
+{
+  "schema_version": "1.0",
+  "query_id": "scanrefer:e0:0",
+  "system": "SeqVLM-E0",
+  "dataset": "scanrefer",
+  "scene_id": "scene0000_00",
+  "components": {
+    "target_availability": true,
+    "target_exposure": true,
+    "output_validity": true,
+    "grounding_outcome": false
+  },
+  "endpoint_success": false,
+  "execution_status": "completed",
+  "provenance": {
+    "target_availability": "Native",
+    "target_exposure": "Native",
+    "output_validity": "Native",
+    "grounding_outcome": "Native"
+  }
+}
+```
+
+Component values may be `null`. Such values are reported as `Unobserved` and
+never converted to failures. Allowed provenance values are `Native`,
+`Reconstructed`, `Sensitivity-only`, `Unobserved`, and `N/A`.
+
+## Metric denominators
+
+- TA Rate: TA successes / rows with observable TA.
+- TE Rate: TE successes / TA-positive rows with observable TE.
+- OV Rate: valid outputs / rows with observable OV.
+- CG Acc.: GO successes / rows with TA, TE, and OV all positive and observable GO.
+- E2E Acc.: endpoint successes / rows with observable endpoint outcome.
+
+Because systems expose different channels and artifacts, EPP profiles are
+diagnostic profiles rather than a cross-system ranking.
+
+## Included adapters
+
+- `canonical`: validates already canonical JSONL.
+- `seqvlm-exp06`: official SeqVLM E0 perturbation traces.
+- `seqvlm-profile`: existing row-level SeqVLM EPP profile records.
+- `csvg-compatible`: compatible CSVG replay records; values remain marked
+  `Sensitivity-only` where appropriate.
+
+Third-party datasets, model weights, rendered images, and credentials are not
+included. Users must obtain them under their original licenses.
+

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "release_dir": "workspaces/wacv2027_epp/runs/exp10_toolkit_reproducibility/v1/release/epp-audit-toolkit-v0.1.0",
+  "archive": "workspaces/wacv2027_epp/runs/exp10_toolkit_reproducibility/v1/release/epp-audit-toolkit-v0.1.0.zip",
+  "archive_sha256": "ca0a4bcba09fcde3e5ac8b47c01485a8ba4077a9683d094ad05f1f676e99f72f",
+  "files": 25
+}

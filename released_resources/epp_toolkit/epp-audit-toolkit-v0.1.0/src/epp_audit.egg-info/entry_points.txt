@@ -1,0 +1,2 @@
+[console_scripts]
+epp-audit = epp_toolkit.cli:main
